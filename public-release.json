@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "name": "SaveLecture",
+  "repo": "SaveLecture",
+  "version": "0.1.0-preview.1",
+  "platform": "Windows 11 · x64",
+  "status": "candidate",
+  "published": false,
+  "source_url": "https://github.com/popovantondev/SaveLecture",
+  "tag": null,
+  "release_url": null,
+  "assets": [],
+  "languages": [
+    "ru",
+    "de",
+    "en"
+  ],
+  "requirements": {
+    "main": [
+      ".NET Framework 4.8",
+      "Windows PowerShell",
+      "Teams Desktop with captions enabled",
+      "Writable local folder"
+    ],
+    "optional_cleanup": [
+      "Python 3.10+",
+      "Pillow",
+      "NumPy"
+    ]
+  },
+  "collection": "First launch requires acknowledgement and opens the main window. Later launches collect automatically in the visible system tray; participant permission is required for every meeting.",
+  "navigation": {
+    "ru": {
+      "website": "https://popovantondev.github.io/SaveLecture/index-ru.html",
+      "guide": "https://popovantondev.github.io/SaveLecture/Guide-ru.html"
+    },
+    "de": {
+      "website": "https://popovantondev.github.io/SaveLecture/index-de.html",
+      "guide": "https://popovantondev.github.io/SaveLecture/Guide-de.html"
+    },
+    "en": {
+      "website": "https://popovantondev.github.io/SaveLecture/index-en.html",
+      "guide": "https://popovantondev.github.io/SaveLecture/Guide-en.html"
+    }
+  }
+}

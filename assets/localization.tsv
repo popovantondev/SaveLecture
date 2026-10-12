@@ -1,0 +1,213 @@
+Архив	Archiv	Archive
+Настройки	Einstellungen	Settings
+Основные	Allgemein	General
+Снимки и слайды	Bilder und Folien	Images and slides
+Транскрипция	Transkription	Transcription
+Хранилище	Speicher	Storage
+Интерфейс	Darstellung	Interface
+О программе	Über die App	About
+Слайды	Folien	Slides
+Транскрипт	Transkript	Transcript
+Статистика	Statistik	Statistics
+Текст	Text	Text
+Снимки	Bilder	Images
+Дубликаты	Duplikate	Duplicates
+Дубли	Duplikate	Duplicates
+Стабильность	Stabilität	Stability
+Старт записи	Aufnahme starten	Start recording
+Продолжить	Fortsetzen	Resume
+Пауза	Pause	Pause
+Стоп	Stopp	Stop
+Старт	Start	Start
+Запись активна	Aufnahme aktiv	Recording active
+Запись остановлена	Aufnahme gestoppt	Recording stopped
+Запись на паузе	Aufnahme pausiert	Recording paused
+Идёт запись лекции	Vorlesung wird gespeichert	Saving lecture
+Ошибка сохранения	Speicherfehler	Save error
+Сохранение	Speichern	Saving
+Ожидание Teams	Warte auf Teams	Waiting for Teams
+Остановлено	Gestoppt	Stopped
+Ошибка	Fehler	Error
+Нужна проверка	Prüfung erforderlich	Check required
+В реальном времени	Live	Live
+Ожидание субтитров	Warte auf Untertitel	Waiting for captions
+На паузе	Pausiert	Paused
+Лекции и слайды	Vorlesungen und Folien	Lectures and slides
+Открыть SaveLecture	SaveLecture öffnen	Open SaveLecture
+Открыть сохранённые записи	Gespeicherte Aufnahmen öffnen	Open saved sessions
+Открыть архив	Archiv öffnen	Open archive
+Выход	Beenden	Exit
+Готово	Fertig	Done
+Настроить	Anpassen	Configure
+Ожидание снимка	Wartezeit vor dem Bild	Snapshot delay
+Захват экрана	Bildschirmaufnahme	Screen capture
+Параметры создания снимков во время записи	Einstellungen für Bilder während der Aufnahme	Snapshot settings during recording
+Задержка после смены слайда перед созданием снимка экрана.	Wartezeit nach einem Folienwechsel vor dem Speichern.	Delay after a slide changes before saving a snapshot.
+Фильтрация дубликатов и стабильность слайдов	Duplikate filtern und stabile Folien erkennen	Duplicate filtering and slide stability
+SlideFilter сравнивает кадры и пропускает похожие снимки, чтобы сохранять только уникальные слайды.	SlideFilter vergleicht Bilder und überspringt ähnliche Folien.	SlideFilter compares frames and skips similar slides.
+Запись и сохранение	Aufnahme und Speicherung	Recording and saving
+Дополнительные параметры записи лекций	Weitere Einstellungen für Vorlesungsaufnahmen	Additional lecture recording settings
+Автосохранение слайдов	Folien automatisch speichern	Save slides automatically
+Автоматически сохранять снимки во время записи.	Bilder während der Aufnahme automatisch speichern.	Automatically save snapshots during recording.
+Запись в реальном времени	Untertitel speichern	Save live captions
+Одновременно сохранять слайды и транскрипцию.	Folien und Transkript gleichzeitig speichern.	Save slides and transcription together.
+Минимизировать в трей	In den Infobereich ausblenden	Minimize to tray
+При нажатии на крестик окно скрывается в области уведомлений.	Das Schließen-Symbol blendet das Fenster in den Infobereich aus.	The close button hides the window in the notification area.
+Транскрипция и сохранение слайдов в реальном времени	Untertitel und Folien live speichern	Save captions and slides in real time
+Ожидание демонстрации экрана	Warte auf Bildschirmfreigabe	Waiting for screen sharing
+Здесь появятся субтитры Teams.	Hier erscheinen die Teams-Untertitel.	Teams captions will appear here.
+Включите Liveuntertitel во встрече.	Aktivieren Sie Liveuntertitel im Meeting.	Enable live captions in the meeting.
+С начала записи	Seit Aufnahmebeginn	Since recording started
+фрагментов	Abschnitte	fragments
+сохранено	gespeichert	saved
+отфильтровано	gefiltert	filtered
+Текущий слайд	Aktuelle Folie	Current slide
+ из 	 von 	 of 
+секунды	Sekunden	seconds
+◷   Проверка 	◷   Prüfung 	◷   Check every 
+⌗   Сдвиг до 	⌗   Versatz bis 	⌗   Shift up to 
+ пикселей	 Pixel	 pixels
+ сек	 s	 s
+Уменьшайте повторы или сохраняйте больше изменений. Рекомендуемые значения: 89%, 94%, 12, 1 сек.	Weniger Wiederholungen oder mehr Änderungen speichern. Empfohlen: 89 %, 94 %, 12, 1 s.	Reduce repeats or keep more changes. Recommended: 89%, 94%, 12, 1 s.
+Похожесть для пропуска дубля	Ähnlichkeit zum Überspringen	Similarity to skip a duplicate
+Ниже — меньше повторов. Выше — сохраняется больше похожих кадров. Новые надписи проверяются отдельно.	Niedriger: weniger Wiederholungen. Höher: mehr ähnliche Bilder. Neue Texte werden zusätzlich geprüft.	Lower: fewer repeats. Higher: more similar frames saved. New text is checked separately.
+Насколько кадр должен успокоиться	Wie ruhig muss das Bild sein?	How still should the frame be?
+Выше — строже проверка движения перед снимком. Время ожидания задаётся в Основных.	Höher: strengere Bewegungsprüfung. Die Wartezeit steht unter Allgemein.	Higher: stricter movement check. Set the waiting time in General.
+Допустимый сдвиг	Erlaubte Verschiebung	Allowed shift
+0 — без компенсации. Больше — терпимее к смещению кадра; пиксели уменьшенного образца 240 × 135.	0: kein Ausgleich. Höher: mehr Versatz erlaubt; Pixel im verkleinerten 240 × 135-Bild.	0: no compensation. Higher: more shift allowed; pixels in the reduced 240 × 135 sample.
+Как часто проверять	Prüfintervall	Check interval
+Чаще — быстрее замечает новый слайд, но больше нагрузка. Реальное время зависит от обработки кадра.	Häufiger: schneller, aber mehr Last. Die Bildverarbeitung beeinflusst die tatsächliche Zeit.	More often: quicker, but more load. Processing affects the actual interval.
+Варианты имён для уведомления — по одному в строке	Namen für Hinweise, ein Name pro Zeile	Names for notifications, one per line
+Источник — субтитры Teams. Уведомление об имени появляется сразу при получении текста.	Quelle: Teams-Untertitel. Namenshinweise erscheinen beim Empfang des Textes.	Source: Teams captions. Name notifications appear when text arrives.
+Одна лекция до Стоп. После аварийного перезапуска продолжается прежний файл.	Eine Vorlesung bis Stopp. Nach einem Absturz wird dieselbe Datei fortgesetzt.	One lecture until Stop. After a crash, the same file is resumed.
+Папка для текстов и снимков. Изменяется после Стоп; прежние файлы остаются в прежней папке.	Ordner für Text und Bilder. Änderung nach Stopp; vorhandene Dateien bleiben im bisherigen Ordner.	Folder for text and images. Change after Stop; existing files stay in the previous folder.
+Выбрать папку…	Ordner auswählen…	Choose folder…
+Выбрать папку	Ordner auswählen	Choose folder
+TXT и снимки сохраняются локально по датам; данные восстановления — в _service.	TXT und Bilder werden lokal nach Datum gespeichert; Wiederherstellungsdaten in _service.	TXT and images are saved locally by date; recovery data in _service.
+Сначала остановите запись, чтобы сменить папку.	Aufnahme stoppen, um den Ordner zu ändern.	Stop recording before changing the folder.
+Язык интерфейса	Sprache	Interface language
+Настройка закрытия окна находится на странице Основные. Сочетания: Ctrl+R — Старт / Продолжить, Ctrl+P — Пауза, Ctrl+S — Стоп. Прокрутка транскрипта — колёсиком внутри карточки, без видимой полосы.	Schließen unter Allgemein. Ctrl+R: Start/Fortsetzen; Ctrl+P: Pause; Ctrl+S: Stopp. Transkript mit dem Mausrad scrollen, ohne sichtbare Leiste.	Close behavior is in General. Ctrl+R: start/resume; Ctrl+P: pause; Ctrl+S: stop. Scroll the transcript with the mouse wheel, without a visible bar.
+Вас упомянули	Sie wurden erwähnt	You were mentioned
+Упоминание в Teams	Erwähnung in Teams	Mention in Teams
+Уведомление закроется автоматически	Der Hinweis schließt automatisch	This notification closes automatically
+Вы уверены?	Sind Sie sicher?	Are you sure?
+Остановить запись лекции?	Vorlesungsaufnahme stoppen?	Stop recording this lecture?
+Собранные тексты и снимки будут сохранены.	Erfasste Texte und Bilder bleiben gespeichert.	Collected text and images will be kept.
+Отмена	Abbrechen	Cancel
+Остановить	Stoppen	Stop
+Включено	Ein	On
+Выключено	Aus	Off
+Предыдущий слайд	Vorherige Folie	Previous slide
+Следующий слайд	Nächste Folie	Next slide
+Восстановить окно	Fenster wiederherstellen	Restore window
+Развернуть окно	Fenster maximieren	Maximize window
+Старые снимки	Ältere Bilder	Older images
+Просмотр дублей и восстановление после очистки	Duplikate ansehen und Bereinigung rückgängig machen	Review duplicates and undo cleanup
+Порог похожести: 	Ähnlichkeitsschwelle: 	Similarity threshold: 
+Просмотр	Vorschau	Preview
+Перенести дубли	Duplikate verschieben	Move duplicates
+Восстановить	Wiederherstellen	Restore
+Назад	Zurück	Back
+Далее	Weiter	Next
+Проверено: 	Geprüft: 	Checked: 
+ · предложено перенести: 	 · Verschiebevorschläge: 	 · proposed moves: 
+. Слева — дубль, справа — оставляем.	. Links: Duplikat, rechts: behalten.	. Left: duplicate, right: kept image.
+Снимок уже перемещён или отсутствует. Обновите просмотр.	Das Bild wurde verschoben oder fehlt. Vorschau aktualisieren.	This image was moved or is missing. Refresh the preview.
+Выберите папку scr для предварительного просмотра.	Wählen Sie den scr-Ordner für die Vorschau.	Choose the scr folder for preview.
+Выберите папку scr.	Wählen Sie den scr-Ordner.	Choose the scr folder.
+Нажмите Стоп перед очисткой.	Vor der Bereinigung Stopp drücken.	Press Stop before cleanup.
+Проверяю кадры…	Bilder werden geprüft…	Checking frames…
+Введите ожидание от 0 до 60 секунд.	Wartezeit von 0 bis 60 Sekunden eingeben.	Enter a delay from 0 to 60 seconds.
+Не удалось сохранить настройки	Einstellungen konnten nicht gespeichert werden	Could not save settings
+Нет доступа к папке	Kein Zugriff auf den Ordner	No access to folder
+Укажите полный путь к папке.	Vollständigen Ordnerpfad eingeben.	Enter the full folder path.
+Проверьте путь к папке.	Ordnerpfad prüfen.	Check the folder path.
+Ошибка интерфейса	Oberflächenfehler	Interface error
+Ошибка запуска	Startfehler	Startup error
+Завершение процесса	Prozessende	Process exit
+Запись лекции	Vorlesungsaufnahme	Lecture recording
+Предыдущая запись ещё завершается	Vorherige Aufnahme wird noch beendet	The previous recording is still finishing
+Подождите завершения очистки	Auf Bereinigungsende warten	Wait for cleanup to finish
+Перед первым запуском	Vor dem ersten Start	Before the first launch
+Только с разрешения всех участников	Nur mit Zustimmung aller Beteiligten	Only with every participant’s permission
+Учебная предварительная версия. Сохраняйте субтитры и демонстрацию только с разрешения и согласия всех участников. Программа не устанавливает правомерность записи.	Lernprojekt, Vorabversion. Untertitel und Bildschirmfreigabe nur mit Erlaubnis und Einwilligung aller Beteiligten speichern. Die App stellt die Rechtmäßigkeit nicht fest.	Educational preview. Save captions and screen sharing only with permission and consent from every participant. The app does not establish whether recording is lawful.
+После подтверждения запуск начинает сбор автоматически. При следующих запусках это окно не повторяется. Крестик скрывает программу в трей; Стоп завершает запись. Получайте разрешение на каждую встречу.	Nach der Bestätigung beginnt die Erfassung automatisch. Bei weiteren Starts erscheint dieser Hinweis nicht erneut. Schließen blendet in den Tray aus; Stopp beendet die Aufnahme. Für jedes Meeting Erlaubnis einholen.	After confirmation, collection starts automatically. This notice will not reappear on later launches. Close hides the app in the tray; Stop ends recording. Obtain permission for every meeting.
+Я понимаю эти условия и обязан получить разрешение.	Ich verstehe die Hinweise und muss Erlaubnis einholen.	I understand these conditions and must obtain permission.
+Запустить SaveLecture	SaveLecture starten	Launch SaveLecture
+Подробности сохранены в журнале ошибок.	Details wurden im Fehlerprotokoll gespeichert.	Details were saved to the error log.
+SaveLecture — ошибка	SaveLecture — Fehler	SaveLecture — error
+Перед началом работы	Vor dem Start	Before you start
+Учебная предварительная версия. Сохраняйте субтитры и слайды только с согласия всех участников и разрешения на материалы. Программа не устанавливает правомерность записи.	Lernprojekt in der Vorschau. Speichern Sie Untertitel und Folien nur mit Zustimmung aller Beteiligten und Erlaubnis für die Inhalte. Die App prüft nicht, ob eine Aufzeichnung rechtmäßig ist.	Educational preview. Save captions and slides only with all participants’ consent and permission to save the materials. The app does not determine whether recording is lawful.
+После нажатия «Запустить» начнётся сохранение. В следующие разы сбор начинается сразу после запуска программы. Крестик скрывает окно в трей; «Стоп» завершает запись. Получайте разрешение перед каждой встречей.	Mit „Starten“ beginnt das Speichern. Bei späteren Starts beginnt es sofort. Das X verbirgt das Fenster im Infobereich; „Stopp“ beendet die Aufnahme. Holen Sie vor jedem Treffen die Erlaubnis ein.	Clicking “Start” begins saving. On later launches, saving starts immediately. The X hides the window in the system tray; “Stop” ends recording. Obtain permission before each meeting.
+Я прочитал предупреждение. Согласие участников нужно получить отдельно.	Ich habe den Hinweis gelesen. Die Zustimmung der Beteiligten muss ich gesondert einholen.	I have read this notice. Participants’ consent must be obtained separately.
+Снимки демонстрации	Bilder der Bildschirmfreigabe	Shared-screen images
+Когда сохранять новый слайд	Wann eine neue Folie gespeichert wird	When to save a new slide
+Пауза перед снимком	Wartezeit vor dem Bild	Wait before capture
+Подождать после изменения слайда. 0 — без ожидания.	Nach einer Änderung warten. 0 — keine Wartezeit.	Wait after a slide changes. 0 — no waiting.
+Фильтр слайдов	Folienfilter	Slide filter
+Меньше повторов в архиве	Weniger Wiederholungen im Archiv	Fewer repeats in the archive
+Сравнивает снимки и пропускает повторы. Чувствительность и частоту проверки можно настроить.	Vergleicht Bilder und überspringt Wiederholungen. Empfindlichkeit und Prüfintervall sind einstellbar.	Compares images and skips repeats. Sensitivity and the checking interval are adjustable.
+Что сохранять и как закрывать окно	Speichern und Fenster schließen	Saving and closing the window
+Сохранять слайды	Folien speichern	Save slides
+Снимки демонстрации Teams во время записи.	Bilder der Teams-Bildschirmfreigabe speichern.	Save shared-screen images from Teams.
+Сохранять субтитры	Untertitel speichern	Save captions
+Текст Teams с временем и именем говорящего.	Teams-Text mit Zeit und Sprechername.	Teams text with time and speaker names.
+Скрывать окно в трей	Im Infobereich verbergen	Hide in the system tray
+Крестик скрывает окно; запись продолжается.	Das X verbirgt das Fenster; die Aufnahme läuft weiter.	The X hides the window; recording continues.
+Изменения сохраняются кнопкой «Готово».	„Fertig“ speichert die Änderungen.	Click “Done” to save changes.
+Сравнение снимков и частота проверки. Изменения сохраняются кнопкой «Готово».	Bildvergleich und Prüfintervall. „Fertig“ speichert die Änderungen.	Image comparison and checking interval. Click “Done” to save changes.
+Пропуск похожих слайдов	Ähnliche Folien überspringen	Skip similar slides
+Ниже порог — меньше повторов. Выше — больше похожих снимков.	Niedriger — weniger Wiederholungen. Höher — mehr ähnliche Bilder.	Lower — fewer repeats. Higher — more similar images.
+Стабильность перед снимком	Stabilität vor dem Speichern	Stability before capture
+Выше порог — строже проверка изменений перед сохранением.	Höher — strengere Prüfung auf Änderungen vor dem Speichern.	Higher — stricter checks for changes before saving.
+Смещение в уменьшенном изображении. 0 — отключить компенсацию.	Verschiebung im verkleinerten Bild. 0 — Ausgleich ausschalten.	Shift in the reduced image. 0 — disable compensation.
+Снимки сравниваются в размере 240 × 135. Здесь указаны пиксели этого образца, а не исходного слайда.	Bilder werden mit 240 × 135 verglichen. Die Pixel beziehen sich auf dieses Vergleichsbild, nicht auf die Originalfolie.	Images are compared at 240 × 135. These pixels refer to that sample, not the original slide.
+Интервал проверки	Prüfintervall	Checking interval
+Пауза между проверками. Меньше — быстрее, но выше нагрузка.	Pause zwischen Prüfungen. Kürzer — schneller, aber mehr Last.	Pause between checks. Shorter — faster, but more load.
+Время обработки снимка добавляется к интервалу. Например, 1 сек — пауза в одну секунду после обработки.	Die Bildverarbeitung kommt zum Intervall hinzu. 1 s bedeutet eine Sekunde Pause nach der Verarbeitung.	Image processing time adds to the interval. 1 s means a one-second pause after processing.
+Текст берётся из субтитров Teams. Включите их во встрече.	Der Text stammt aus Teams-Untertiteln. Aktivieren Sie diese im Treffen.	Text comes from Teams captions. Enable them in the meeting.
+Совпадение имени в субтитрах вызывает уведомление. Пустой список отключает уведомления.	Ein passender Name in den Untertiteln löst eine Meldung aus. Eine leere Liste deaktiviert die Meldungen.	A matching name in captions triggers a notification. An empty list disables notifications.
+Текст и снимки сохраняются на этом компьютере, в папках по датам.	Text und Bilder werden auf diesem Computer in datierten Ordnern gespeichert.	Text and images are saved on this computer in folders organized by date.
+Язык и управление программой.	Sprache und Bedienung.	Language and controls.
+Язык изменится после нажатия «Готово».	Die Sprache ändert sich nach einem Klick auf „Fertig“.	The language changes when you click “Done”.
+Ctrl+R — старт или продолжение.	Ctrl+R — Start oder Fortsetzen.	Ctrl+R — start or resume.
+Ctrl+P — пауза.	Ctrl+P — Pause.	Ctrl+P — pause.
+Ctrl+S — завершение с подтверждением.	Ctrl+S — Beenden mit Bestätigung.	Ctrl+S — stop with confirmation.
+Поведение крестика настраивается в разделе «Основные».	Das Verhalten des X lässt sich unter „Allgemein“ einstellen.	Configure what the X does under “General”.
+Субтитры и слайды Teams в локальном архиве.	Teams-Untertitel und Folien im lokalen Archiv.	Teams captions and slides in a local archive.
+Сохраняет текст субтитров и снимки демонстрации. Аудио и микрофон не записываются.	Speichert Untertitel und Bilder der Bildschirmfreigabe. Ton und Mikrofon werden nicht aufgenommen.	Saves captions and shared-screen images. Audio and microphone input are not recorded.
+Сбор начинается после запуска программы. Автозапуск при входе в Windows включается отдельно.	Das Speichern beginnt beim App-Start. Der Start bei der Windows-Anmeldung wird separat eingerichtet.	Saving begins when the app starts. Launching at Windows sign-in is configured separately.
+Учебная предварительная версия. Используйте только с разрешения всех участников.	Lernprojekt in der Vorschau. Nur mit Erlaubnis aller Beteiligten verwenden.	Educational preview. Use only with all participants’ permission.
+Версия: 	Version: 	Version: 
+Включите субтитры в Teams.	Aktivieren Sie Liveuntertitel in Teams.	Enable live captions in Teams.
+Процент — оценка похожести фильтра, а не доля одинаковых пикселей.	Der Prozentwert ist die Ähnlichkeitsbewertung des Filters, nicht der Anteil identischer Pixel.	The percentage is the filter’s similarity score, not the proportion of identical pixels.
+Записи	Aufzeichnungen	Recordings
+Открыть записи	Aufzeichnungen öffnen	Open recordings
+Очистить папку вручную	Ordner manuell bereinigen	Clean folder manually
+Автозапуск в Windows	Mit Windows starten	Start with Windows
+Не удалось изменить автозапуск Windows.	Der Windows-Autostart konnte nicht geändert werden.	Could not change Windows startup.
+Не удалось прочитать настройку автозапуска Windows.	Die Windows-Autostarteinstellung konnte nicht gelesen werden.	Could not read the Windows startup setting.
+Автозапуск настроен для другой копии SaveLecture. Её ярлык сохранён.	Der Autostart ist für eine andere SaveLecture-Kopie eingerichtet. Ihre Verknüpfung bleibt erhalten.	Startup is configured for another copy of SaveLecture. Its shortcut has been preserved.
+Не найден SaveLecture.exe для автозапуска.	SaveLecture.exe für den Autostart wurde nicht gefunden.	SaveLecture.exe could not be found for startup.
+Изменения сохраняются	Änderungen speichern	Save changes
+кнопкой «Готово».	mit „Fertig“.	with “Done”.
+Нажмите, чтобы	Klicken Sie auf „Fertig“,	Click “Done”
+применить изменения	um Änderungen anzuwenden	to apply changes
+Нажмите, чтобы применить изменения	Klicken, um Änderungen anzuwenden	Click to apply changes
+После нажатия «Запустить» начнётся сохранение и откроется главное окно. При следующих запусках программа работает в трее. Открыть окно можно через значок в трее. «Стоп» завершает запись. Получайте разрешение перед каждой встречей.	Mit „Starten“ beginnt das Speichern und das Hauptfenster öffnet sich. Später startet die App im Infobereich. Dort können Sie das Fenster öffnen. „Stopp“ beendet die Aufnahme. Holen Sie vor jedem Treffen die Erlaubnis ein.	Clicking “Start” begins saving and opens the main window. Later launches run in the system tray. Open the window using the tray icon. “Stop” ends recording. Obtain permission before every meeting.
+Слайды и субтитры	Folien und Untertitel	Slides and captions
+Сохраняются слайды	Folien werden gespeichert	Saving slides
+Сохраняются субтитры	Untertitel werden gespeichert	Saving captions
+Ожидание данных Teams	Warten auf Teams-Daten	Waiting for Teams data
+Сбор включён	Erfassung aktiviert	Collection enabled
+Сбор завершён	Erfassung beendet	Collection ended
+Сбор приостановлен	Erfassung pausiert	Collection paused
+Демонстрация экрана доступна	Bildschirmfreigabe verfügbar	Screen sharing available
+Демонстрация экрана отсутствует	Keine Bildschirmfreigabe	No screen sharing
+Демонстрация отсутствует · показан сохранённый слайд	Keine Freigabe · gespeicherte Folie angezeigt	No screen sharing · showing a saved slide
+Поступают субтитры	Untertitel werden empfangen	Receiving captions
+Ожидание новых субтитров	Warten auf neue Untertitel	Waiting for new captions
+Ожидание данных	Warten auf Daten	Waiting for data
+Субтитры	Untertitel	Captions
+Ожидание демонстрации · показан сохранённый слайд	Warten auf Freigabe · gespeicherte Folie angezeigt	Waiting for sharing · showing a saved slide
+Ждём демонстрацию	Freigabe erwartet	Awaiting sharing

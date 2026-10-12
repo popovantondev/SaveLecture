@@ -1,0 +1,6 @@
+Archive/
+*.exe
+*.log
+__pycache__/
+*.pyc
+publication/
