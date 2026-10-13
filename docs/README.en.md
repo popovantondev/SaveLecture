@@ -15,7 +15,7 @@ Actual interface. All text, names and images in this example are artificial.
 ## First launch
 
 1. Obtain permission from every participant and permission for the materials before launching.
-2. Extract the whole package into a writable folder. Verify the published archive’s SHA-256. The release is still being prepared.
+2. Extract the whole release archive into a writable folder. Verify its published SHA-256.
 3. Read the first-launch notice. No collection starts before acknowledgement. Choose Russian, German or English.
 4. After the first acknowledgement, collection begins and the main window opens. Later launches collect materials and show status in the system tray without opening the main window. Open it using the tray icon. Enable Teams captions and keep shared content visible.
 5. Close hides the app in the tray. Pause suspends collection; Resume continues the same lecture. Stop ends it after confirmation. Exit also ends collection.
@@ -42,6 +42,6 @@ No text: check Teams captions, window visibility and app status. No images: keep
 
 ## A transparent readiness status
 
-The candidate is tested for saving and interface behavior. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed. No public binary release has been published yet.
+This educational preview has passed local storage and interface checks. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed.
 
 [Rights](../RIGHTS.md) · [Components](../THIRD_PARTY_NOTICES.md) · [Build](BUILDING.md) · [Verification](VERIFICATION.md)

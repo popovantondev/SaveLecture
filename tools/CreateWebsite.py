@@ -105,6 +105,18 @@ for lang,title,body in [
 
 for lang,label in {'ru':'Гибкие настройки','de':'Flexible Einstellungen','en':'Flexible settings'}.items(): data[lang]['tuneKicker']=label
 
+for lang,text in {
+ 'ru':'Распакуйте весь архив выпуска в доступную для записи папку. Проверьте SHA-256 опубликованного архива.',
+ 'de':'Entpacken Sie das gesamte Release-Archiv in einen beschreibbaren Ordner. Prüfen Sie dessen veröffentlichten SHA-256-Wert.',
+ 'en':'Extract the whole release archive into a writable folder. Verify its published SHA-256.'
+}.items(): data[lang]['stepList'][1]=text
+for lang,text in {
+ 'ru':'Учебная предварительная версия прошла локальные проверки сохранения и интерфейса. Полный живой прогон Teams, физическая смена DPI и реальные восемь часов работы пока не подтверждены.',
+ 'de':'Die Lernprojekt-Vorabversion hat lokale Speicher- und Oberflächentests bestanden. Ein vollständiger Live-Teams-Test, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt.',
+ 'en':'This educational preview has passed local storage and interface checks. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed.'
+}.items(): data[lang]['limitsBody']=text
+for lang,text in {'ru':'Скачать Preview','de':'Vorschau herunterladen','en':'Download Preview'}.items(): data[lang]['download']=text
+
 storage_details={
  'ru':'Итоговые слайды лежат в Archive/дата/scr. При постепенной дорисовке галерея оставляет наиболее полный кадр; заменённые промежуточные снимки переносятся в Archive/дата/Removed без удаления или перезаписи одноимённых файлов. _service хранит ссылки на переносы и историю. При выборе другой папки хранения старые записи сами туда не переносятся.',
  'de':'Endgültige Folien liegen unter Archive/Datum/scr. Bei schrittweisen Ergänzungen zeigt die Galerie die vollständigste Version; ersetzte Zwischenbilder werden ohne Löschen oder Überschreiben gleichnamiger Dateien nach Archive/Datum/Removed verschoben. _service enthält die Verweise und den Verlauf. Ein Wechsel des Speicherordners verschiebt bestehende Aufnahmen nicht.',
@@ -151,7 +163,9 @@ def main():
     SITE.mkdir(exist_ok=True)
     for lang,d in data.items():
         cards=''.join(f'<article class="card"><span class="number">0{i+1}</span><h3>{e(t)}</h3><p>{e(b)}</p></article>' for i,(t,b) in enumerate(d['cards']))
-        body=f'<main class="shell"><section class="hero"><div class="eyebrow">{d["purpose"]}</div><h1>{d["title"]}</h1><p class="lead">{d["lead"]}</p><div class="actions"><a class="button primary" href="Guide-{lang}.html">{d["guide"]} ↗</a><a class="button" href="https://github.com/popovantondev/SaveLecture">{d["source"]}</a></div><p class="note">{d["note"]}</p><div class="screen-wrap"><a href="{asset(f"assets/demo-{lang}.png")}"><img src="{asset(f"assets/demo-{lang}.png")}" width="1100" height="800" alt="SaveLecture — {d["caption"]}"></a><p class="caption">{d["caption"]}</p></div></section>{consent(lang)}<section class="section"><div class="kicker">{d["kicker"]}</div><h2>{d["features"]}</h2><div class="grid">{cards}</div></section><section class="section split"><div><div class="kicker">{d["tuneKicker"]}</div><h2>{d["tune"]}</h2><p>{d["tuneBody"]}</p><a class="button" href="Guide-{lang}.html#settings">{d["guide"]} →</a></div><a class="settings-shot" href="{asset(f"assets/filters-{lang}.png")}"><img src="{asset(f"assets/filters-{lang}.png")}" width="1100" height="800" alt="{d["settings"]}" loading="lazy"></a></section><section class="section"><h2 id="limits">{d["limits"]}</h2><div class="details"><p>{d["limitsBody"]}</p></div></section></main>'
+        download=(f'<a class="button primary" href="{e(release["release_url"])}">{d["download"]}</a>' if release.get('published') and release.get('release_url') else '')
+        guide_class='button' if download else 'button primary'
+        body=f'<main class="shell"><section class="hero"><div class="eyebrow">{d["purpose"]}</div><h1>{d["title"]}</h1><p class="lead">{d["lead"]}</p><div class="actions">{download}<a class="{guide_class}" href="Guide-{lang}.html">{d["guide"]} ↗</a><a class="button" href="https://github.com/popovantondev/SaveLecture">{d["source"]}</a></div><p class="note">{d["note"]}</p><div class="screen-wrap"><a href="{asset(f"assets/demo-{lang}.png")}"><img src="{asset(f"assets/demo-{lang}.png")}" width="1100" height="800" alt="SaveLecture — {d["caption"]}"></a><p class="caption">{d["caption"]}</p></div></section>{consent(lang)}<section class="section"><div class="kicker">{d["kicker"]}</div><h2>{d["features"]}</h2><div class="grid">{cards}</div></section><section class="section split"><div><div class="kicker">{d["tuneKicker"]}</div><h2>{d["tune"]}</h2><p>{d["tuneBody"]}</p><a class="button" href="Guide-{lang}.html#settings">{d["guide"]} →</a></div><a class="settings-shot" href="{asset(f"assets/filters-{lang}.png")}"><img src="{asset(f"assets/filters-{lang}.png")}" width="1100" height="800" alt="{d["settings"]}" loading="lazy"></a></section><section class="section"><h2 id="limits">{d["limits"]}</h2><div class="details"><p>{d["limitsBody"]}</p></div></section></main>'
         (SITE/f'index-{lang}.html').write_text(page(lang,d['status'],body),encoding='utf8')
         sections=[('steps',d['steps']),('settings',d['settings']),('storage',d['storage']),('startup',d['startup']),('privacy',d['privacyTitle']),('rights',d['rights']),('trouble',d['trouble']),('limits',d['limits'])]
         nav=''.join(f'<a href="#{a}">{e(t)}</a>' for a,t in sections)

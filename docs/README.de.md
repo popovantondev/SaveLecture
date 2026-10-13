@@ -15,7 +15,7 @@ Echte Oberfläche. Texte, Namen und Bilder im Beispiel sind vollständig künstl
 ## Erster Start
 
 1. Vor dem Start die Zustimmung aller Beteiligten und Erlaubnis für die Materialien einholen.
-2. Das komplette Paket in einen beschreibbaren Ordner entpacken. SHA-256 des veröffentlichten Archivs prüfen. Der Release ist noch in Vorbereitung.
+2. Entpacken Sie das gesamte Release-Archiv in einen beschreibbaren Ordner. Prüfen Sie dessen veröffentlichten SHA-256-Wert.
 3. Beim ersten Start den Hinweis lesen. Ohne Bestätigung beginnt keine Erfassung. Russisch, Deutsch und Englisch stehen zur Auswahl.
 4. Nach der ersten Bestätigung beginnt die Erfassung und das Hauptfenster öffnet sich. Bei späteren Starts läuft die App im Infobereich, ohne das Hauptfenster anzuzeigen. Dort lassen sich Status und Fenster öffnen. Aktivieren Sie Teams-Liveuntertitel und lassen Sie die Bildschirmfreigabe sichtbar.
 5. Schließen blendet die App in den Tray aus. Pause unterbricht, Fortsetzen setzt dieselbe Vorlesung fort. Stopp beendet sie nach Bestätigung. Beenden stoppt die Erfassung ebenfalls.
@@ -42,6 +42,6 @@ Kein Text: Teams-Untertitel, Fenstersichtbarkeit und App-Status prüfen. Keine B
 
 ## Ein ehrlicher Stand
 
-Der Kandidat wird auf Speicherung und Oberfläche geprüft. Ein vollständiger Live-Test mit Teams, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt. Eine öffentliche Binärversion ist noch nicht veröffentlicht.
+Die Lernprojekt-Vorabversion hat lokale Speicher- und Oberflächentests bestanden. Ein vollständiger Live-Teams-Test, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt.
 
 [Rechte](../RIGHTS.md) · [Components](../THIRD_PARTY_NOTICES.md) · [Build](BUILDING.md) · [Verification](VERIFICATION.md)

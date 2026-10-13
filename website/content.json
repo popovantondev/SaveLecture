@@ -30,14 +30,14 @@
     "tune": "Под вашу лекцию",
     "tuneBody": "Порог похожести, стабильность, допустимый сдвиг и частота проверки настраиваются отдельно. Понятные пояснения помогут выбрать между меньшим числом повторов и более подробным архивом.",
     "limits": "Прозрачно о готовности",
-    "limitsBody": "Кандидат проходит проверки сохранения и интерфейса. Полный живой прогон Teams, физическая смена DPI и реальные восемь часов работы пока не подтверждены. Публичный бинарный выпуск ещё не опубликован.",
+    "limitsBody": "Учебная предварительная версия прошла локальные проверки сохранения и интерфейса. Полный живой прогон Teams, физическая смена DPI и реальные восемь часов работы пока не подтверждены.",
     "footer": "Учебный демонстрационный проект. SaveLecture не является продуктом Microsoft.",
     "rights": "Права",
     "help": "Сообщить об ошибке",
     "steps": "Первый запуск",
     "stepList": [
       "Получите согласие всех участников и разрешение на материалы до запуска программы.",
-      "Распакуйте весь выпуск в доступную для записи папку. Проверьте SHA-256 опубликованного архива. Выпуск пока готовится.",
+      "Распакуйте весь архив выпуска в доступную для записи папку. Проверьте SHA-256 опубликованного архива.",
       "При первом запуске прочитайте окно предупреждения. Пока оно не подтверждено, сбор не начинается. Можно выбрать русский, немецкий или английский.",
       "После первого подтверждения начинается сбор и открывается главное окно. При следующих запусках окно не показывается: программа собирает материалы и показывает состояние в трее. Открыть окно можно через значок в трее. Включите субтитры в Teams Desktop и оставьте демонстрацию видимой.",
       "Крестик скрывает программу в трей. Пауза временно прекращает сбор, Продолжить возобновляет ту же лекцию. Стоп с подтверждением завершает её. Выход также завершает сбор."
@@ -77,7 +77,8 @@
     "purpose": "Субтитры и слайды Teams — в одном архиве",
     "statsTitle": "Почему слайд виден, а сохранено — 0?",
     "statsBody": "Галерея может показывать снимок, уже сохранённый сегодня. Программа использует прежний файл, чтобы не создавать повторную копию. Счётчик «Сохранено» учитывает только новые файлы текущей записи и начинается с нуля после перезапуска или нового старта. Счётчик дубликатов показывает пропущенные повторные изображения. Существующие файлы остаются в архиве. «Сохранено» считает новые файлы текущей записи, включая промежуточные кадры, позже перенесённые в Removed. Галерея показывает итоговые версии. «Дубликаты» учитывает пропущенные повторы и каждый выполненный перенос промежуточного кадра в Removed по одному разу. Уже выполненные переносы не прибавляются повторно при перезапуске.",
-    "tuneKicker": "Гибкие настройки"
+    "tuneKicker": "Гибкие настройки",
+    "download": "Скачать Preview"
   },
   "de": {
     "title": "Die Vorlesung vergeht. <span>Das Wissen bleibt.</span>",
@@ -110,14 +111,14 @@
     "tune": "Passend zur Vorlesung",
     "tuneBody": "Ähnlichkeit, Stabilität, erlaubter Versatz und Prüfintervall lassen sich einzeln einstellen. Verständliche Hinweise helfen zwischen weniger Wiederholungen und einem ausführlicheren Archiv zu wählen.",
     "limits": "Ein ehrlicher Stand",
-    "limitsBody": "Der Kandidat wird auf Speicherung und Oberfläche geprüft. Ein vollständiger Live-Test mit Teams, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt. Eine öffentliche Binärversion ist noch nicht veröffentlicht.",
+    "limitsBody": "Die Lernprojekt-Vorabversion hat lokale Speicher- und Oberflächentests bestanden. Ein vollständiger Live-Teams-Test, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt.",
     "footer": "Lern- und Demonstrationsprojekt. SaveLecture ist kein Microsoft-Produkt.",
     "rights": "Rechte",
     "help": "Fehler melden",
     "steps": "Erster Start",
     "stepList": [
       "Vor dem Start die Zustimmung aller Beteiligten und Erlaubnis für die Materialien einholen.",
-      "Das komplette Paket in einen beschreibbaren Ordner entpacken. SHA-256 des veröffentlichten Archivs prüfen. Der Release ist noch in Vorbereitung.",
+      "Entpacken Sie das gesamte Release-Archiv in einen beschreibbaren Ordner. Prüfen Sie dessen veröffentlichten SHA-256-Wert.",
       "Beim ersten Start den Hinweis lesen. Ohne Bestätigung beginnt keine Erfassung. Russisch, Deutsch und Englisch stehen zur Auswahl.",
       "Nach der ersten Bestätigung beginnt die Erfassung und das Hauptfenster öffnet sich. Bei späteren Starts läuft die App im Infobereich, ohne das Hauptfenster anzuzeigen. Dort lassen sich Status und Fenster öffnen. Aktivieren Sie Teams-Liveuntertitel und lassen Sie die Bildschirmfreigabe sichtbar.",
       "Schließen blendet die App in den Tray aus. Pause unterbricht, Fortsetzen setzt dieselbe Vorlesung fort. Stopp beendet sie nach Bestätigung. Beenden stoppt die Erfassung ebenfalls."
@@ -157,7 +158,8 @@
     "purpose": "Teams-Untertitel und Folien — in einem Archiv",
     "statsTitle": "Warum ist eine Folie sichtbar, obwohl 0 gespeichert wurden?",
     "statsBody": "Die Galerie kann ein Bild anzeigen, das heute bereits gespeichert wurde. Die App verwendet die vorhandene Datei, statt eine weitere Kopie anzulegen. „Gespeichert“ zählt nur neue Dateien der aktuellen Aufnahme und beginnt nach einem Neustart oder einer neuen Aufnahme bei null. Der Duplikatzähler zeigt übersprungene wiederholte Bilder. Vorhandene Dateien bleiben im Archiv. „Gespeichert“ zählt neue Dateien der aktuellen Aufnahme, einschließlich Zwischenbildern, die später nach Removed verschoben werden. Die Galerie zeigt endgültige Versionen. „Duplikate“ zählt übersprungene Wiederholungen und jeden durchgeführten Wechsel eines Zwischenbildes nach Removed einmal. Ein Neustart zählt abgeschlossene Verschiebungen nicht erneut.",
-    "tuneKicker": "Flexible Einstellungen"
+    "tuneKicker": "Flexible Einstellungen",
+    "download": "Vorschau herunterladen"
   },
   "en": {
     "title": "The lecture moves on. <span>The knowledge stays.</span>",
@@ -190,14 +192,14 @@
     "tune": "Adapt it to your lecture",
     "tuneBody": "Adjust similarity, stability, allowed shift and check interval separately. Plain explanations help you choose between fewer repeats and a more detailed archive.",
     "limits": "A transparent readiness status",
-    "limitsBody": "The candidate is tested for saving and interface behavior. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed. No public binary release has been published yet.",
+    "limitsBody": "This educational preview has passed local storage and interface checks. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed.",
     "footer": "Educational demonstration project. SaveLecture is not a Microsoft product.",
     "rights": "Rights",
     "help": "Report an issue",
     "steps": "First launch",
     "stepList": [
       "Obtain permission from every participant and permission for the materials before launching.",
-      "Extract the whole package into a writable folder. Verify the published archive’s SHA-256. The release is still being prepared.",
+      "Extract the whole release archive into a writable folder. Verify its published SHA-256.",
       "Read the first-launch notice. No collection starts before acknowledgement. Choose Russian, German or English.",
       "After the first acknowledgement, collection begins and the main window opens. Later launches collect materials and show status in the system tray without opening the main window. Open it using the tray icon. Enable Teams captions and keep shared content visible.",
       "Close hides the app in the tray. Pause suspends collection; Resume continues the same lecture. Stop ends it after confirmation. Exit also ends collection."
@@ -237,6 +239,7 @@
     "purpose": "Teams captions and slides — in one archive",
     "statsTitle": "Why is a slide visible when the saved count is 0?",
     "statsBody": "The gallery can show an image already saved today. The app reuses the existing file instead of creating another copy. The saved count includes only new files in the current recording and starts at zero after a restart or a new recording. The duplicate count shows repeated images that were skipped. Existing files remain in the archive. “Saved” counts new files in the current recording, including intermediate frames later moved to Removed. The gallery shows final versions. “Duplicates” counts skipped repeats and each completed move of an intermediate frame to Removed once. Restarting does not recount completed moves.",
-    "tuneKicker": "Flexible settings"
+    "tuneKicker": "Flexible settings",
+    "download": "Download Preview"
   }
 }
