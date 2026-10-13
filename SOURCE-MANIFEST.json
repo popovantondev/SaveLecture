@@ -17,7 +17,7 @@
   },
   {
     "path": ".gitignore",
-    "sha256": "8abc375c2458d69f53b454594eed36e2bbbe360ee5853362e5e807a4f6b43919"
+    "sha256": "68c323dd9504b2fedaf0c344d964869870c9b62f4da7c8a9b3f043e5857c6c73"
   },
   {
     "path": "assets/brand.png",
@@ -309,7 +309,7 @@
   },
   {
     "path": "tools/PreparePublic.py",
-    "sha256": "f0fe8e32be0d4d4c5294247b1ee31d3c23a47dd30b76bb029304141d1c0d28c0"
+    "sha256": "a265f6b4f2900c6eb5f501e94da4a93a00312a043d034d6aeb18be6535cb7805"
   },
   {
     "path": "tools/PreparePortable.py",
