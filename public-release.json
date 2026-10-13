@@ -2,25 +2,25 @@
   "schema_version": 1,
   "name": "SaveLecture",
   "repo": "SaveLecture",
-  "version": "0.1.0-preview.1",
+  "version": "0.1.0-preview.2",
   "platform": "Windows 11 · x64",
   "status": "preview",
   "published": true,
   "source_url": "https://github.com/popovantondev/SaveLecture",
-  "tag": "v0.1.0-preview.1",
-  "release_url": "https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.1",
+  "tag": "v0.1.0-preview.2",
+  "release_url": "https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.2",
   "assets": [
     {
-      "name": "SaveLecture-0.1.0-preview.1-windows-x64.zip",
-      "size": 2298334,
-      "sha256": "7f5a168d30e9757917ab740bb1271fb93dfb889eccb09769b1e5f067dbe40e14",
-      "url": "https://github.com/popovantondev/SaveLecture/releases/download/v0.1.0-preview.1/SaveLecture-0.1.0-preview.1-windows-x64.zip"
+      "name": "SaveLecture-0.1.0-preview.2-windows-x64.zip",
+      "size": 2280201,
+      "sha256": "078c27b240bf1c4d62256a506ade75c56ac6a084cf5f5e6e445343b2257ab4c4",
+      "url": "https://github.com/popovantondev/SaveLecture/releases/download/v0.1.0-preview.2/SaveLecture-0.1.0-preview.2-windows-x64.zip"
     },
     {
       "name": "SHA256SUMS.txt",
       "size": 111,
-      "sha256": "fc3ac10eba1cd4e1c2cd64377a3182b00c43e7abca3c19c4c061ceebc90b93fc",
-      "url": "https://github.com/popovantondev/SaveLecture/releases/download/v0.1.0-preview.1/SHA256SUMS.txt"
+      "sha256": "d4ab926c2014d9ee32d05dee7399334a6380900af86048373e24d767a48f9c43",
+      "url": "https://github.com/popovantondev/SaveLecture/releases/download/v0.1.0-preview.2/SHA256SUMS.txt"
     }
   ],
   "languages": [
@@ -74,7 +74,7 @@
   "help_url": "https://popovantondev.github.io/SaveLecture/Guide-{lang}.html",
   "feedback_url": "https://github.com/popovantondev/SaveLecture/issues/new",
   "downloads": [
-    "SaveLecture-0.1.0-preview.1-windows-x64.zip"
+    "SaveLecture-0.1.0-preview.2-windows-x64.zip"
   ],
   "checksums": [
     "SHA256SUMS.txt"

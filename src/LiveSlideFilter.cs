@@ -60,6 +60,7 @@ namespace SaveLecture
         }
         public static bool Duplicate(byte[] first, byte[] second)
         {
+            if(FrameChanges.Occludes(second,first)) return false;
             if (SlideArchive.Similar(first,second) || FrameChanges.Transient(first,second)) return true;
             // Keep real additions and removals even if the robust score is high.
             if (SlideSelection.IsMoreComplete(first,second) || SlideSelection.IsMoreComplete(second,first)) return false;

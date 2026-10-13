@@ -6,7 +6,7 @@ Teams captions and slides, together. SaveLecture keeps permitted learning materi
 
 **Windows 11 · x64 · Educational project · preview 0.1.0-preview.1**
 
-[Download Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.1)
+[Download Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.2)
 [Guide](https://popovantondev.github.io/SaveLecture/Guide-en.html) · [Source](https://github.com/popovantondev/SaveLecture) · [Report an issue](https://github.com/popovantondev/SaveLecture/issues/new)
 
 ![SaveLecture](../website/assets/demo-en.png)
@@ -31,7 +31,7 @@ The first notice acknowledges the user’s understanding, not consent from other
 
 Settings → Storage lets you choose a folder after Stop.  One TXT belongs to one lecture until Stop; images are grouped by date. _service contains recovery data and indexes. After a crash the unfinished lecture ID is retained. Do not delete service files during recording. Settings and the error log live in %LOCALAPPDATA%\SaveLecture. Configure mention names in Transcription; an empty list disables notifications. Final slides are stored in Archive/date/scr. For drawings built up gradually, the gallery keeps the most complete version; superseded intermediate images move to Archive/date/Removed without deletion or overwriting name collisions. _service retains relocation links and history. Changing the storage folder does not move existing recordings.
 
-The gallery can show an image already saved today. The app reuses the existing file instead of creating another copy. The saved count includes only new files in the current recording and starts at zero after a restart or a new recording. The duplicate count shows repeated images that were skipped. Existing files remain in the archive. “Saved” counts new files in the current recording, including intermediate frames later moved to Removed. The gallery shows final versions. “Duplicates” counts skipped repeats and each completed move of an intermediate frame to Removed once. Restarting does not recount completed moves.
+The gallery can show an image already saved today. The app reuses the existing file instead of creating another copy. The saved count includes only new files in the current recording and starts at zero after a restart or a new recording. The duplicate count shows repeated images that were skipped. Existing files remain in the archive. “Saved” counts new files in the current recording, including intermediate frames later moved to Removed. The gallery shows final versions. “Duplicates” counts skipped repeats and each completed move of an intermediate frame to Removed once. Restarting does not recount completed moves. Checks continue at the configured interval, but an unchanged, already processed slide does not increase the counter every second. After a dialog closes, the actually visible clean frame must pass stability checks; hidden content is not reconstructed.
 
 ## Startup and requirements
 

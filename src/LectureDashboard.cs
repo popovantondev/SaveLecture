@@ -97,11 +97,16 @@ namespace SaveLecture
         }
         BitmapSource LoadImage(string path,int width)
         {
-            if(ResolveImagePath!=null) path=ResolveImagePath(path);
-            using(var stream=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.ReadWrite|FileShare.Delete))
-            {
-                var source=new BitmapImage(); source.BeginInit(); source.CacheOption=BitmapCacheOption.OnLoad; source.DecodePixelWidth=width; source.StreamSource=stream; source.EndInit(); source.Freeze(); return source;
+            string original=path;
+            for(int attempt=0;attempt<2;attempt++) {
+                if(ResolveImagePath!=null) path=ResolveImagePath(original);
+                try {
+                    using(var stream=new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.ReadWrite|FileShare.Delete)) {
+                        var source=new BitmapImage(); source.BeginInit(); source.CacheOption=BitmapCacheOption.OnLoad; source.DecodePixelWidth=width; source.StreamSource=stream; source.EndInit(); source.Freeze(); return source;
+                    }
+                } catch(FileNotFoundException) { } catch(DirectoryNotFoundException) { }
             }
+            return null;
         }
         public void Slide(string path)
         { Slide(path,new string[0]); }

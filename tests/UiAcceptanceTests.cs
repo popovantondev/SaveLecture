@@ -122,6 +122,28 @@ public static class UiAcceptanceTests
             }
             return;
         }
+        if(args.Length>0 && args[0]=="--relocated-slides") {
+            string directory=Path.Combine(Path.GetTempPath(),"SaveLecture-relocated-ui-"+Guid.NewGuid().ToString("N")); Directory.CreateDirectory(directory);
+            UiPreferences.TestPath=Path.Combine(directory,"preferences.json");
+            string first=Path.Combine(directory,"first.png"),final=Path.Combine(directory,"final.png"),removed=Path.Combine(directory,"removed.png");
+            using(var picture=new Bitmap(960,540)) { using(var g=System.Drawing.Graphics.FromImage(picture)) { g.Clear(System.Drawing.Color.White); g.FillRectangle(System.Drawing.Brushes.Black,120,120,60,24); } picture.Save(first); picture.Save(final); }
+            var view=new LectureDashboard(delegate{},delegate{},delegate{},delegate{});
+            using(view.Window) {
+                view.Slide(first);
+                File.Move(first,removed);
+                view.ResolveImagePath=delegate(string path) { return path==first?final:path; };
+                PrepareOffscreen(view.Window,1100,800);
+                PrepareOffscreen(view.Window,1366,728);
+                Check(view.Window.Find<System.Windows.Controls.Image>("SlideImage").Source!=null,"relocated image remains readable during gallery resize");
+                view.Slide(final,new[]{first});
+                Check(view.Window.Find<TextBlock>("SlidePosition").Text=="1 из 1","replacement removes old logical thumbnail after original moves");
+                int resolutions=0;
+                view.ResolveImagePath=delegate(string path) { resolutions++; return resolutions==1?Path.Combine(directory,"not-found.png"):final; };
+                PrepareOffscreen(view.Window,1000,700);
+                Check(resolutions>=2,"thumbnail loading retries path resolution when relocation happens during file open");
+            }
+            return;
+        }
         if(args.Length>0 && args[0]=="--progressive-slides") {
             string drawingDirectory=Path.Combine(Path.GetTempPath(),"SaveLecture-progressive-"+Guid.NewGuid().ToString("N")); Directory.CreateDirectory(drawingDirectory);
             UiPreferences.TestPath=Path.Combine(drawingDirectory,"preferences.json");

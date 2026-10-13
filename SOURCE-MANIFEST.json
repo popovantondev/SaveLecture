@@ -41,15 +41,15 @@
   },
   {
     "path": "docs/README.de.md",
-    "sha256": "4bc28208eb643e0da579b865370b910ed99b7157d706187b588702a94b400fb8"
+    "sha256": "d6bfae05c2560bbb75b7f12049d39c529744df88d4b0371b380544cfbd93b6d7"
   },
   {
     "path": "docs/README.en.md",
-    "sha256": "730bdb48ef33d113aaf69042c21a7835b42ae183f67651290600ce9d9eb3abb9"
+    "sha256": "b96a87618f964d3e4180412ba2d22a99646e758bab92147221f582a84df50a03"
   },
   {
     "path": "docs/README.ru.md",
-    "sha256": "7a5316213c1819acb0daeb80f412b426343ff6d203df88e873be200df20c434a"
+    "sha256": "12b9e4ff8d8096efd5bca2d373146eeb3668f4e6b4f106bca139074d4104fff9"
   },
   {
     "path": "docs/RELEASE.md",
@@ -57,7 +57,7 @@
   },
   {
     "path": "docs/VERIFICATION.md",
-    "sha256": "c9ec68579b1ac5e080f78fba26cf448ffa71a5277cc54bf56081b46a52853ada"
+    "sha256": "766a869550b9ecda2813eff6c1b7ba0a205249726e11d11ea9325fca3ca53a53"
   },
   {
     "path": "InstallAutostart.ps1",
@@ -73,19 +73,19 @@
   },
   {
     "path": "public-release.json",
-    "sha256": "946a4e4eba4769919b450c450ec7f15b7fa3831cd3c4ff12e868db98ed110459"
+    "sha256": "9dd43274b8a3ec33c7025a9c901b532ac6a93623d11aac1f8c905ddd435a542e"
   },
   {
     "path": "README.de.md",
-    "sha256": "9c3c5b2d901e71b1d77fc551e7a0425781c5f05fc7e0fa3cd477d20ab81c7812"
+    "sha256": "be4599d9de2fe22220d82baee0825f6cc29f33fccae6efd5359156a7523a3d4e"
   },
   {
     "path": "README.md",
-    "sha256": "c9645cf532ff8ee682b7ccd44c5fdf0c12b964578d766a02c735caac67b50ae1"
+    "sha256": "1afb2ecfd49a82edab528f683dc58ff2ed9541f4a779ec71ed41d6b00ea5f0e7"
   },
   {
     "path": "README.ru.md",
-    "sha256": "4e262b677746b5bbde5c9003fbe0fde4eea03489619181fed9589f06fb057a30"
+    "sha256": "b6c0485927bf82623ec4a95b5a793e1e3914510bb65dfce3656668b4b56e8173"
   },
   {
     "path": "reference/SlideFilter/presentation_deduper.py",
@@ -137,7 +137,7 @@
   },
   {
     "path": "src/FrameChanges.cs",
-    "sha256": "19a2ef934ea2b529686864623625189a42f8bf386d0e9890b5f44a2b1a95eb5a"
+    "sha256": "95150da92b0a2cb27af7d710ee38fb7731b19e2f9c71b19e4872b1dad3236465"
   },
   {
     "path": "src/LanguagePicker.cs",
@@ -145,7 +145,7 @@
   },
   {
     "path": "src/LectureDashboard.cs",
-    "sha256": "11685ca577f198a69135c3a33843748714870c13fb41cda4bfa57e903fc3b133"
+    "sha256": "4842594b96748a86d0d404cc728a2d1c8bef6d70541fe827a877c317208d7f00"
   },
   {
     "path": "src/LectureSettings.cs",
@@ -153,7 +153,7 @@
   },
   {
     "path": "src/LiveSlideFilter.cs",
-    "sha256": "9d0c841c505f0be51694445143d785e880c66bed3acbdf0f9b20b2ce40e48642"
+    "sha256": "679c520806998c8fc525040bb8476383b0b19099c50baa36c61e8e8c8cc54dfb"
   },
   {
     "path": "src/MentionPopup.cs",
@@ -169,7 +169,7 @@
   },
   {
     "path": "src/Program.cs",
-    "sha256": "aa263b8b881c0a8dd676f0dea09b00b983873c23b8a2dcf0a71df6e956d30795"
+    "sha256": "8d66bae07c0cc6e0bc6722878a223b6c6640f4155e954533171b9d7cac795b61"
   },
   {
     "path": "src/slide_cleanup.py",
@@ -185,7 +185,7 @@
   },
   {
     "path": "src/SlideSelection.cs",
-    "sha256": "f99737f81eb41f442dd3274853571581a6d574597a058eb7e0834be20458402c"
+    "sha256": "49c256673f8476933ec0ef46fc593ed6dc41124a220f72f9bc6237a8122c9b5a"
   },
   {
     "path": "src/StopConfirmation.cs",
@@ -253,7 +253,7 @@
   },
   {
     "path": "src/WindowCapture.cs",
-    "sha256": "7688ca89e1043f5adefefbd73c90d02353f03e6d101f6853511e9ba7e44325bb"
+    "sha256": "5dc665e31fc129163330d56a647957735fdcf09e8d7e83238fce43e9369f329b"
   },
   {
     "path": "src/WindowsAutostart.cs",
@@ -265,7 +265,7 @@
   },
   {
     "path": "tests/AcceptanceTests.cs",
-    "sha256": "59e908f011415b17e60b88b8c25abf3e67cf089a532625f016ddc9c657e9a23f"
+    "sha256": "8a33900a27d0a3ab810cb13ea31a6541301655df598848c88a5bc7f2fb7f4eaa"
   },
   {
     "path": "tests/DemoSlides.cs",
@@ -289,7 +289,7 @@
   },
   {
     "path": "tests/UiAcceptanceTests.cs",
-    "sha256": "9dcaa80b653cc0928b96506d50eb101c6b233fe25b07bfbdd8b4ad3150e1c083"
+    "sha256": "fcdbe6cf2037a80d8a17ffb8a382c5e4ebe04c1f514e54c492c9c77c803c8064"
   },
   {
     "path": "THIRD_PARTY_NOTICES.md",
@@ -305,7 +305,7 @@
   },
   {
     "path": "tools/CreateWebsite.py",
-    "sha256": "a603155dfce07569467a8c102e1f6a300209f97ade0e2c6fc1cf943c5cfaf90e"
+    "sha256": "f00d9330ff65ee15dc65089999f89d2b31e5ebec63904ee4362c8b47c5977f8e"
   },
   {
     "path": "tools/PreparePublic.py",
@@ -361,31 +361,31 @@
   },
   {
     "path": "website/content.json",
-    "sha256": "8f3c094bbd307b9a3057ac7dda2f511b761c5d949a27c8f1db2602a3053e6544"
+    "sha256": "0348321359d24f17a91c713ab04027df5396aa4347e44e7d7a23f1a77154a17e"
   },
   {
     "path": "website/Guide-de.html",
-    "sha256": "c087f6c8b8ec829561ee8936086aba0f55b060791b7bd4708f545db3286f0a4e"
+    "sha256": "ed00a291a7ead85d7940127292a2492e28ea9bce048cae5c6b0b1d5800728dc2"
   },
   {
     "path": "website/Guide-en.html",
-    "sha256": "a912b11e52f24bdf3194384dd1a18fc362bca3ab1eeffb42b4c242beada3ae95"
+    "sha256": "7d488e535b5a44e86afcd9eb117ad061ec69607650adbaccf6aab573e4975274"
   },
   {
     "path": "website/Guide-ru.html",
-    "sha256": "250881c8290a2fbba5ca0ee4c18b927ee30bba5e1089c6c62b7073e0e6f7648b"
+    "sha256": "4707b5b6d5a844c6d631fdbfc57a61c4f2d53e09a1af8272b8b30cb66d1849ea"
   },
   {
     "path": "website/index-de.html",
-    "sha256": "e412f7f40212d22871bf1687e003035896411fe9978e2057006dbbb1e2597a76"
+    "sha256": "d04f12f72891960c7ba9d345dcf34c10fd85d5f8f2383b8f3a1825597578d7a9"
   },
   {
     "path": "website/index-en.html",
-    "sha256": "f79ae613907893c137d1968db3e466da63a7a44b022cf25fa41eee1e33e28d86"
+    "sha256": "4b43a7f7f40e01271134dc167a8962a77371e81e52c83c981bdffb9218f0a3e8"
   },
   {
     "path": "website/index-ru.html",
-    "sha256": "27021bb4568c166155cd25ffb38d401e74d187afe038a37ce30ac391ddde964c"
+    "sha256": "c166293b88235b8fc5ab16e206c1dd3a9a93f340ad6b242435f2f772364e4c28"
   },
   {
     "path": "website/index.html",

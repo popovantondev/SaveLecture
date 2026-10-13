@@ -21,6 +21,8 @@ namespace SaveLecture
         public static bool IsMoreComplete(byte[] previous, byte[] current)
         {
             if (previous == null || current == null || previous.Length != current.Length) return false;
+            if(FrameChanges.Occludes(current,previous)) return true;
+            if(FrameChanges.Occludes(previous,current)) return false;
             if (MoreCompleteRegion(previous,current,0,0,240,135)) return true;
             // A dark drawing board has bright application chrome. Compare its canvas
             // separately so toolbar tools and pointers do not prevent consolidation.
@@ -71,10 +73,13 @@ namespace SaveLecture
         public void Add(string path, byte[] feature)
         {
           lock(selected) {
+            // Re-observing an archived predecessor must never promote its old path.
+            foreach(var item in selected) if(item.Earlier.Contains(path)) return;
             var superseded=new List<Selected>();
             foreach(var item in selected) if(IsMoreComplete(item.Feature,feature)) superseded.Add(item);
+            Selected existing=selected.Find(delegate(Selected item) { return item.Path==path; });
             if(superseded.Count>0) {
-                Selected representative=superseded[0];
+                Selected representative=existing??superseded[0];
                 foreach(var item in superseded) {
                     if(!representative.Earlier.Contains(item.Path)) representative.Earlier.Add(item.Path);
                     if(item!=representative) {
@@ -82,9 +87,11 @@ namespace SaveLecture
                         selected.Remove(item);
                     }
                 }
+                representative.Earlier.RemoveAll(delegate(string earlier) { return earlier==path; });
                 representative.Path=path; representative.Feature=feature;
                 return;
             }
+            if(existing!=null) return;
             for (int i = selected.Count - 1; i >= 0; i--)
             {
                 Selected item = selected[i];

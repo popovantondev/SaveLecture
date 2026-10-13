@@ -136,6 +136,11 @@ for lang in languages:
     data[lang]['storageBody']=data[lang]['storageBody'].replace('Файлы не перемещаются автоматически.','').replace('Existing files are not moved automatically.','').replace('Vorhandene Dateien werden nicht automatisch verschoben.','')+' '+storage_details[lang]
     data[lang]['troubleBody']+=' '+status_details[lang]
     data[lang]['statsBody']+=' '+counter_details[lang]
+    data[lang]['statsBody']+=' '+{
+        'ru':'Проверка продолжается с заданным интервалом, но неподвижный уже обработанный слайд не увеличивает счётчик каждую секунду. Чистый кадр после исчезновения диалога проходит проверку стабильности; скрытые участки не дорисовываются.',
+        'de':'Die Prüfung läuft im eingestellten Abstand weiter; eine unveränderte, bereits verarbeitete Folie erhöht den Zähler nicht jede Sekunde. Nach dem Schließen eines Dialogs wird das tatsächlich sichtbare Bild auf Stabilität geprüft; verdeckte Inhalte werden nicht ergänzt.',
+        'en':'Checks continue at the configured interval, but an unchanged, already processed slide does not increase the counter every second. After a dialog closes, the actually visible clean frame must pass stability checks; hidden content is not reconstructed.'
+    }[lang]
 
 def e(s): return html.escape(s)
 def asset(path):
@@ -156,7 +161,7 @@ def consent(lang):
 def footer(lang):
     catalog='index.html' if lang=='en' else 'index-'+lang+'.html'
     help_url='https://github.com/popovantondev/SaveLecture/issues/new' if release['published'] else f'Guide-{lang}.html#trouble'
-    d=data[lang]; return f'<footer><div class="shell footer-inner"><span>{d["footer"]}</span><div><a href="Guide-{lang}.html#rights">{d["rights"]}</a><a href="{help_url}">{d["help"]}</a><a href="https://popovantondev.github.io/popovantondev/{catalog}">popovantondev</a></div></div></footer>'
+    d=data[lang]; return f'<footer><div class="shell footer-inner"><span>SaveLecture {release["version"]} · {d["footer"]}</span><div><a href="Guide-{lang}.html#rights">{d["rights"]}</a><a href="{help_url}">{d["help"]}</a><a href="https://popovantondev.github.io/popovantondev/{catalog}">popovantondev</a></div></div></footer>'
 def page(lang,title,body,guide=False):
     return f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{e(data[lang]["lead"])}"><meta name="theme-color" content="#f4f8fd"><title>SaveLecture — {e(title)}</title><link rel="icon" href="assets/icon.png"><link rel="stylesheet" href="{asset("site.css")}"></head><body>{header(lang,guide)}{body}{footer(lang)}</body></html>'
 def main():

@@ -78,7 +78,7 @@ namespace SaveLecture
             LiveSlideFilter.StableThreshold = Math.Max(.8, Math.Min(1,preferences.StableThreshold));
             LiveSlideFilter.MaxShift=preferences.PixelShiftThreshold;
             dashboard = new LectureDashboard(TogglePause,RequestStop,delegate { Process.Start("explorer.exe",root); },ShowSettings);
-            dashboard.ResolveImagePath=delegate(string path) { return slides.Representative(path); };
+            dashboard.ResolveImagePath=delegate(string path) { return slides.ResolveImagePath(path); };
             statusWindow = dashboard.Window;
             statusWindow.FormClosing += delegate(object sender, FormClosingEventArgs args)
             {
@@ -131,7 +131,7 @@ namespace SaveLecture
                 lock(statusGate) error=captionStatus.StartsWith("ОШИБКА") || imageStatus.StartsWith("ОШИБКА");
                 bool textActive=CaptionsActive, slideActive=preferences.SaveSlides && sharedAvailable;
                 dashboard.Update(stopping,recordingPaused,textActive || slideActive,error,sessionClock.Elapsed,fragments,screenshots,slides.Duplicates,!inbox.IsEmpty,textActive,slideActive);
-                try { string currentSlide=slides.Representative(slides.LastImagePath); dashboard.Slide(currentSlide,slides.EarlierVersions(currentSlide)); } catch(Exception imageError) { Log(imageError); }
+                try { string currentSlide=slides.Representative(slides.LastImagePath); dashboard.Slide(slides.ResolveImagePath(currentSlide),slides.EarlierVersions(currentSlide)); } catch(Exception imageError) { Log(imageError); }
             };
             uiTimer.Tick += delegate
             {

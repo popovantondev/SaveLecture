@@ -6,7 +6,7 @@ Teams-Untertitel und Folien an einem Ort. SaveLecture speichert erlaubte Lernmat
 
 **Windows 11 · x64 · Lernprojekt · Vorabversion 0.1.0-preview.1**
 
-[Vorschau herunterladen](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.1)
+[Vorschau herunterladen](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.2)
 [Anleitung](https://popovantondev.github.io/SaveLecture/Guide-de.html) · [Quelltext](https://github.com/popovantondev/SaveLecture) · [Fehler melden](https://github.com/popovantondev/SaveLecture/issues/new)
 
 ![SaveLecture](website/assets/demo-de.png)
@@ -31,7 +31,7 @@ Der erste Hinweis bestätigt nur das Verständnis des Benutzers, nicht die Zusti
 
 Einstellungen → Speicher erlaubt die Ordnerwahl nach Stopp.  Eine TXT gehört zu einer Vorlesung bis Stopp; Bilder werden nach Datum abgelegt. _service enthält Wiederherstellungsdaten und Indizes. Nach einem Absturz wird die unvollständige Vorlesungs-ID beibehalten. Während der Aufnahme keine Hilfsdateien löschen. Einstellungen und Fehlerprotokoll: %LOCALAPPDATA%\SaveLecture. Erwähnungsnamen unter Transkription eintragen; eine leere Liste deaktiviert Hinweise. Endgültige Folien liegen unter Archive/Datum/scr. Bei schrittweisen Ergänzungen zeigt die Galerie die vollständigste Version; ersetzte Zwischenbilder werden ohne Löschen oder Überschreiben gleichnamiger Dateien nach Archive/Datum/Removed verschoben. _service enthält die Verweise und den Verlauf. Ein Wechsel des Speicherordners verschiebt bestehende Aufnahmen nicht.
 
-Die Galerie kann ein Bild anzeigen, das heute bereits gespeichert wurde. Die App verwendet die vorhandene Datei, statt eine weitere Kopie anzulegen. „Gespeichert“ zählt nur neue Dateien der aktuellen Aufnahme und beginnt nach einem Neustart oder einer neuen Aufnahme bei null. Der Duplikatzähler zeigt übersprungene wiederholte Bilder. Vorhandene Dateien bleiben im Archiv. „Gespeichert“ zählt neue Dateien der aktuellen Aufnahme, einschließlich Zwischenbildern, die später nach Removed verschoben werden. Die Galerie zeigt endgültige Versionen. „Duplikate“ zählt übersprungene Wiederholungen und jeden durchgeführten Wechsel eines Zwischenbildes nach Removed einmal. Ein Neustart zählt abgeschlossene Verschiebungen nicht erneut.
+Die Galerie kann ein Bild anzeigen, das heute bereits gespeichert wurde. Die App verwendet die vorhandene Datei, statt eine weitere Kopie anzulegen. „Gespeichert“ zählt nur neue Dateien der aktuellen Aufnahme und beginnt nach einem Neustart oder einer neuen Aufnahme bei null. Der Duplikatzähler zeigt übersprungene wiederholte Bilder. Vorhandene Dateien bleiben im Archiv. „Gespeichert“ zählt neue Dateien der aktuellen Aufnahme, einschließlich Zwischenbildern, die später nach Removed verschoben werden. Die Galerie zeigt endgültige Versionen. „Duplikate“ zählt übersprungene Wiederholungen und jeden durchgeführten Wechsel eines Zwischenbildes nach Removed einmal. Ein Neustart zählt abgeschlossene Verschiebungen nicht erneut. Die Prüfung läuft im eingestellten Abstand weiter; eine unveränderte, bereits verarbeitete Folie erhöht den Zähler nicht jede Sekunde. Nach dem Schließen eines Dialogs wird das tatsächlich sichtbare Bild auf Stabilität geprüft; verdeckte Inhalte werden nicht ergänzt.
 
 ## Autostart und Voraussetzungen
 

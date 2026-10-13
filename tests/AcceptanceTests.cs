@@ -11,6 +11,48 @@ internal static class AcceptanceTests
     {
         string root = Path.Combine(Path.GetTempPath(), "SaveLecture-tests-" + Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(root);
+        using(var clearBoard=new Bitmap(240,135)) {
+            using(var g=Graphics.FromImage(clearBoard)) {
+                g.Clear(Color.FromArgb(18,18,18));
+                for(int y=12;y<125;y+=6) for(int x=10;x<230;x+=13)
+                    g.FillRectangle(Brushes.LightGreen,x,y,7,2);
+            }
+            using(var popupBoard=(Bitmap)clearBoard.Clone()) {
+                using(var g=Graphics.FromImage(popupBoard)) {
+                    g.FillRectangle(Brushes.WhiteSmoke,135,18,65,28);
+                    g.FillRectangle(Brushes.DarkSlateBlue,139,37,57,6);
+                    g.DrawLine(Pens.Gray,141,25,190,25);
+                    g.DrawLine(Pens.Gray,141,30,185,30);
+                }
+                var clearFeature=SlideArchive.Feature(clearBoard); var popupFeature=SlideArchive.Feature(popupBoard);
+                Check(FrameChanges.Occludes(clearFeature,popupFeature) && !FrameChanges.Occludes(popupFeature,clearFeature),"dialog covering drawing is directional, its disappearance reveals content");
+                Check(!LiveSlideFilter.Duplicate(popupFeature,clearFeature),"clean drawing is not discarded as duplicate of an obscured capture");
+                Check(SlideSelection.IsMoreComplete(popupFeature,clearFeature) && !SlideSelection.IsMoreComplete(clearFeature,popupFeature),"clean drawing is preferred over dialog despite fewer bright pixels");
+                string popupRoot=Path.Combine(root,"popup-first"); var popupTime=new DateTime(2026,10,13,12,0,0);
+                var popupArchive=new SlideArchive(popupRoot) { StabilitySeconds=3 };
+                popupArchive.Observe(popupBoard,popupTime);
+                string obscured=popupArchive.Observe(popupBoard,popupTime.AddSeconds(3));
+                byte[] obscuredBytes=File.ReadAllBytes(obscured);
+                Check(popupArchive.Observe(clearBoard,popupTime.AddSeconds(4))==null,"revealed slide waits for stability instead of keeping saved candidate");
+                string clearPath=popupArchive.Observe(clearBoard,popupTime.AddSeconds(7));
+                var popupLocations=new SlideRelocations(Path.Combine(popupRoot,"13.10.2026"));
+                Check(clearPath!=null && popupArchive.Representative(obscured)==clearPath && popupArchive.Duplicates==1,"gallery replaces dialog capture with clean stable slide and counts replacement");
+                Check(File.ReadAllBytes(popupLocations.Resolve(obscured)).SequenceEqual(obscuredBytes),"obscured original is preserved byte-for-byte in Removed");
+                var restoredPopup=new SlideArchive(popupRoot) { StabilitySeconds=0 };
+                Check(restoredPopup.Observe(popupBoard,popupTime.AddSeconds(9))==null && restoredPopup.LastImagePath==clearPath,"restart never promotes old dialog over clean representative");
+                Check(!FrameChanges.Occludes(differentBoard(clearFeature),popupFeature),"unrelated drawing is not treated as dialog disappearance");
+                using(var busyPopup=(Bitmap)popupBoard.Clone()) {
+                    using(var g=Graphics.FromImage(busyPopup)) {
+                        g.FillRectangle(Brushes.LightGray,210,8,24,119);
+                        for(int y=12;y<120;y+=10) g.FillRectangle(Brushes.DimGray,215,y,15,6);
+                        for(int y=22;y<34;y+=3) g.DrawLine(Pens.Gray,140,y,191,y);
+                    }
+                    Check(FrameChanges.Occludes(clearFeature,SlideArchive.Feature(busyPopup)),"dialog with dense text and simultaneously closing side palette reveals the same drawing");
+                }
+                var reuseSelection=new SlideSelection(); reuseSelection.Add("clean.jpg",clearFeature); reuseSelection.Add("popup.jpg",popupFeature); reuseSelection.Add("clean.jpg",clearFeature);
+                Check(reuseSelection.Representative("popup.jpg")=="clean.jpg" && reuseSelection.EarlierVersions("clean.jpg").Length==1,"reusing already saved clean frame does not duplicate gallery groups");
+            }
+        }
         using(var waitingFirst=TrayStates.Render(5,16)) using(var waitingNext=TrayStates.Render(6,16)) {
             int purple=0, different=0;
             for(int y=0;y<16;y++) for(int x=0;x<16;x++) {
@@ -36,6 +78,8 @@ internal static class AcceptanceTests
         Check(!SlideSelection.IsMoreComplete(drawingBoard,drawingOther),"a different board is not merged by its shared background");
         var drawingSelection=new SlideSelection(); drawingSelection.Add("first.png",drawingBoard); drawingSelection.Add("final.png",drawingFinished);
         Check(drawingSelection.Representative("first.png")=="final.png" && drawingSelection.EarlierVersions("final.png").Length==1,"earlier drawing resolves to latest representative and remains recoverable");
+        drawingSelection.Add("first.png",drawingFinished);
+        Check(drawingSelection.Representative("first.png")=="final.png" && !drawingSelection.EarlierVersions("final.png").Contains("final.png"),"reobserving predecessor cannot resurrect a moved path or create a self reference");
         string moveRoot=Path.Combine(root,"progressive-archive");
         var moveTime=new DateTime(2026,10,12,12,0,0);
         using(var moveDrawing=new Bitmap(1000,600)) {
@@ -58,6 +102,7 @@ internal static class AcceptanceTests
                 Check(moveBest.Contains("Removed/") && moveBest.Contains(Path.GetFileName(finalImage)),"best-slide index uses the actual relocated path");
                 var restartMoves=new SlideArchive(moveRoot) { StabilitySeconds=0 };
                 Check(restartMoves.Observe(originalDrawing,moveTime.AddSeconds(10))==null && restartMoves.LastImagePath==finalImage && restartMoves.Duplicates==1,"restart deduplicates an earlier moved frame and displays its final version");
+                Check(restartMoves.ResolveImagePath(firstImage)==finalImage && File.Exists(restartMoves.ResolveImagePath(firstImage)),"gallery resolves original timeline path to a readable current representative");
                 File.AppendAllText(Path.Combine(moveDay,"_service","slides_relocations.jsonl"),"{\"source\":");
                 var afterTornRecord=new SlideRelocations(moveDay);
                 Check(afterTornRecord.Resolve(firstImage)==relocated,"a torn final relocation record does not hide earlier completed moves");
@@ -209,4 +254,5 @@ internal static class AcceptanceTests
         Check(File.ReadLines(soakText).Count() == 9600, "accelerated 8-hour synthetic stream retains all 9600 captions");
         Console.WriteLine("TEST_ARTIFACTS=" + root);
     }
+    private static byte[] differentBoard(byte[] source) { var result=(byte[])source.Clone(); for(int i=0;i<result.Length;i++) result[i]=(byte)(255-result[i]); return result; }
 }

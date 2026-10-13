@@ -88,6 +88,13 @@ namespace SaveLecture
         public string LastImagePath { get; private set; }
         public string[] EarlierVersions(string path) { return selection.EarlierVersions(path); }
         public string Representative(string path) { return selection.Representative(path); }
+        public string ResolveImagePath(string path)
+        {
+            if(String.IsNullOrEmpty(path)) return path;
+            string representative=selection.Representative(path);
+            string dayDirectory=Path.GetDirectoryName(Path.GetDirectoryName(representative));
+            return new SlideRelocations(dayDirectory).Resolve(representative);
+        }
         private DateTime stableSince;
         private bool candidateSaved;
         public SlideArchive(string rootDirectory) : this(rootDirectory, "Probe-" + Guid.NewGuid().ToString("N")) { }
@@ -195,8 +202,9 @@ namespace SaveLecture
             for (int y = 27; y < 108; y++)
                 for (int x = 48; x < 192; x++) centralMax = Math.Max(centralMax, feature[y * 240 + x]);
             if (centralMax < 20) { Missing(); return null; }
-            bool transient = candidate != null && FrameChanges.Transient(candidate, feature);
-            bool stable = Similar(candidate, feature) || (candidate != null && !SlideSelection.IsMoreComplete(candidate, feature) && !SlideSelection.IsMoreComplete(feature, candidate) && LiveSlideFilter.Score(candidate, feature) >= LiveSlideFilter.StableThreshold);
+            bool revealed = candidate != null && FrameChanges.Occludes(feature,candidate);
+            bool transient = !revealed && candidate != null && FrameChanges.Transient(candidate, feature);
+            bool stable = !revealed && (Similar(candidate, feature) || (candidate != null && !SlideSelection.IsMoreComplete(candidate, feature) && !SlideSelection.IsMoreComplete(feature, candidate) && LiveSlideFilter.Score(candidate, feature) >= LiveSlideFilter.StableThreshold));
             if (!stable && !transient)
             {
                 End(now, "content_changed");
@@ -217,6 +225,7 @@ namespace SaveLecture
             if (candidateSaved || (now - stableSince).TotalSeconds < StabilitySeconds) return null;
             for (int index = saved.Count - 1; index >= 0; index--)
                 if (LiveSlideFilter.Duplicate(saved[index], feature)) {
+                    selection.Add(savedPaths[index],saved[index]);
                     selection.Save(Path.GetDirectoryName(directory),delegate { System.Threading.Interlocked.Increment(ref Duplicates); });
                     System.Threading.Interlocked.Increment(ref Duplicates);
                     StartTimeline(selection.Representative(savedPaths[index]), stableSince, now); candidateSaved = true; return null;
