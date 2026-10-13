@@ -105,6 +105,26 @@ for lang,title,body in [
 
 for lang,label in {'ru':'Гибкие настройки','de':'Flexible Einstellungen','en':'Flexible settings'}.items(): data[lang]['tuneKicker']=label
 
+storage_details={
+ 'ru':'Итоговые слайды лежат в Archive/дата/scr. При постепенной дорисовке галерея оставляет наиболее полный кадр; заменённые промежуточные снимки переносятся в Archive/дата/Removed без удаления или перезаписи одноимённых файлов. _service хранит ссылки на переносы и историю. При выборе другой папки хранения старые записи сами туда не переносятся.',
+ 'de':'Endgültige Folien liegen unter Archive/Datum/scr. Bei schrittweisen Ergänzungen zeigt die Galerie die vollständigste Version; ersetzte Zwischenbilder werden ohne Löschen oder Überschreiben gleichnamiger Dateien nach Archive/Datum/Removed verschoben. _service enthält die Verweise und den Verlauf. Ein Wechsel des Speicherordners verschiebt bestehende Aufnahmen nicht.',
+ 'en':'Final slides are stored in Archive/date/scr. For drawings built up gradually, the gallery keeps the most complete version; superseded intermediate images move to Archive/date/Removed without deletion or overwriting name collisions. _service retains relocation links and history. Changing the storage folder does not move existing recordings.'
+}
+status_details={
+ 'ru':'Фиолетовое ожидание означает, что новых данных сейчас нет; в трее вращается фиолетовое кольцо. При отсутствии демонстрации показан последний сохранённый слайд. Субтитры имеют отдельный статус: после 15 секунд без новых строк показывается ожидание новых субтитров. Жёлтый статус — пауза, «Сбор включён» — программа готова получать данные; это не подтверждение наличия трансляции. Отсутствие демонстрации не завершает лекцию.',
+ 'de':'Violettes Warten bedeutet, dass aktuell keine neuen Daten eintreffen; im Infobereich dreht sich ein violetter Ring. Ohne Bildschirmfreigabe bleibt die letzte gespeicherte Folie sichtbar. Untertitel haben einen eigenen Status: Nach 15 Sekunden ohne neue Zeilen wird auf neue Untertitel gewartet. Gelb steht für Pause. „Erfassung aktiviert“ bedeutet Bereitschaft und bestätigt keine laufende Freigabe. Fehlende Freigabe beendet die Aufnahme nicht.',
+ 'en':'Purple waiting means no new data is currently arriving; the tray shows a rotating purple ring. When sharing is absent, the last saved slide stays visible. Captions have their own status: after 15 seconds without new lines, the app shows waiting for new captions. Yellow means Pause. “Collection enabled” means the app is ready; it does not confirm live sharing. Losing sharing does not end the recording.'
+}
+counter_details={
+ 'ru':'«Сохранено» считает новые файлы текущей записи, включая промежуточные кадры, позже перенесённые в Removed. Галерея показывает итоговые версии. «Дубликаты» учитывает пропущенные повторы и каждый выполненный перенос промежуточного кадра в Removed по одному разу. Уже выполненные переносы не прибавляются повторно при перезапуске.',
+ 'de':'„Gespeichert“ zählt neue Dateien der aktuellen Aufnahme, einschließlich Zwischenbildern, die später nach Removed verschoben werden. Die Galerie zeigt endgültige Versionen. „Duplikate“ zählt übersprungene Wiederholungen und jeden durchgeführten Wechsel eines Zwischenbildes nach Removed einmal. Ein Neustart zählt abgeschlossene Verschiebungen nicht erneut.',
+ 'en':'“Saved” counts new files in the current recording, including intermediate frames later moved to Removed. The gallery shows final versions. “Duplicates” counts skipped repeats and each completed move of an intermediate frame to Removed once. Restarting does not recount completed moves.'
+}
+for lang in languages:
+    data[lang]['storageBody']=data[lang]['storageBody'].replace('Файлы не перемещаются автоматически.','').replace('Existing files are not moved automatically.','').replace('Vorhandene Dateien werden nicht automatisch verschoben.','')+' '+storage_details[lang]
+    data[lang]['troubleBody']+=' '+status_details[lang]
+    data[lang]['statsBody']+=' '+counter_details[lang]
+
 def e(s): return html.escape(s)
 def asset(path):
     file=SITE/path

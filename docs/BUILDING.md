@@ -6,6 +6,8 @@ Run `tests/RunTests.ps1` for storage and filtering acceptance. Run `tests/RunUiT
 
 Optional cleanup: install Python 3.10+, Pillow and NumPy separately. `tests/test_cleanup.py` checks preview, preserved new text, reversible moves, timeline, repeated actions and stale previews using generated images. The cleanup interpreter defaults to `python.exe` on PATH; `PythonExecutable` in the user preferences can specify its full path. Main recording works independently.
 
+After building a reviewed clean checkout, run `python tools/PreparePortable.py` to create a local portable ZIP and SHA-256 file under `publication/`. It includes only explicit runtime and documentation paths, blanks personal aliases and checks every packaged file hash. It does not publish or change the installed application.
+
 ## Deutsch
 
 Unter Windows x64/.NET Framework 4.8 `Build.ps1` ausführen. UI-Dateien, Untertitel-Skripte und Sprachdatei zusammen mit der EXE behalten. Core-Tests: `tests/RunTests.ps1`. UI-Tests mit interaktivem Desktop: `tests/RunUiTests.ps1`. Optional Python 3.10+, Pillow und NumPy für Bereinigung installieren. Kein Administrator nötig.

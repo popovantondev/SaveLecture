@@ -392,7 +392,7 @@ public static class UiAcceptanceTests
             dashboard.Update(false,true,true,false,TimeSpan.FromMinutes(24),2847,12,1);
             Check(!dashboard.Window.Find<TextBlock>("StateTitle").Text.Contains("идёт"),"paused state is visible");
             Render(dashboard.Window,Path.Combine(output,"main-100.png"),1); Render(dashboard.Window,Path.Combine(output,"main-125.png"),1.25); Render(dashboard.Window,Path.Combine(output,"main-150.png"),1.5); Render(dashboard.Window,Path.Combine(output,"main-200.png"),2);
-            foreach(string expected in new[]{"Ожидание Teams","Ошибка сохранения","Сохранение","Запись остановлена"})
+            foreach(string expected in new[]{"Ожидание демонстрации экрана","Ошибка сохранения","Сохранение","Запись остановлена"})
             {
                 dashboard.Update(expected=="Запись остановлена",false,false,expected=="Ошибка сохранения",TimeSpan.Zero,0,0,0,expected=="Сохранение");
                 Check(dashboard.Window.Find<TextBlock>("StateTitle").Text==expected,"visible state: "+expected);

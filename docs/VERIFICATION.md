@@ -4,6 +4,8 @@ Local Windows checks cover durable append/recovery, session lifecycle, midnight 
 
 The interface examples contain generated text and images in landscape, portrait and square sizes. They do not depend on real lecture files. First-run acknowledgement, selectable archive path and intermediate settings are checked in an isolated temporary preferences file.
 
+Local checks on 13 October 2026: 52 core assertions, 194 full UI assertions, 24 source-status/colour assertions and optional Python cleanup checks passed. Additional focused checks cover progressive gallery replacement, the selected thumbnail outline and three-digit badges. Relocation tests verify exact image bytes, name collisions, interrupted journals, locked files, retry, folder boundaries and restart deduplication. Nine refreshed interface images were rendered from artificial fixtures and visually reviewed in RU/DE/EN. These results apply to the tested source snapshot and do not replace the live checks below.
+
 Not established: full live Teams end-to-end reliability, a real eight-hour run, clean-machine installation, physical DPI/multi-monitor behavior and published download verification. Source/artwork provenance remains a release review item. The current candidate is for review; it is not a production-readiness guarantee.
 
 ## Deutsch

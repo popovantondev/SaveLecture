@@ -1,5 +1,6 @@
 {
   "files": [
+    ".gitattributes",
     ".github/ISSUE_TEMPLATE/bug.md",
     ".github/workflows/checks.yml",
     ".github/workflows/pages.yml",
@@ -77,6 +78,7 @@
     "tools/CreateReadmes.py",
     "tools/CreateWebsite.py",
     "tools/PreparePublic.py",
+    "tools/PreparePortable.py",
     "UninstallAutostart.ps1",
     "website/assets/consent-de.png",
     "website/assets/consent-en.png",

@@ -29,4 +29,16 @@ with tempfile.TemporaryDirectory() as tmp:
     try: s.apply(folder); raise AssertionError('stale preview accepted')
     except ValueError: pass
     assert (folder/'one.png').exists()
+    removed=folder.parent/'Removed'; removed.mkdir()
+    (folder/'one.png').rename(removed/'one.png')
+    (service/'slides_relocations.jsonl').write_text(json.dumps({'source':'scr/one.png','destination':'Removed/one.png'})+'\n',encoding='utf-8')
+    with (service/'slides.jsonl').open('a',encoding='utf-8') as log:
+        log.write(json.dumps({'image':'scr/one.png','from':'08:21','until':'08:30'})+'\n')
+    (service/'slides_best.json').write_text(json.dumps({'items':[{'image':'scr/three.png','earlier_versions':['scr/one.png']}]}),encoding='utf-8')
+    s.resolve(folder,[])
+    relocated_timeline=json.loads((service/'cleanup'/'timeline_resolved.json').read_text(encoding='utf-8'))
+    relocated_best=json.loads((service/'cleanup'/'slides_best_resolved.json').read_text(encoding='utf-8'))
+    assert relocated_timeline[-1]['image']=='Removed/one.png'
+    assert relocated_best['items'][0]['earlier_versions']==['Removed/one.png']
+    assert 'scr/one.png' in (service/'slides.jsonl').read_text(encoding='utf-8')
 print('PASS cleanup: preview, small text, reversible move, timeline, repeat, stale preview')
