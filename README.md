@@ -6,6 +6,7 @@ Teams captions and slides, together. SaveLecture keeps permitted learning materi
 
 **Windows 11 · x64 · Educational project · preview 0.1.0-preview.1**
 
+[Download Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.1)
 [Guide](https://popovantondev.github.io/SaveLecture/Guide-en.html) · [Source](https://github.com/popovantondev/SaveLecture) · [Report an issue](https://github.com/popovantondev/SaveLecture/issues/new)
 
 ![SaveLecture](website/assets/demo-en.png)

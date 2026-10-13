@@ -41,15 +41,15 @@
   },
   {
     "path": "docs/README.de.md",
-    "sha256": "846a755df3be7b96b599ac728c6911b9fa48da93959ec8f0fcb0699c8dc3df24"
+    "sha256": "4bc28208eb643e0da579b865370b910ed99b7157d706187b588702a94b400fb8"
   },
   {
     "path": "docs/README.en.md",
-    "sha256": "348f04aa0c6a361353075158e739ee800a08a1a36adfc397447caa878248e717"
+    "sha256": "730bdb48ef33d113aaf69042c21a7835b42ae183f67651290600ce9d9eb3abb9"
   },
   {
     "path": "docs/README.ru.md",
-    "sha256": "a348a5797f6cb57e37935eaee9b8f921fc0d3325a4d49525abb9cc72d65a296e"
+    "sha256": "7a5316213c1819acb0daeb80f412b426343ff6d203df88e873be200df20c434a"
   },
   {
     "path": "docs/RELEASE.md",
@@ -73,19 +73,19 @@
   },
   {
     "path": "public-release.json",
-    "sha256": "ca213e6b04ba2b9ad30faf6cf46b5fd6790e08f7dfec5699a26843e2ed1421bf"
+    "sha256": "946a4e4eba4769919b450c450ec7f15b7fa3831cd3c4ff12e868db98ed110459"
   },
   {
     "path": "README.de.md",
-    "sha256": "6346030e6f4f5056ee921a5202278b070ccf1a9746c08c9b6c8b2a5f36741c3f"
+    "sha256": "9c3c5b2d901e71b1d77fc551e7a0425781c5f05fc7e0fa3cd477d20ab81c7812"
   },
   {
     "path": "README.md",
-    "sha256": "d94e619bc8d4942d30d2fd38d45f7551d407f575b7dd270c782ca7c9335a222f"
+    "sha256": "c9645cf532ff8ee682b7ccd44c5fdf0c12b964578d766a02c735caac67b50ae1"
   },
   {
     "path": "README.ru.md",
-    "sha256": "c1e9d84833d32b4b4d1fb6dc67bf89b79452b4d3f5f0473ad827461ea6b4a046"
+    "sha256": "4e262b677746b5bbde5c9003fbe0fde4eea03489619181fed9589f06fb057a30"
   },
   {
     "path": "reference/SlideFilter/presentation_deduper.py",
@@ -365,27 +365,27 @@
   },
   {
     "path": "website/Guide-de.html",
-    "sha256": "905de19267c9711c6129b15d7bdbfa3832cf018a3f6c715ba65b1a269ca0dc00"
+    "sha256": "c087f6c8b8ec829561ee8936086aba0f55b060791b7bd4708f545db3286f0a4e"
   },
   {
     "path": "website/Guide-en.html",
-    "sha256": "8b76a4b1a0fa47dac734afa28ea5e9ad9e14e41bade0108321d0c14c535dbc37"
+    "sha256": "a912b11e52f24bdf3194384dd1a18fc362bca3ab1eeffb42b4c242beada3ae95"
   },
   {
     "path": "website/Guide-ru.html",
-    "sha256": "cd871b06baa51dc2c57faa95e40601f6c195ea6f7b9c0a27089d1912a482db4e"
+    "sha256": "250881c8290a2fbba5ca0ee4c18b927ee30bba5e1089c6c62b7073e0e6f7648b"
   },
   {
     "path": "website/index-de.html",
-    "sha256": "835ed44a310597ff7e092228383382c304d71b89bf0918ac937f60e34afa5641"
+    "sha256": "e412f7f40212d22871bf1687e003035896411fe9978e2057006dbbb1e2597a76"
   },
   {
     "path": "website/index-en.html",
-    "sha256": "7d5707c74b1c1ed99ddece1d5bee6e40fc679833515d99cd11423544a9265071"
+    "sha256": "f79ae613907893c137d1968db3e466da63a7a44b022cf25fa41eee1e33e28d86"
   },
   {
     "path": "website/index-ru.html",
-    "sha256": "87686d9eb2f506832bda306cdf5aca5bcf1b8f4d9a6474596e05b501056f29be"
+    "sha256": "27021bb4568c166155cd25ffb38d401e74d187afe038a37ce30ac391ddde964c"
   },
   {
     "path": "website/index.html",

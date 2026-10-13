@@ -4,29 +4,34 @@
   "repo": "SaveLecture",
   "version": "0.1.0-preview.1",
   "platform": "Windows 11 · x64",
-  "status": "candidate",
-  "published": false,
+  "status": "preview",
+  "published": true,
   "source_url": "https://github.com/popovantondev/SaveLecture",
-  "tag": null,
-  "release_url": null,
-  "assets": [],
+  "tag": "v0.1.0-preview.1",
+  "release_url": "https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.1",
+  "assets": [
+    {
+      "name": "SaveLecture-0.1.0-preview.1-windows-x64.zip",
+      "size": 2298334,
+      "sha256": "7f5a168d30e9757917ab740bb1271fb93dfb889eccb09769b1e5f067dbe40e14",
+      "url": "https://github.com/popovantondev/SaveLecture/releases/download/v0.1.0-preview.1/SaveLecture-0.1.0-preview.1-windows-x64.zip"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 111,
+      "sha256": "fc3ac10eba1cd4e1c2cd64377a3182b00c43e7abca3c19c4c061ceebc90b93fc",
+      "url": "https://github.com/popovantondev/SaveLecture/releases/download/v0.1.0-preview.1/SHA256SUMS.txt"
+    }
+  ],
   "languages": [
     "ru",
     "de",
     "en"
   ],
   "requirements": {
-    "main": [
-      ".NET Framework 4.8",
-      "Windows PowerShell",
-      "Teams Desktop with captions enabled",
-      "Writable local folder"
-    ],
-    "optional_cleanup": [
-      "Python 3.10+",
-      "Pillow",
-      "NumPy"
-    ]
+    "ru": "Windows 11 x64, .NET Framework 4.8, Windows PowerShell и Teams Desktop с включёнными субтитрами. Python 3.10+, Pillow и NumPy — только для ручной очистки.",
+    "de": "Windows 11 x64, .NET Framework 4.8, Windows PowerShell und Teams Desktop mit Untertiteln. Python 3.10+, Pillow und NumPy nur für manuelle Bereinigung.",
+    "en": "Windows 11 x64, .NET Framework 4.8, Windows PowerShell and Teams Desktop with captions. Python 3.10+, Pillow and NumPy only for manual cleanup."
   },
   "collection": "First launch requires acknowledgement and opens the main window. Later launches collect automatically in the visible system tray; participant permission is required for every meeting.",
   "navigation": {
@@ -42,5 +47,36 @@
       "website": "https://popovantondev.github.io/SaveLecture/index-en.html",
       "guide": "https://popovantondev.github.io/SaveLecture/Guide-en.html"
     }
-  }
+  },
+  "requirements_detail": {
+    "main": [
+      ".NET Framework 4.8",
+      "Windows PowerShell",
+      "Teams Desktop with captions enabled",
+      "Writable local folder"
+    ],
+    "optional_cleanup": [
+      "Python 3.10+",
+      "Pillow",
+      "NumPy"
+    ]
+  },
+  "description": {
+    "ru": "Сохраняет субтитры Teams и снимки демонстрации в локальный архив с временными метками.",
+    "de": "Speichert Teams-Untertitel und Bilder der Bildschirmfreigabe lokal mit Zeitangaben.",
+    "en": "Saves Teams captions and shared-screen images to a local archive with timestamps."
+  },
+  "start": {
+    "ru": "Получите согласие всех участников. Распакуйте весь ZIP и запустите SaveLecture.exe. Первый запуск: предупреждение и главное окно; следующие запуски — сбор в трее.",
+    "de": "Zustimmung aller Beteiligten einholen. Das gesamte ZIP entpacken und SaveLecture.exe starten. Erster Start: Hinweis und Hauptfenster; spätere Starts: Erfassung im Infobereich.",
+    "en": "Obtain every participant’s consent. Extract the whole ZIP and run SaveLecture.exe. First launch: notice and main window; later launches: collection in the tray."
+  },
+  "help_url": "https://popovantondev.github.io/SaveLecture/Guide-{lang}.html",
+  "feedback_url": "https://github.com/popovantondev/SaveLecture/issues/new",
+  "downloads": [
+    "SaveLecture-0.1.0-preview.1-windows-x64.zip"
+  ],
+  "checksums": [
+    "SHA256SUMS.txt"
+  ]
 }

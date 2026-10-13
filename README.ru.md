@@ -6,6 +6,7 @@
 
 **Windows 11 · x64 · Учебный проект · предварительная версия 0.1.0-preview.1**
 
+[Скачать Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.1)
 [Руководство](https://popovantondev.github.io/SaveLecture/Guide-ru.html) · [Исходники](https://github.com/popovantondev/SaveLecture) · [Сообщить об ошибке](https://github.com/popovantondev/SaveLecture/issues/new)
 
 ![SaveLecture](website/assets/demo-ru.png)
