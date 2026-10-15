@@ -8,6 +8,12 @@ root=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else Path(__file__).resolve(
 manifest=json.loads((root/'public-files.json').read_text(encoding='utf8'))
 allowed=set(manifest['files'])
 issues=[]
+release=json.loads((root/'public-release.json').read_text(encoding='utf8'))
+for name in ('README.md','README.ru.md','README.de.md','docs/README.en.md','docs/README.ru.md','docs/README.de.md'):
+    text=(root/name).read_text(encoding='utf-8-sig')
+    heading=next((line for line in text.splitlines() if line.startswith('**Windows ')), '')
+    if release['version'] not in heading or release['platform'] not in heading:
+        issues.append(name+': release heading does not match public-release.json')
 patterns=[r'(?i)C:[/\\]Users[/\\](?!Public(?:[/\\]|$))[^\s"<>]+',r'(?i)(?:ghp_[A-Za-z0-9]{32,}|github_pat_[A-Za-z0-9_]{30,}|sk-proj-[A-Za-z0-9_-]{25,})',r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',r'(?i)teams\.microsoft\.com/l/meetup-join']
 for name in allowed:
     path=root/name
