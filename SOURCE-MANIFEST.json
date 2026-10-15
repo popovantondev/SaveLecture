@@ -297,7 +297,7 @@
   },
   {
     "path": "tests/UiAcceptanceTests.cs",
-    "sha256": "85f0612286f5a4d32c6c20d208538485b5ccc86899770f1399ce49ee29035c4b"
+    "sha256": "ed758eaabdbe91734de260d094091c62d45ca165c850ac33a5988696cb890019"
   },
   {
     "path": "tests/test_cleanup.py",
@@ -313,7 +313,7 @@
   },
   {
     "path": "tools/CreateWebsite.py",
-    "sha256": "4cde33d01d7d8e90569e3f59c7b7b7ab230c52e5641fe7d5793122da0ff6841d"
+    "sha256": "489f22389ebf93d357543091dbc5b17bdde0d2faf07acbb2a74396b5d2c9e35f"
   },
   {
     "path": "tools/PreparePortable.py",
@@ -325,51 +325,51 @@
   },
   {
     "path": "website/Guide-de.html",
-    "sha256": "60b4068d9b078845a3d9150affe393ee67dc66c737dcee4054368909a4ba8ab5"
+    "sha256": "0711acf7bce8ef897e6f421249836e203eaf2d92d921443c1d81a42511a8a7a5"
   },
   {
     "path": "website/Guide-en.html",
-    "sha256": "756a94c1d7383d58510ba7c632c2d3cb19092e47e514e574ee3fdbba10d304c0"
+    "sha256": "de7cd94333fdef5aacae3364ba0936405dac4f0b5fbf76ce8d178c7ae1148534"
   },
   {
     "path": "website/Guide-ru.html",
-    "sha256": "525334d8e4de6ee27dd34abad8a495558bc4bcc67280c7f85e7550c9c65b5d60"
+    "sha256": "9ac818b7b4e861322855acb3d86661458177f97f2ff5220811ce50784a5a00ce"
   },
   {
     "path": "website/assets/consent-de.png",
-    "sha256": "3cca3aed50b9f8507658c46259cd96efa9d9741487fcf0ab00f38a9b5e2d43cf"
+    "sha256": "df753aab38fe4e790b54016971995f6c6973880108b7b84e7dab0caf3019c1c1"
   },
   {
     "path": "website/assets/consent-en.png",
-    "sha256": "4ce7fb31d84a8c59f220fea52f3607ab56b6fda2846f837e3ec9ea6e8146e8f6"
+    "sha256": "786c1a30c3ea814807f6cca345106f62419df44a0557c0e575384fe488b03a16"
   },
   {
     "path": "website/assets/consent-ru.png",
-    "sha256": "846c0ad3397513db145b793fc56cf114f56cef26073cbb379aaa4196fb26bc56"
+    "sha256": "2f524102cc52c0dabfd79fa4df14658fe01f3aa1bca1f6b8ff841e92a3966bce"
   },
   {
     "path": "website/assets/demo-de.png",
-    "sha256": "5e227562fed6c151ada7521aed1cb998d6af639337c8e09d892e578756bf0c92"
+    "sha256": "51774cee03af9fda19ba987d87a4465d28890578500d7f3dc262631fbdcb4563"
   },
   {
     "path": "website/assets/demo-en.png",
-    "sha256": "fd9df630545d3ba48c5d7951aa1415ffa518d2df31d271225de14facc79e8335"
+    "sha256": "28d1dce2543cf085d62f5e82a7d1d397a48d940f5174862d7bfa3cb2024f9ab8"
   },
   {
     "path": "website/assets/demo-ru.png",
-    "sha256": "ef0e3fbcef998c2258fd2c703144f670c4aa25f69c8a8ad5da9f8c0f7487102c"
+    "sha256": "c72a5f855a2d87d11c697153b5f40159e30b56ea524892b4a90842c94b151ce4"
   },
   {
     "path": "website/assets/filters-de.png",
-    "sha256": "ade2154216deed13f627bbddd702efd8f4212a2d8a51f7ab2395f084ac0b4ff5"
+    "sha256": "f32c08ee2b8b0e5bf061046c0aafc98acb8431b1099534b93fc57d1da7cb8d33"
   },
   {
     "path": "website/assets/filters-en.png",
-    "sha256": "2981492dca79e69d2a0661ef245c5eaf5fbee47d0256161f4e53966c6312b236"
+    "sha256": "1611c130066717a69886965fc5160a6be47162759ccb9d3689e8e5b82d837b87"
   },
   {
     "path": "website/assets/filters-ru.png",
-    "sha256": "f8b27de8084aa78210c479af4034d7e583339c6a8a333e04b5665d7b17da3bb2"
+    "sha256": "11cc03b0d8beb57d22a21785681cb4f085893375c53218ee2dae459e701aa77a"
   },
   {
     "path": "website/assets/icon.png",
@@ -381,15 +381,15 @@
   },
   {
     "path": "website/index-de.html",
-    "sha256": "eb77a4983134d01f3edd1c3dfe0b8324a1a47118bd27b8f423d3f1e819e8ed33"
+    "sha256": "8e38326e0c3465402c84ebbdb742db660c1e347a820945de9249640edea58438"
   },
   {
     "path": "website/index-en.html",
-    "sha256": "04ce33449862ccd51bf384420965e31f1251fb22ba3ebb317b79359617b7c323"
+    "sha256": "386fe69f4408434f5c0b9f3c54ee0eef47929d17e5a4db6f2420d125fdd685d7"
   },
   {
     "path": "website/index-ru.html",
-    "sha256": "26d27592e8e980895567438db21a40f6f5767798265c64e6e42972298f6c29ff"
+    "sha256": "cbab83728854aff20fe89ecc1f07da3fb9262499e85c5285ecab200ef4f4e252"
   },
   {
     "path": "website/index.html",

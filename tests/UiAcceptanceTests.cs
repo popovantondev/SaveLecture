@@ -41,6 +41,30 @@ public static class UiAcceptanceTests
         var transcript=window.Find<ScrollViewer>("TranscriptScroll"); if(transcript!=null) { transcript.ScrollToTop(); root.UpdateLayout(); }
         Check(!window.Visible && root.ActualWidth==width && root.ActualHeight==height,"artificial website render stays hidden at its original window proportions");
     }
+    static void RenderWebsite(DesignWindow window,string path)
+    {
+        // Export the rounded window itself, without the opaque native-host backdrop.
+        // A transparent two-DIP gutter keeps the whole outline inside the bitmap.
+        var frame=(Border)window.View; frame.UpdateLayout(); const double scale=2, gutter=2;
+        double width=frame.ActualWidth,height=frame.ActualHeight;
+        var content=new RenderTargetBitmap((int)(width*scale),(int)(height*scale),96*scale,96*scale,PixelFormats.Pbgra32);
+        var outline=frame.BorderBrush;
+        // Draw the native outline once; clipping its own antialiased curve can leave gaps.
+        try { frame.BorderBrush=System.Windows.Media.Brushes.Transparent; content.Render(frame); }
+        finally { frame.BorderBrush=outline; }
+        var drawing=new DrawingVisual();
+        using(var context=drawing.RenderOpen()) {
+            var bounds=new Rect(gutter,gutter,width,height);
+            double radius=frame.CornerRadius.TopLeft,stroke=frame.BorderThickness.Left;
+            context.DrawRoundedRectangle(frame.Background,null,bounds,radius,radius);
+            context.PushClip(new RectangleGeometry(bounds,radius,radius));
+            context.DrawImage(content,bounds); context.Pop();
+            context.DrawRoundedRectangle(null,new System.Windows.Media.Pen(outline,stroke),new Rect(gutter+stroke/2,gutter+stroke/2,width-stroke,height-stroke),radius-stroke/2,radius-stroke/2);
+        }
+        var image=new RenderTargetBitmap((int)((width+2*gutter)*scale),(int)((height+2*gutter)*scale),96*scale,96*scale,PixelFormats.Pbgra32);
+        image.Render(drawing); var encoder=new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(image));
+        using(var stream=File.Create(path)) encoder.Save(stream);
+    }
     // Artificial examples. No meeting files, recorder or persisted preferences.
     static LectureDashboard ArchivePreview(bool compact)
     {
@@ -296,12 +320,12 @@ public static class UiAcceptanceTests
             UiPreferences.TestPath=Path.Combine(directory,"preferences.json");
             foreach(string language in new[]{"ru","de","en"}) {
                 UiText.Language=language;
-                using(var demo=ArchivePreview(false).Window) { PrepareOffscreen(demo,1100,800); Render(demo,Path.Combine(directory,"demo-"+language+".png"),2); }
+                using(var demo=ArchivePreview(false).Window) { PrepareOffscreen(demo,1100,800); RenderWebsite(demo,Path.Combine(directory,"demo-"+language+".png")); }
                 using(var websiteSettings=new LectureSettings(3,new UiPreferences { Language=language },directory,delegate{})) {
                     websiteSettings.Window.Find<Button>("Slides").RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-                    PrepareOffscreen(websiteSettings.Window,1100,800); Render(websiteSettings.Window,Path.Combine(directory,"filters-"+language+".png"),2);
+                    PrepareOffscreen(websiteSettings.Window,1100,800); RenderWebsite(websiteSettings.Window,Path.Combine(directory,"filters-"+language+".png"));
                 }
-                using(var notice=new FirstRunNotice(new UiPreferences { Language=language })) { PrepareOffscreen(notice,660,510); Render(notice,Path.Combine(directory,"consent-"+language+".png"),2); }
+                using(var notice=new FirstRunNotice(new UiPreferences { Language=language })) { PrepareOffscreen(notice,660,510); RenderWebsite(notice,Path.Combine(directory,"consent-"+language+".png")); }
             }
             Console.WriteLine("WEBSITE_ARTIFACTS="+directory); return;
         }
