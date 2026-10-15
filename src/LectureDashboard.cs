@@ -13,6 +13,7 @@ namespace SaveLecture
         public readonly DesignWindow Window;
         public Func<string,string> ResolveImagePath;
         readonly Dictionary<string,TextBlock> rows = new Dictionary<string,TextBlock>();
+        readonly CaptionMerge captionMerge=new CaptionMerge();
         readonly List<string> paths = new List<string>();
         string lastPath;
         int selected = -1;
@@ -74,11 +75,12 @@ namespace SaveLecture
                 int separator=body.IndexOf(": ",StringComparison.Ordinal);
                 if(separator>0 && separator<=120) { speaker=body.Substring(0,separator); body=body.Substring(separator+2); }
             }
-            string rendered=String.IsNullOrEmpty(speaker)?body:speaker+": "+body;
+            var group=captionMerge.Observe(key,body,speaker,time);
+            key=group.Id; body=group.Text; speaker=group.Speaker; time=group.Started;
             var panel=Window.Find<StackPanel>("TranscriptRows");
             Window.Find<TextBlock>("EmptyTranscript").Visibility=Visibility.Collapsed;
             TextBlock existing;
-            if(rows.TryGetValue(key,out existing) && (rendered.StartsWith(existing.Text,StringComparison.Ordinal) || existing.Text.StartsWith(rendered,StringComparison.Ordinal))) { CaptionText(existing,body,speaker); return; }
+            if(rows.TryGetValue(key,out existing)) { CaptionText(existing,body,speaker); return; }
             var line=new Grid { Margin=new Thickness(0,8,0,10) };
             line.ColumnDefinitions.Add(new ColumnDefinition { Width=new GridLength(61) }); line.ColumnDefinitions.Add(new ColumnDefinition());
             var stamp=new TextBlock { Text=time.ToString("HH:mm:ss"),FontSize=14,Foreground=new SolidColorBrush(Color.FromRgb(133,152,181)),Margin=new Thickness(0,2,6,0) };
@@ -167,7 +169,7 @@ namespace SaveLecture
         }
         public void Reset()
         {
-            rows.Clear(); paths.Clear(); lastPath=null; selected=-1;
+            rows.Clear(); captionMerge.Clear(); paths.Clear(); lastPath=null; selected=-1;
             var panel=Window.Find<StackPanel>("TranscriptRows"); while(panel.Children.Count>1) panel.Children.RemoveAt(1);
             Window.Find<TextBlock>("EmptyTranscript").Visibility=Visibility.Visible;
             Window.Find<Image>("SlideImage").Source=null; Window.Find<TextBlock>("EmptySlide").Visibility=Visibility.Visible;

@@ -97,6 +97,28 @@ public static class UiAcceptanceTests
         WindowsAutostart.TestExecutable=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"SaveLecture.exe");
         NameMatcher.TestPath=Path.Combine(Path.GetTempPath(),"SaveLecture-demo-aliases-"+Guid.NewGuid().ToString("N")+".txt"); File.WriteAllText(NameMatcher.TestPath,"Demo speaker A\nDemo speaker B\n");
         Forms.Application.EnableVisualStyles();
+        if(args.Length>0 && args[0]=="--caption-merge") {
+            UiPreferences.TestPath=Path.Combine(Path.GetTempPath(),"SaveLecture-caption-ui-"+Guid.NewGuid().ToString("N")+".json");
+            var view=new LectureDashboard(delegate{},delegate{},delegate{},delegate{});
+            using(view.Window) {
+                var time=new DateTime(2026,10,14,8,0,0);
+                view.Caption("first","Wir zeigen heute ein kleines Beispiel",time,"Demo speaker");
+                view.Caption("second","Wir zeigen heute ein kleines Beispiel, jetzt mit Farben.",time.AddSeconds(2),"Demo speaker");
+                view.Caption("third","Wir zeigen heute",time.AddSeconds(3),"Demo speaker");
+                var panel=view.Window.Find<StackPanel>("TranscriptRows");
+                Check(panel.Children.Count==2,"progressive caption with changing keys and commas uses one visible row");
+                var line=(Grid)panel.Children[1];
+                Check(((TextBlock)line.Children[0]).Text=="08:00:00","merged caption retains first-seen timestamp");
+                var visibleText=(TextBlock)line.Children[1];
+                Check(new System.Windows.Documents.TextRange(visibleText.ContentStart,visibleText.ContentEnd).Text.Contains("Farben"),"short redraw keeps the fullest visible text");
+                view.Caption("fourth","Wir zeigen heute ein kleines Beispiel, jetzt mit Farben.",time.AddSeconds(4),"Other speaker");
+                Check(panel.Children.Count==3,"different speaker gets a separate visible row");
+                view.Caption("fifth","Wir wechseln jetzt das Thema.",time.AddSeconds(5),"Demo speaker");
+                Check(panel.Children.Count==4,"another utterance from same speaker remains visible");
+                view.Reset(); Check(panel.Children.Count==1,"new recording clears caption grouping and visible rows");
+            }
+            return;
+        }
         if(args.Length>0 && args[0]=="--source-status") {
             string statusDirectory=Path.Combine(Path.GetTempPath(),"SaveLecture-source-status-"+Guid.NewGuid().ToString("N")); Directory.CreateDirectory(statusDirectory);
             UiPreferences.TestPath=Path.Combine(statusDirectory,"preferences.json");

@@ -11,6 +11,45 @@ internal static class AcceptanceTests
     {
         string root = Path.Combine(Path.GetTempPath(), "SaveLecture-tests-" + Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(root);
+        var captionMerge=new CaptionMerge(); var captionTime=new DateTime(2026,10,14,23,59,58);
+        var phrase=captionMerge.Observe("control-a","Wir zeigen heute ein kleines Beispiel","Demo speaker",captionTime);
+        string phraseId=phrase.Id;
+        phrase=captionMerge.Observe("control-b","Wir zeigen heute ein kleines Beispiel, jetzt mit Farben.","Demo speaker",captionTime.AddSeconds(1));
+        Check(phrase.Id==phraseId && phrase.Started==captionTime,"punctuation and changing control IDs update one utterance with its first timestamp");
+        Check(CaptionMerge.Related("Demo Nummer 222","Demo Nummer 2222 enthält Formen."),"a number or unfinished word extended in place follows Session prefix matching");
+        string preferred=phrase.Text;
+        phrase=captionMerge.Observe("control-c","Wir zeigen heute","Demo speaker",captionTime.AddSeconds(2));
+        Check(phrase.Text==preferred,"transient shortened caption never replaces the fuller version");
+        Check(captionMerge.Observe("control-c",preferred,"Different speaker",captionTime.AddSeconds(3)).Id!=phraseId,"same words from another speaker remain a separate utterance");
+        Check(captionMerge.Observe("control-d","Das Netzwerk besteht aus mehreren Rechnern.","Demo speaker",captionTime.AddSeconds(4)).Id!=phraseId,"unrelated speech from the same speaker is retained");
+        Check(captionMerge.Observe("control-e",preferred,"Demo speaker",captionTime.AddSeconds(40)).Id!=phraseId,"a repeated phrase outside the bounded merge window remains separate");
+        string captionRoot=Path.Combine(root,"caption-projection"),captionPath;
+        using(var captions=new ArchiveStore(captionRoot,true)) {
+            captions.AppendText("Existing record must stay intact.","Demo speaker",captionTime);
+            captions.AppendRaw(phraseId,"Wir zeigen heute ein kleines Beispiel","Demo speaker",captionTime,"Wir zeigen heute ein kleines Beispiel",captionTime,"control-a");
+            captions.UpsertCaption(phraseId,"Wir zeigen heute ein kleines Beispiel","Demo speaker",captionTime); captionPath=captions.TranscriptPath;
+            captions.AppendRaw(phraseId,preferred,"Demo speaker",captionTime.AddSeconds(1),preferred,captionTime,"control-b");
+            captions.UpsertCaption(phraseId,preferred,"Demo speaker",captionTime);
+            Check(File.ReadAllLines(captionPath).Length==2 && File.ReadAllText(captionPath).Contains(preferred),"TXT replaces progressive versions while preserving the original prefix");
+            bool projectionBlocked=false;
+            using(var readerLock=new FileStream(captionPath,FileMode.Open,FileAccess.Read,FileShare.Read)) {
+                try { captions.UpsertCaption(phraseId,preferred+" Extra.","Demo speaker",captionTime); } catch(IOException) { projectionBlocked=true; }
+            }
+            Check(projectionBlocked && File.ReadAllText(captionPath).Contains(preferred) && !File.ReadAllText(captionPath).Contains("Extra."),"blocked atomic replacement leaves the previous TXT intact");
+            captions.UpsertCaption(phraseId,preferred,"Demo speaker",captionTime);
+            Check(File.ReadAllLines(captionPath).Length==2,"projection can retry after file unlock without duplicate rows");
+            string late=preferred+" Jetzt ist es vollständig.";
+            captions.AppendRaw(phraseId,late,"Demo speaker",captionTime.AddSeconds(4),late,captionTime,"control-f");
+            // Deliberately stop before updating the TXT to exercise durable recovery.
+        }
+        using(var captions=new ArchiveStore(captionRoot,true)) {
+            string recoveredCaption=File.ReadAllText(captionPath);
+            Check(File.ReadAllLines(captionPath).Length==2 && recoveredCaption.StartsWith("[23:59:58] Demo speaker: Existing record") && recoveredCaption.Contains("vollständig"),"restart restores the latest grouped caption across midnight without duplicating committed partial text");
+            captions.MarkClean();
+        }
+        string rawCaption=Path.Combine(captionRoot,"14.10.2026","_service",Path.GetFileNameWithoutExtension(captionPath)+".jsonl");
+        string cleanCaption=Path.Combine(root,"caption-recovered.txt");
+        Check(ArchiveStore.Recover(rawCaption,cleanCaption)==1 && File.ReadAllLines(cleanCaption).Length==1,"export recovery consolidates grouped raw observations into one readable utterance");
         using(var clearBoard=new Bitmap(240,135)) {
             using(var g=Graphics.FromImage(clearBoard)) {
                 g.Clear(Color.FromArgb(18,18,18));
@@ -78,6 +117,15 @@ internal static class AcceptanceTests
         Check(!SlideSelection.IsMoreComplete(drawingBoard,drawingOther),"a different board is not merged by its shared background");
         var drawingSelection=new SlideSelection(); drawingSelection.Add("first.png",drawingBoard); drawingSelection.Add("final.png",drawingFinished);
         Check(drawingSelection.Representative("first.png")=="final.png" && drawingSelection.EarlierVersions("final.png").Length==1,"earlier drawing resolves to latest representative and remains recoverable");
+        var edgeFirst=new byte[240*135]; for(int i=0;i<edgeFirst.Length;i++) edgeFirst[i]=(byte)(i%97);
+        var edgeLast=(byte[])edgeFirst.Clone(); for(int x=10;x<40;x++) edgeLast[133*240+x]=180; edgeLast[70*240+160]=220;
+        Check(SlideSelection.SameSlideChrome(edgeFirst,edgeLast),"minor footer chrome and one cursor mark are the same slide");
+        var edgeSelection=new SlideSelection(); edgeSelection.Add("earlier.jpg",edgeFirst); edgeSelection.Add("latest.jpg",edgeLast);
+        Check(edgeSelection.Representative("earlier.jpg")=="latest.jpg" && edgeSelection.EarlierVersions("latest.jpg").Length==1,"latest near-identical capture replaces its previous gallery representative");
+        var edgeText=(byte[])edgeFirst.Clone(); for(int y=50;y<53;y++) for(int x=80;x<85;x++) edgeText[y*240+x]=220;
+        Check(!SlideSelection.SameSlideChrome(edgeFirst,edgeText),"a real interior text change is not classified as edge chrome");
+        var edgeOther=(byte[])edgeFirst.Clone(); for(int y=40;y<80;y++) for(int x=80;x<160;x++) edgeOther[y*240+x]=220;
+        Check(!SlideSelection.SameSlideChrome(edgeFirst,edgeOther),"a broad slide change stays separate");
         drawingSelection.Add("first.png",drawingFinished);
         Check(drawingSelection.Representative("first.png")=="final.png" && !drawingSelection.EarlierVersions("final.png").Contains("final.png"),"reobserving predecessor cannot resurrect a moved path or create a self reference");
         string moveRoot=Path.Combine(root,"progressive-archive");

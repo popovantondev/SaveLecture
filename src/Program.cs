@@ -13,8 +13,8 @@ namespace SaveLecture
 {
     internal sealed class PendingCaption
     {
-        public string Text, Speaker, Written;
-        public DateTime Observed;
+        public string Text, Speaker, Written,WrittenSpeaker;
+        public DateTime Observed,Updated;
     }
     internal sealed class ReceivedCaption
     {
@@ -44,6 +44,7 @@ namespace SaveLecture
         private SlideArchive slides;
         private readonly ConcurrentQueue<ReceivedCaption> inbox = new ConcurrentQueue<ReceivedCaption>();
         private readonly Dictionary<string, PendingCaption> pending = new Dictionary<string, PendingCaption>();
+        private readonly CaptionMerge captionMerge=new CaptionMerge();
         private NameAlertDecider alertDecider = new NameAlertDecider();
         private readonly MentionPopup mentionPopup = new MentionPopup();
         private NameMatcher nameMatcher = NameMatcher.Load(NameMatcher.SettingsPath);
@@ -74,6 +75,7 @@ namespace SaveLecture
             int loaded;
             if (File.Exists(settingsPath) && Int32.TryParse(File.ReadAllText(settingsPath), out loaded)) stabilitySeconds = Math.Max(0, Math.Min(60, loaded));
             slides.StabilitySeconds = stabilitySeconds;
+            try { slides.PrepareDay(DateTime.Now); } catch(Exception error) { Log(error); }
             LiveSlideFilter.DuplicateThreshold = Math.Max(.8, Math.Min(1,preferences.DuplicateThreshold));
             LiveSlideFilter.StableThreshold = Math.Max(.8, Math.Min(1,preferences.StableThreshold));
             LiveSlideFilter.MaxShift=preferences.PixelShiftThreshold;
@@ -253,8 +255,9 @@ namespace SaveLecture
             store = new ArchiveStore(root, true);
             slides = new SlideArchive(root, store.SessionStem);
             slides.StabilitySeconds = stabilitySeconds;
+            try { slides.PrepareDay(DateTime.Now); } catch(Exception error) { Log(error); }
             dashboard.Reset(); sessionClock.Reset(); recordingPaused=false; skipResumeBaseline=false;
-            reader = null; pending.Clear(); alertDecider = new NameAlertDecider();
+            reader = null; pending.Clear(); captionMerge.Clear(); alertDecider = new NameAlertDecider();
             captionsFlushed = false; stopping = false; fragments = 0; screenshots = 0;
             captionAvailable = false; sharedAvailable = false;
             SetCaptionStatus("Ожидание субтитров Teams"); SetImageStatus("Ожидание демонстрации");
@@ -345,17 +348,14 @@ namespace SaveLecture
                     if (current != null)
                     {
                         var update = current.Update;
-                        store.AppendRaw(update.SourceKey, update.Text, update.SpeakerName, current.Time);
+                        var group=captionMerge.Observe(update.SourceKey,update.Text,update.SpeakerName,current.Time);
+                        store.AppendRaw(group.Id,update.Text,group.Speaker,current.Time,group.Text,group.Started,update.SourceKey);
                         PendingCaption item;
-                        if (!pending.TryGetValue(update.SourceKey, out item))
-                        { item = new PendingCaption(); pending[update.SourceKey] = item; }
-                        // Reused caption controls can start another utterance before the previous one settles.
-                        if (item.Text != null && !update.Text.StartsWith(item.Text, StringComparison.Ordinal) && !item.Text.StartsWith(update.Text, StringComparison.Ordinal) && item.Written != item.Text)
-                            store.AppendText(item.Text, item.Speaker, item.Observed);
-                        item.Text = update.Text; item.Speaker = update.SpeakerName; item.Observed = current.Time;
+                        if (!pending.TryGetValue(group.Id, out item))
+                        { item = new PendingCaption(); pending[group.Id] = item; fragments++; }
+                        item.Text=group.Text; item.Speaker=group.Speaker; item.Observed=group.Started; item.Updated=current.Time;
                         current = null;
-                        fragments++;
-                        viewInbox.Enqueue(new ReceivedCaption { Update=update,Time=item.Observed });
+                        viewInbox.Enqueue(new ReceivedCaption { Update=new TeamsCaptionUpdate { SourceKey=group.Id,Text=group.Text,SpeakerName=group.Speaker },Time=item.Updated });
                         SetCaptionStatus("Сохраняется · последнее получение " + DateTime.Now.ToString("HH:mm:ss"));
                     }
                     FlushPending(stopping);
@@ -373,9 +373,9 @@ namespace SaveLecture
             foreach (string key in new List<string>(pending.Keys))
             {
                 var item = pending[key];
-                if (item.Written != item.Text && (all || (now - item.Observed).TotalSeconds >= 3))
-                { store.AppendText(item.Text, item.Speaker, item.Observed); item.Written = item.Text; }
-                if ((now - item.Observed).TotalMinutes > 2) pending.Remove(key);
+                if ((item.Written != item.Text || item.WrittenSpeaker!=item.Speaker) && (all || (now - item.Updated).TotalMilliseconds >= 450))
+                { store.UpsertCaption(key,item.Text,item.Speaker,item.Observed); item.Written = item.Text; item.WrittenSpeaker=item.Speaker; }
+                if (item.Written==item.Text && item.WrittenSpeaker==item.Speaker && (now - item.Updated).TotalMinutes > 2) pending.Remove(key);
             }
         }
 

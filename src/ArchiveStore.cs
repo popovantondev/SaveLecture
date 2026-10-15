@@ -18,6 +18,12 @@ namespace SaveLecture
         private FileStream transcript;
         private readonly List<string> journalPaths = new List<string>();
         private string day;
+        sealed class Projection
+        {
+            public byte[] Prefix;
+            public readonly List<CaptionGroup> Items=new List<CaptionGroup>();
+        }
+        readonly Dictionary<string,Projection> projections=new Dictionary<string,Projection>();
         public string DayDirectory { get; private set; }
         public string TranscriptPath { get; private set; }
         public string SessionStem { get { return "Session_" + session; } }
@@ -41,6 +47,8 @@ namespace SaveLecture
 
         private void RestorePending()
         {
+            var resolved=new Dictionary<string,IDictionary<string,object>>();
+            var versions=new List<IDictionary<string,object>>();
             foreach (string directory in Directory.GetDirectories(root))
             {
                 string source = Path.Combine(directory, "_service", SessionStem + ".jsonl");
@@ -51,7 +59,12 @@ namespace SaveLecture
                     try
                     {
                         var row = json.DeserializeObject(line) as IDictionary<string, object>;
-                        if (row != null && row.ContainsKey("key") && row.ContainsKey("text")) latest[Convert.ToString(row["key"])] = row;
+                        if (row != null && row.ContainsKey("key") && row.ContainsKey("text")) {
+                            if(row.ContainsKey("resolved_text") && !String.IsNullOrEmpty(Convert.ToString(row["resolved_text"]))) {
+                                string key=Convert.ToString(row["key"]); versions.Add(row);
+                                if(!resolved.ContainsKey(key) || DateTime.Parse(Convert.ToString(row["received"]))>=DateTime.Parse(Convert.ToString(resolved[key]["received"]))) resolved[key]=row;
+                            } else latest[Convert.ToString(row["key"])] = row;
+                        }
                     }
                     catch (ArgumentException) { }
                 }
@@ -66,6 +79,29 @@ namespace SaveLecture
                     if (already.Contains(Format(text, speaker, observed))) continue;
                     using (var output = new FileStream(textPath, FileMode.Append, FileAccess.Write, FileShare.Read)) Write(output, Format(text, speaker, observed));
                 }
+            }
+            RestoreProjection(resolved,versions);
+        }
+
+        void RestoreProjection(Dictionary<string,IDictionary<string,object>> latest,List<IDictionary<string,object>> versions)
+        {
+            foreach(var row in latest.Values) {
+                DateTime time=DateTime.Parse(Convert.ToString(row["first_seen"]),null,System.Globalization.DateTimeStyles.RoundtripKind);
+                string path=Path.Combine(root,time.ToString("dd.MM.yyyy"),SessionStem+".txt"); Projection projection;
+                if(!projections.TryGetValue(path,out projection)) {
+                    string prefix=File.Exists(path)?File.ReadAllText(path):"";
+                    foreach(var old in versions) {
+                        DateTime first=DateTime.Parse(Convert.ToString(old["first_seen"]),null,System.Globalization.DateTimeStyles.RoundtripKind);
+                        if(first.Date!=time.Date) continue;
+                        prefix=prefix.Replace(Format(Convert.ToString(old["resolved_text"]),Convert.ToString(old["speaker"]),first),"");
+                    }
+                    projection=new Projection { Prefix=new UTF8Encoding(false).GetBytes(prefix) }; projections[path]=projection;
+                }
+                projection.Items.Add(new CaptionGroup { Id=Convert.ToString(row["key"]),Text=Convert.ToString(row["resolved_text"]),Speaker=Convert.ToString(row["speaker"]),Started=time });
+            }
+            foreach(var pair in projections) {
+                pair.Value.Items.Sort(delegate(CaptionGroup a,CaptionGroup b) { return a.Started.CompareTo(b.Started); });
+                Directory.CreateDirectory(Path.GetDirectoryName(pair.Key)); WriteProjection(pair.Key,pair.Value);
             }
         }
 
@@ -95,12 +131,46 @@ namespace SaveLecture
             catch { nextJournal.Dispose(); throw; }
         }
 
-        public void AppendRaw(string key, string text, string speaker, DateTime now)
+        public void AppendRaw(string key, string text, string speaker, DateTime now,string resolved=null,DateTime? started=null,string source=null)
         {
             lock (gate)
             {
                 OpenDay(now);
-                Write(journal, json.Serialize(new { type = "caption", key = key, text = text, speaker = speaker, received = now.ToString("o") }) + "\n");
+                Write(journal, json.Serialize(new { type = "caption", key = key, text = text, speaker = speaker, received = now.ToString("o"),resolved_text=resolved,first_seen=started.HasValue?started.Value.ToString("o"):null,source=source }) + "\n");
+            }
+        }
+
+        // The TXT is a readable projection; raw observations remain append-only.
+        // Only records owned by this running session are replaceable, never its prefix.
+        public void UpsertCaption(string key,string text,string speaker,DateTime observed)
+        {
+            lock(gate) {
+                string directory=Path.Combine(root,observed.ToString("dd.MM.yyyy")); Directory.CreateDirectory(directory);
+                string path=Path.Combine(directory,SessionStem+".txt"); Projection projection;
+                if(transcript!=null && String.Equals(path,TranscriptPath,StringComparison.OrdinalIgnoreCase)) { transcript.Dispose(); transcript=null; }
+                if(!projections.TryGetValue(path,out projection)) {
+                    projection=new Projection { Prefix=File.Exists(path)?File.ReadAllBytes(path):new byte[0] }; projections[path]=projection;
+                }
+                var item=projection.Items.Find(delegate(CaptionGroup value) { return value.Id==key; });
+                if(item==null) { item=new CaptionGroup { Id=key,Started=observed }; projection.Items.Add(item); }
+                item.Text=text; item.Speaker=speaker;
+                WriteProjection(path,projection);
+            }
+        }
+
+        void WriteProjection(string path,Projection projection)
+        {
+            if(transcript!=null && String.Equals(path,TranscriptPath,StringComparison.OrdinalIgnoreCase)) { transcript.Dispose(); transcript=null; }
+            string temporary=path+"."+Guid.NewGuid().ToString("N")+".tmp";
+            try {
+                using(var output=new FileStream(temporary,FileMode.CreateNew,FileAccess.Write,FileShare.Read)) {
+                    output.Write(projection.Prefix,0,projection.Prefix.Length);
+                    foreach(var item in projection.Items) Write(output,Format(item.Text,item.Speaker,item.Started));
+                    output.Flush(true);
+                }
+                if(File.Exists(path)) File.Replace(temporary,path,null); else File.Move(temporary,path);
+            } finally {
+                if(File.Exists(temporary)) File.Delete(temporary);
             }
         }
 
@@ -111,7 +181,7 @@ namespace SaveLecture
                 // A delayed final line belongs to its observation day, even across midnight.
                 string target = Path.Combine(root, observed.ToString("dd.MM.yyyy"));
                 Directory.CreateDirectory(target);
-                if (day == observed.ToString("dd.MM.yyyy"))
+                if (day == observed.ToString("dd.MM.yyyy") && transcript!=null)
                     Write(transcript, Format(text, speaker, observed));
                 else
                 {
@@ -173,6 +243,7 @@ namespace SaveLecture
             // Never rewrite an original transcript. A torn final JSON record is ignored.
             int count = 0;
             var parser = new JavaScriptSerializer();
+            var grouped=new Dictionary<string,IDictionary<string,object>>();
             using (var output = new FileStream(outputPath, FileMode.CreateNew, FileAccess.Write, FileShare.Read))
             using (var input = new StreamReader(journalPath, Encoding.UTF8))
             {
@@ -183,9 +254,16 @@ namespace SaveLecture
                     try { row = parser.DeserializeObject(line) as IDictionary<string, object>; }
                     catch (ArgumentException) { continue; }
                     if (row == null || !row.ContainsKey("text") || !row.ContainsKey("received")) continue;
+                    if(row.ContainsKey("resolved_text") && !String.IsNullOrEmpty(Convert.ToString(row["resolved_text"]))) { grouped[Convert.ToString(row["key"])]=row; continue; }
                     DateTime time = DateTime.Parse(Convert.ToString(row["received"]), null, System.Globalization.DateTimeStyles.RoundtripKind);
                     Write(output, Format(Convert.ToString(row["text"]), row.ContainsKey("speaker") ? Convert.ToString(row["speaker"]) : "", time));
                     count++;
+                }
+                var final=new List<IDictionary<string,object>>(grouped.Values);
+                final.Sort(delegate(IDictionary<string,object> a,IDictionary<string,object> b) { return DateTime.Parse(Convert.ToString(a["first_seen"])).CompareTo(DateTime.Parse(Convert.ToString(b["first_seen"]))); });
+                foreach(var row in final) {
+                    DateTime time=DateTime.Parse(Convert.ToString(row["first_seen"]),null,System.Globalization.DateTimeStyles.RoundtripKind);
+                    Write(output,Format(Convert.ToString(row["resolved_text"]),Convert.ToString(row["speaker"]),time)); count++;
                 }
             }
             return count;

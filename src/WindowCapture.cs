@@ -170,7 +170,7 @@ namespace SaveLecture
             File.AppendAllText(Path.Combine(directory, "slides_timeline.txt"), readable, new UTF8Encoding(false));
         }
 
-        public string Observe(Bitmap image, DateTime now)
+        public void PrepareDay(DateTime now)
         {
             string nextDay = now.ToString("dd.MM.yyyy");
             string directory = Path.Combine(root, nextDay, "scr");
@@ -192,7 +192,14 @@ namespace SaveLecture
                 selection.Save(Path.GetDirectoryName(directory),delegate { System.Threading.Interlocked.Increment(ref Duplicates); });
                 day = nextDay;
                 Missing();
+                LastImagePath=files.Length==0?null:selection.Representative(files[files.Length-1]);
             }
+        }
+
+        public string Observe(Bitmap image, DateTime now)
+        {
+            PrepareDay(now);
+            string directory=Path.Combine(root,day,"scr");
             byte[] feature = Feature(image);
             // Uniform blank/black capture is not lecture material.
             byte min = 255, max = 0;

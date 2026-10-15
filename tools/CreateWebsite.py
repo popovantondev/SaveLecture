@@ -136,6 +136,16 @@ for lang in languages:
     data[lang]['storageBody']=data[lang]['storageBody'].replace('Файлы не перемещаются автоматически.','').replace('Existing files are not moved automatically.','').replace('Vorhandene Dateien werden nicht automatisch verschoben.','')+' '+storage_details[lang]
     data[lang]['troubleBody']+=' '+status_details[lang]
     data[lang]['statsBody']+=' '+counter_details[lang]
+    data[lang]['storageBody']+=' '+{
+        'ru':'Обновления одной реплики объединяются без учёта регистра, пунктуации и смены элемента Teams. В окне и TXT текущей лекции остаётся актуальная версия с временем первого появления; исходные обновления сохраняются для восстановления. Завершённые прежние TXT не переписываются. При почти одинаковом слайде и мелких изменениях курсора или панели галерея выбирает последний сохранённый снимок; предыдущий остаётся в Removed.',
+        'de':'Aktualisierungen derselben Äußerung werden unabhängig von Großschreibung, Satzzeichen und wechselnden Teams-Elementen zusammengeführt. Oberfläche und TXT der laufenden Vorlesung zeigen die aktuelle Fassung mit dem ersten Zeitstempel; ursprüngliche Updates bleiben zur Wiederherstellung erhalten. Frühere abgeschlossene TXT-Dateien bleiben unverändert. Bei nahezu identischen Folien mit kleinen Cursor- oder Leistenänderungen verwendet die Galerie das zuletzt gespeicherte Bild; der Vorgänger bleibt in Removed.',
+        'en':'Updates of one utterance are merged despite changes in case, punctuation or Teams control IDs. The interface and current lecture TXT show its current version with the first-seen timestamp; original updates remain available for recovery. Earlier completed TXT files stay unchanged. For nearly identical slides with tiny cursor or toolbar changes, the gallery prefers the latest saved capture; its predecessor remains in Removed.'
+    }[lang]
+    data[lang]['statsBody']+=' '+{
+        'ru':'«Текст» считает объединённые реплики, а не каждое промежуточное обновление Teams.',
+        'de':'„Text“ zählt zusammengeführte Äußerungen, nicht jedes Zwischenupdate von Teams.',
+        'en':'“Text” counts merged utterances, rather than every intermediate Teams update.'
+    }[lang]
     data[lang]['statsBody']+=' '+{
         'ru':'Проверка продолжается с заданным интервалом, но неподвижный уже обработанный слайд не увеличивает счётчик каждую секунду. Чистый кадр после исчезновения диалога проходит проверку стабильности; скрытые участки не дорисовываются.',
         'de':'Die Prüfung läuft im eingestellten Abstand weiter; eine unveränderte, bereits verarbeitete Folie erhöht den Zähler nicht jede Sekunde. Nach dem Schließen eines Dialogs wird das tatsächlich sichtbare Bild auf Stabilität geprüft; verdeckte Inhalte werden nicht ergänzt.',

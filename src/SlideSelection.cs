@@ -18,6 +18,20 @@ namespace SaveLecture
 
         public void Reset() { lock(selected) selected.Clear(); }
 
+        public static bool SameSlideChrome(byte[] first,byte[] second)
+        {
+            if(first==null || second==null || first.Length!=240*135 || second.Length!=first.Length) return false;
+            long difference=0; int changed=0,inside=0;
+            for(int y=0;y<135;y++) for(int x=0;x<240;x++) {
+                int delta=Math.Abs(first[y*240+x]-second[y*240+x]); difference+=delta;
+                if(delta<=20) continue;
+                changed++;
+                if(x>=4 && x<236 && y>=12 && y<129) inside++;
+            }
+            // Tiny cursor marks and edge chrome, never a broad content change.
+            return difference<first.Length*.8 && changed<=first.Length*.003 && inside<=4;
+        }
+
         public static bool IsMoreComplete(byte[] previous, byte[] current)
         {
             if (previous == null || current == null || previous.Length != current.Length) return false;
@@ -76,7 +90,7 @@ namespace SaveLecture
             // Re-observing an archived predecessor must never promote its old path.
             foreach(var item in selected) if(item.Earlier.Contains(path)) return;
             var superseded=new List<Selected>();
-            foreach(var item in selected) if(IsMoreComplete(item.Feature,feature)) superseded.Add(item);
+            foreach(var item in selected) if(IsMoreComplete(item.Feature,feature) || SameSlideChrome(item.Feature,feature)) superseded.Add(item);
             Selected existing=selected.Find(delegate(Selected item) { return item.Path==path; });
             if(superseded.Count>0) {
                 Selected representative=existing??superseded[0];

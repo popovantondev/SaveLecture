@@ -20,6 +20,46 @@
     "sha256": "68c323dd9504b2fedaf0c344d964869870c9b62f4da7c8a9b3f043e5857c6c73"
   },
   {
+    "path": "Build.ps1",
+    "sha256": "1a1af91221b703361f3a421b9ba546e3e5b444cb852a49971b68602959e081e5"
+  },
+  {
+    "path": "InstallAutostart.ps1",
+    "sha256": "dc402b8529ab5440ad719ddbb074e8b2061392790328c077f76030e78f5b7f62"
+  },
+  {
+    "path": "NameAliases.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "README.de.md",
+    "sha256": "1346134586b3a6bfadb14bf4ca434b5610329d932181a859ae814847c9d1f82f"
+  },
+  {
+    "path": "README.md",
+    "sha256": "2c9e93914e5e26ba747fe4644b005dba098e9cd8bcff863ac1524c6bebaa0ca3"
+  },
+  {
+    "path": "README.ru.md",
+    "sha256": "38eb6bce3d568a65213f545895f15dfca034bc89902fd887525c92591a65ba0e"
+  },
+  {
+    "path": "RIGHTS.md",
+    "sha256": "989091c4b69904f5d8473c25ffb0867cccedc2caa3d14a1c02a8f9726a37a204"
+  },
+  {
+    "path": "SaveLecture.ico",
+    "sha256": "f0c089615487eb9e63cc18211577f92fd6e530794ad0b67a1dff7bc06a5bec2b"
+  },
+  {
+    "path": "THIRD_PARTY_NOTICES.md",
+    "sha256": "daec9c66d0996508a0f689a4b3bf3cc3e42e52ed1e39a0828a7d9f25aa1a41ff"
+  },
+  {
+    "path": "UninstallAutostart.ps1",
+    "sha256": "f0275d0fef47da967a8753949d3284ecbdc505f0e6afa304a2199570b58c6a12"
+  },
+  {
     "path": "assets/brand.png",
     "sha256": "a5b3778f7c0f7a6cff5c6661b50c33dcf47fdd0bdf3b83ce5fe14a269229ad21"
   },
@@ -32,24 +72,20 @@
     "sha256": "65f1d57c4df9b7d37ae8d3cd7e0afb3131b7540d2e35550d5d4e702b42045d25"
   },
   {
-    "path": "Build.ps1",
-    "sha256": "1a1af91221b703361f3a421b9ba546e3e5b444cb852a49971b68602959e081e5"
-  },
-  {
     "path": "docs/BUILDING.md",
     "sha256": "f919750d51771a151562ea0796b8aab85df10892fae08d8f31dada484e757ebe"
   },
   {
     "path": "docs/README.de.md",
-    "sha256": "d6bfae05c2560bbb75b7f12049d39c529744df88d4b0371b380544cfbd93b6d7"
+    "sha256": "71ce8eb4a5040cd660a42d498f90fe16fbd77d81c6f6d87b9c88520f4ec4b2cc"
   },
   {
     "path": "docs/README.en.md",
-    "sha256": "b96a87618f964d3e4180412ba2d22a99646e758bab92147221f582a84df50a03"
+    "sha256": "9d5d251bd2f22153368729eaf8a1af8340776b5ec85f4f64f2b260555b89e610"
   },
   {
     "path": "docs/README.ru.md",
-    "sha256": "12b9e4ff8d8096efd5bca2d373146eeb3668f4e6b4f106bca139074d4104fff9"
+    "sha256": "a5c4bab4fe2f06bc782b117da5a75007c8e15a1cdf804745bc9434a52f7841c2"
   },
   {
     "path": "docs/RELEASE.md",
@@ -57,47 +93,19 @@
   },
   {
     "path": "docs/VERIFICATION.md",
-    "sha256": "766a869550b9ecda2813eff6c1b7ba0a205249726e11d11ea9325fca3ca53a53"
-  },
-  {
-    "path": "InstallAutostart.ps1",
-    "sha256": "dc402b8529ab5440ad719ddbb074e8b2061392790328c077f76030e78f5b7f62"
-  },
-  {
-    "path": "NameAliases.txt",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "sha256": "56d6f17dfba85142336b29fc2258e460810540100ccb88967b08e85330fc60a9"
   },
   {
     "path": "public-files.json",
-    "sha256": "e72fb667daf2be64bb5ee101f537350719487cd85e7eff9c965dfd7ba78dc122"
+    "sha256": "e1b26a89ef8d51fd8740b34d76af11642e1b7e464cdf6690bcedb8a00fa4afeb"
   },
   {
     "path": "public-release.json",
-    "sha256": "9dd43274b8a3ec33c7025a9c901b532ac6a93623d11aac1f8c905ddd435a542e"
-  },
-  {
-    "path": "README.de.md",
-    "sha256": "be4599d9de2fe22220d82baee0825f6cc29f33fccae6efd5359156a7523a3d4e"
-  },
-  {
-    "path": "README.md",
-    "sha256": "1afb2ecfd49a82edab528f683dc58ff2ed9541f4a779ec71ed41d6b00ea5f0e7"
-  },
-  {
-    "path": "README.ru.md",
-    "sha256": "b6c0485927bf82623ec4a95b5a793e1e3914510bb65dfce3656668b4b56e8173"
+    "sha256": "a0b731bc969a23e5ba2465435319f5bb5618658f349f6695f85e492d7caddd3a"
   },
   {
     "path": "reference/SlideFilter/presentation_deduper.py",
     "sha256": "25b1cf80a1e7601af69f4cc7c60762f5343e4ccb0b28cb014e5c7024f7874473"
-  },
-  {
-    "path": "RIGHTS.md",
-    "sha256": "989091c4b69904f5d8473c25ffb0867cccedc2caa3d14a1c02a8f9726a37a204"
-  },
-  {
-    "path": "SaveLecture.ico",
-    "sha256": "f0c089615487eb9e63cc18211577f92fd6e530794ad0b67a1dff7bc06a5bec2b"
   },
   {
     "path": "src/AppDiagnostics.cs",
@@ -105,7 +113,7 @@
   },
   {
     "path": "src/ArchiveStore.cs",
-    "sha256": "261594c7fa8c855425a19c061a112928f2d5c9c49d89933c1feafc581f36e95c"
+    "sha256": "b14a0b5ec86065e1cc878b5b08bddb44898c305c7c1943dd761e537a946db962"
   },
   {
     "path": "src/BrandDrawing.cs",
@@ -116,8 +124,8 @@
     "sha256": "e36ed7ee15096440b7145036fe902362b35975173b319de3dbfa24c962eec3fa"
   },
   {
-    "path": "src/caption_observation_state.ps1",
-    "sha256": "56e518a92186658da439d7fac169e2496efc14d0d5302620cae7628901e6deff"
+    "path": "src/CaptionMerge.cs",
+    "sha256": "e2d9900e3f9783cbbf4664c5e93188ffd791cd1f9ac37a67669923737351a994"
   },
   {
     "path": "src/CleanupPage.cs",
@@ -145,7 +153,7 @@
   },
   {
     "path": "src/LectureDashboard.cs",
-    "sha256": "4842594b96748a86d0d404cc728a2d1c8bef6d70541fe827a877c317208d7f00"
+    "sha256": "6566f46c06195c63f397dff8987322eb94c8a85d87175dd52533f02925688baf"
   },
   {
     "path": "src/LectureSettings.cs",
@@ -169,15 +177,7 @@
   },
   {
     "path": "src/Program.cs",
-    "sha256": "8d66bae07c0cc6e0bc6722878a223b6c6640f4155e954533171b9d7cac795b61"
-  },
-  {
-    "path": "src/slide_cleanup.py",
-    "sha256": "475ceaf9a195e99727bc94327dffd853270a7f35a6c741ce5971a0c1df268ef2"
-  },
-  {
-    "path": "src/SliderMarks.cs",
-    "sha256": "a1b5c3f221a8d9053392c8a418a7359984913314e7432f7f25ff96496bfa6b00"
+    "sha256": "bc8aaff0504b6d345b578d800513ff72e2fc967d24981e9f5a29eae4db6269be"
   },
   {
     "path": "src/SlideRelocations.cs",
@@ -185,15 +185,15 @@
   },
   {
     "path": "src/SlideSelection.cs",
-    "sha256": "49c256673f8476933ec0ef46fc593ed6dc41124a220f72f9bc6237a8122c9b5a"
+    "sha256": "42b16058764b91281e2c7e3bafc2f49f1ffbcda0a0788f7c166feaa3003f2b93"
+  },
+  {
+    "path": "src/SliderMarks.cs",
+    "sha256": "a1b5c3f221a8d9053392c8a418a7359984913314e7432f7f25ff96496bfa6b00"
   },
   {
     "path": "src/StopConfirmation.cs",
     "sha256": "b564ab3f8cc3b1cde51f90bdb8f6737d6cfd60d2dfdac8a064aa293e7615ec16"
-  },
-  {
-    "path": "src/teams_caption_reader.ps1",
-    "sha256": "a3ef895ee95de1cff28e42efcc5758e92608396042860ce41987b6bc157ae9cd"
   },
   {
     "path": "src/TeamsCaptionClient.cs",
@@ -204,8 +204,52 @@
     "sha256": "c703731c85bbad092e89168eae44251aa3d59e7e0aa4d04aafcc8786038dd69c"
   },
   {
+    "path": "src/TrayPopupPlacement.cs",
+    "sha256": "7e5336edd28f3d6f7f74cb6b86d54a9f12fdfdfd4d4242316f91fa7d96e2395f"
+  },
+  {
     "path": "src/TrayStates.cs",
     "sha256": "634aa1c75118b5b7452a01be2cdd177da6e20a762bf74d79cb8c7e57f2d3d014"
+  },
+  {
+    "path": "src/UiGlyph.cs",
+    "sha256": "309a5b66253c6aa0820af78a95951f54777bb3d09da898a0e5bf63242eec2350"
+  },
+  {
+    "path": "src/UiPreferences.cs",
+    "sha256": "4c91f7d8221347273e6f06c1a94beb6c64dfe82dec4a40e244476cda3691d480"
+  },
+  {
+    "path": "src/UiStyle.cs",
+    "sha256": "e8587c35e4c49e833219c60589af1734c6d4f56250e78f7e2988df4bf0fcdf6d"
+  },
+  {
+    "path": "src/UiText.cs",
+    "sha256": "9db150f0e3f9883a5e9d8e052159d4df4d25611c5a1294036381542e0ff359c8"
+  },
+  {
+    "path": "src/VersionInfo.cs",
+    "sha256": "391ccea1e29ffb950726518ceb4afc50d36eb168dd2c451a53fffa1c565c4ce9"
+  },
+  {
+    "path": "src/WindowCapture.cs",
+    "sha256": "7e49483226e7c851cbc6f4b593d383c05020c98987da5cbb4c38e1ff1d782017"
+  },
+  {
+    "path": "src/WindowsAutostart.cs",
+    "sha256": "6752092a69bd8df72a1de7be2956cd62385d3ba8e6a2622fbf55ef7a1d57c2de"
+  },
+  {
+    "path": "src/caption_observation_state.ps1",
+    "sha256": "56e518a92186658da439d7fac169e2496efc14d0d5302620cae7628901e6deff"
+  },
+  {
+    "path": "src/slide_cleanup.py",
+    "sha256": "475ceaf9a195e99727bc94327dffd853270a7f35a6c741ce5971a0c1df268ef2"
+  },
+  {
+    "path": "src/teams_caption_reader.ps1",
+    "sha256": "a3ef895ee95de1cff28e42efcc5758e92608396042860ce41987b6bc157ae9cd"
   },
   {
     "path": "src/ui/confirm-stop.xaml",
@@ -232,40 +276,8 @@
     "sha256": "ea7553d560de634eda4e624270537548ec63be27ebe51d9cc8393900590ecd14"
   },
   {
-    "path": "src/UiGlyph.cs",
-    "sha256": "309a5b66253c6aa0820af78a95951f54777bb3d09da898a0e5bf63242eec2350"
-  },
-  {
-    "path": "src/UiPreferences.cs",
-    "sha256": "4c91f7d8221347273e6f06c1a94beb6c64dfe82dec4a40e244476cda3691d480"
-  },
-  {
-    "path": "src/UiStyle.cs",
-    "sha256": "e8587c35e4c49e833219c60589af1734c6d4f56250e78f7e2988df4bf0fcdf6d"
-  },
-  {
-    "path": "src/UiText.cs",
-    "sha256": "9db150f0e3f9883a5e9d8e052159d4df4d25611c5a1294036381542e0ff359c8"
-  },
-  {
-    "path": "src/VersionInfo.cs",
-    "sha256": "391ccea1e29ffb950726518ceb4afc50d36eb168dd2c451a53fffa1c565c4ce9"
-  },
-  {
-    "path": "src/WindowCapture.cs",
-    "sha256": "5dc665e31fc129163330d56a647957735fdcf09e8d7e83238fce43e9369f329b"
-  },
-  {
-    "path": "src/WindowsAutostart.cs",
-    "sha256": "6752092a69bd8df72a1de7be2956cd62385d3ba8e6a2622fbf55ef7a1d57c2de"
-  },
-  {
-    "path": "src/TrayPopupPlacement.cs",
-    "sha256": "7e5336edd28f3d6f7f74cb6b86d54a9f12fdfdfd4d4242316f91fa7d96e2395f"
-  },
-  {
     "path": "tests/AcceptanceTests.cs",
-    "sha256": "8a33900a27d0a3ab810cb13ea31a6541301655df598848c88a5bc7f2fb7f4eaa"
+    "sha256": "64a3e6f7ec52dcefc18b2e77f86391b7e338421fc00f2b6c78eaba481ea7ebfc"
   },
   {
     "path": "tests/DemoSlides.cs",
@@ -284,16 +296,12 @@
     "sha256": "dbb74c1977e34904a5467c87a1a57ed46784481bb9a8231acd4dd3a455f3f714"
   },
   {
+    "path": "tests/UiAcceptanceTests.cs",
+    "sha256": "85f0612286f5a4d32c6c20d208538485b5ccc86899770f1399ce49ee29035c4b"
+  },
+  {
     "path": "tests/test_cleanup.py",
     "sha256": "33f40cee9404817b15ad1aa91f8bf67ec3fba517c6bb4fffad5d9bb5829e14f7"
-  },
-  {
-    "path": "tests/UiAcceptanceTests.cs",
-    "sha256": "fcdbe6cf2037a80d8a17ffb8a382c5e4ebe04c1f514e54c492c9c77c803c8064"
-  },
-  {
-    "path": "THIRD_PARTY_NOTICES.md",
-    "sha256": "daec9c66d0996508a0f689a4b3bf3cc3e42e52ed1e39a0828a7d9f25aa1a41ff"
   },
   {
     "path": "tools/CheckPublic.py",
@@ -305,19 +313,27 @@
   },
   {
     "path": "tools/CreateWebsite.py",
-    "sha256": "f00d9330ff65ee15dc65089999f89d2b31e5ebec63904ee4362c8b47c5977f8e"
-  },
-  {
-    "path": "tools/PreparePublic.py",
-    "sha256": "a265f6b4f2900c6eb5f501e94da4a93a00312a043d034d6aeb18be6535cb7805"
+    "sha256": "4cde33d01d7d8e90569e3f59c7b7b7ab230c52e5641fe7d5793122da0ff6841d"
   },
   {
     "path": "tools/PreparePortable.py",
     "sha256": "30c267493382d480483b7e489df5be3b000a4dbb3a951cf2bddc807ebd1e6e59"
   },
   {
-    "path": "UninstallAutostart.ps1",
-    "sha256": "f0275d0fef47da967a8753949d3284ecbdc505f0e6afa304a2199570b58c6a12"
+    "path": "tools/PreparePublic.py",
+    "sha256": "a265f6b4f2900c6eb5f501e94da4a93a00312a043d034d6aeb18be6535cb7805"
+  },
+  {
+    "path": "website/Guide-de.html",
+    "sha256": "60b4068d9b078845a3d9150affe393ee67dc66c737dcee4054368909a4ba8ab5"
+  },
+  {
+    "path": "website/Guide-en.html",
+    "sha256": "756a94c1d7383d58510ba7c632c2d3cb19092e47e514e574ee3fdbba10d304c0"
+  },
+  {
+    "path": "website/Guide-ru.html",
+    "sha256": "525334d8e4de6ee27dd34abad8a495558bc4bcc67280c7f85e7550c9c65b5d60"
   },
   {
     "path": "website/assets/consent-de.png",
@@ -361,31 +377,19 @@
   },
   {
     "path": "website/content.json",
-    "sha256": "0348321359d24f17a91c713ab04027df5396aa4347e44e7d7a23f1a77154a17e"
-  },
-  {
-    "path": "website/Guide-de.html",
-    "sha256": "ed00a291a7ead85d7940127292a2492e28ea9bce048cae5c6b0b1d5800728dc2"
-  },
-  {
-    "path": "website/Guide-en.html",
-    "sha256": "7d488e535b5a44e86afcd9eb117ad061ec69607650adbaccf6aab573e4975274"
-  },
-  {
-    "path": "website/Guide-ru.html",
-    "sha256": "4707b5b6d5a844c6d631fdbfc57a61c4f2d53e09a1af8272b8b30cb66d1849ea"
+    "sha256": "a87c6d1e8cac8cc14872abf7d58b5634b494c9fe99244444adceb0ce1f7d503b"
   },
   {
     "path": "website/index-de.html",
-    "sha256": "d04f12f72891960c7ba9d345dcf34c10fd85d5f8f2383b8f3a1825597578d7a9"
+    "sha256": "eb77a4983134d01f3edd1c3dfe0b8324a1a47118bd27b8f423d3f1e819e8ed33"
   },
   {
     "path": "website/index-en.html",
-    "sha256": "4b43a7f7f40e01271134dc167a8962a77371e81e52c83c981bdffb9218f0a3e8"
+    "sha256": "04ce33449862ccd51bf384420965e31f1251fb22ba3ebb317b79359617b7c323"
   },
   {
     "path": "website/index-ru.html",
-    "sha256": "c166293b88235b8fc5ab16e206c1dd3a9a93f340ad6b242435f2f772364e4c28"
+    "sha256": "26d27592e8e980895567438db21a40f6f5767798265c64e6e42972298f6c29ff"
   },
   {
     "path": "website/index.html",
