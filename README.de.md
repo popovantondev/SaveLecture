@@ -4,7 +4,7 @@
 
 Teams-Untertitel und Folien an einem Ort. SaveLecture speichert erlaubte Lernmaterialien, damit Sie sie später in Ruhe nachlesen können.
 
-**Windows 11 · x64 · Lernprojekt · Vorabversion 0.1.0-preview.1**
+**Windows 11 · x64 · Lernprojekt · Vorabversion 0.1.0-preview.3**
 
 [Vorschau herunterladen](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.3)
 [Anleitung](https://popovantondev.github.io/SaveLecture/Guide-de.html) · [Quelltext](https://github.com/popovantondev/SaveLecture) · [Fehler melden](https://github.com/popovantondev/SaveLecture/issues/new)

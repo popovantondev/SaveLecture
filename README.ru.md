@@ -4,7 +4,7 @@
 
 Субтитры и слайды Teams в одном месте. SaveLecture помогает сохранить разрешённые учебные материалы и спокойно вернуться к ним позже.
 
-**Windows 11 · x64 · Учебный проект · предварительная версия 0.1.0-preview.1**
+**Windows 11 · x64 · Учебный проект · предварительная версия 0.1.0-preview.3**
 
 [Скачать Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.3)
 [Руководство](https://popovantondev.github.io/SaveLecture/Guide-ru.html) · [Исходники](https://github.com/popovantondev/SaveLecture) · [Сообщить об ошибке](https://github.com/popovantondev/SaveLecture/issues/new)

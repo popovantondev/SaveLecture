@@ -4,7 +4,7 @@
 
 Teams captions and slides, together. SaveLecture keeps permitted learning materials in one place so you can return to them later.
 
-**Windows 11 · x64 · Educational project · preview 0.1.0-preview.1**
+**Windows 11 · x64 · Educational project · preview 0.1.0-preview.3**
 
 [Download Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.3)
 [Guide](https://popovantondev.github.io/SaveLecture/Guide-en.html) · [Source](https://github.com/popovantondev/SaveLecture) · [Report an issue](https://github.com/popovantondev/SaveLecture/issues/new)
