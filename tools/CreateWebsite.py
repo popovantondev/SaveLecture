@@ -153,6 +153,19 @@ for lang in languages:
     }[lang]
 
 def e(s): return html.escape(s)
+# Saving behavior and the temporary file are explained consistently in all guides.
+for lang in languages:
+    data[lang]['storageBody']+=' '+{
+        'ru':'TXT текущей лекции безопасно заменяется готовой временной копией. Файл .tmp может ненадолго появляться при сохранении; не удаляйте его во время работы.',
+        'de':'Die TXT-Datei der laufenden Vorlesung wird sicher durch eine fertig geschriebene temporäre Kopie ersetzt. Beim Speichern kann kurz eine .tmp-Datei erscheinen; während des Betriebs nicht löschen.',
+        'en':'The current lecture TXT is safely replaced by a completed temporary copy. A .tmp file may briefly appear while saving; do not delete it while the app is running.'
+    }[lang]
+    data[lang]['troubleBody']+=' '+{
+        'ru':'В версии 0.1.0-preview.4 исправлена нарастающая задержка сохранения длинного TXT. Обновление не восстанавливает субтитры, которые Teams не передал программе. Полный рабочий день после исправления ещё не проверен.',
+        'de':'Version 0.1.0-preview.4 behebt die zunehmende Speicherverzögerung bei langen TXT-Dateien. Das Update stellt keine Untertitel wieder her, die Teams nicht an die App geliefert hat. Ein vollständiger Arbeitstag nach dieser Korrektur wurde noch nicht geprüft.',
+        'en':'Version 0.1.0-preview.4 fixes growing save delays in long TXT files. The update cannot recover captions that Teams did not deliver to the app. A full working day after this correction has not yet been verified.'
+    }[lang]
+
 def asset(path):
     file=SITE/path
     return path+'?v='+hashlib.sha256(file.read_bytes()).hexdigest()[:12] if file.is_file() else path

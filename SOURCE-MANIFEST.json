@@ -21,7 +21,7 @@
   },
   {
     "path": "Build.ps1",
-    "sha256": "1a1af91221b703361f3a421b9ba546e3e5b444cb852a49971b68602959e081e5"
+    "sha256": "0baeabf27035ae49419ef47ec03b1bf5380f66dd5f8acebfb36bab0abe8f6f98"
   },
   {
     "path": "InstallAutostart.ps1",
@@ -33,15 +33,15 @@
   },
   {
     "path": "README.de.md",
-    "sha256": "08f0048f9614af0e948a99718fdc9ff152cee8c777f779f3f91321813c852794"
+    "sha256": "ef2000d8cc227faaf9fba205e493dad94b51d1bbeecb646068ebcff5131a888b"
   },
   {
     "path": "README.md",
-    "sha256": "923ea9c9c78ef2c1b696f05f23f70cda2bd87b61e9d58c1290ad655695e2664a"
+    "sha256": "9ce3ceb131b109f7a537ef2708c4da967fea5f7857dab779ab85de6db9a96f70"
   },
   {
     "path": "README.ru.md",
-    "sha256": "74687c183a744cd77e720d895aada3b5e5cf49f87ee591981c3543d759c3e549"
+    "sha256": "448ec91b70af166fa9742cd506fd146ab158129bb74b08c81a85a6202731f8cf"
   },
   {
     "path": "RIGHTS.md",
@@ -77,15 +77,15 @@
   },
   {
     "path": "docs/README.de.md",
-    "sha256": "08b9bec9bf771a1aa84be30c0caa39679d69bd7db11a5bce76630e2e2218b79c"
+    "sha256": "3833fadce08e5681914ce6b6162559062daea767c3ae9dca595f1f3473c50177"
   },
   {
     "path": "docs/README.en.md",
-    "sha256": "471c3999161d24c5a4ed02876090940480e92044df0d3447697370de4956d0f9"
+    "sha256": "90f5b0068eae2006179bdc2369afb47e845e33b3b9bb9cd20c0a750b794aff4c"
   },
   {
     "path": "docs/README.ru.md",
-    "sha256": "764ec6fe425845c7eb166669b7f205f9842d2c47c05fdf14f707f642a3aab859"
+    "sha256": "442a2a20809680a26ee2e14c997f0d41fba28d197b8af3469220b9bc8653d512"
   },
   {
     "path": "docs/RELEASE.md",
@@ -93,7 +93,7 @@
   },
   {
     "path": "docs/VERIFICATION.md",
-    "sha256": "56d6f17dfba85142336b29fc2258e460810540100ccb88967b08e85330fc60a9"
+    "sha256": "2c8d5b28cafad4616a31afcbc5cc0aa7beb71fd9a106f20caac013829762304b"
   },
   {
     "path": "public-files.json",
@@ -101,7 +101,7 @@
   },
   {
     "path": "public-release.json",
-    "sha256": "a0b731bc969a23e5ba2465435319f5bb5618658f349f6695f85e492d7caddd3a"
+    "sha256": "95f48680cd9df9484564d21abf484e684d8ca0935780d5f50a4fa1d1ea53245a"
   },
   {
     "path": "reference/SlideFilter/presentation_deduper.py",
@@ -113,7 +113,7 @@
   },
   {
     "path": "src/ArchiveStore.cs",
-    "sha256": "b14a0b5ec86065e1cc878b5b08bddb44898c305c7c1943dd761e537a946db962"
+    "sha256": "bb2b9b8d0b7641038e216c66325762f97a808a3840ec39b6503c0e0fb6256783"
   },
   {
     "path": "src/BrandDrawing.cs",
@@ -229,7 +229,7 @@
   },
   {
     "path": "src/VersionInfo.cs",
-    "sha256": "391ccea1e29ffb950726518ceb4afc50d36eb168dd2c451a53fffa1c565c4ce9"
+    "sha256": "02f2601f0d9831c92eea631318cb9d8274b59eac1686fedddb2714ff4c9f79fd"
   },
   {
     "path": "src/WindowCapture.cs",
@@ -305,7 +305,7 @@
   },
   {
     "path": "tools/CheckPublic.py",
-    "sha256": "7d8d84293396afbb7a1d8cb8bca677966f94261858b30d9074ba5e7dc9de1f99"
+    "sha256": "4733b33237d171bc89b26f8c9d4b22170a2afa86532a1d3f612a05a2e9cde162"
   },
   {
     "path": "tools/CreateReadmes.py",
@@ -313,7 +313,7 @@
   },
   {
     "path": "tools/CreateWebsite.py",
-    "sha256": "489f22389ebf93d357543091dbc5b17bdde0d2faf07acbb2a74396b5d2c9e35f"
+    "sha256": "2bc879f20268cd67ee7990e558061236607af91c2a677db11a7c7bcebd059216"
   },
   {
     "path": "tools/PreparePortable.py",
@@ -325,15 +325,15 @@
   },
   {
     "path": "website/Guide-de.html",
-    "sha256": "0711acf7bce8ef897e6f421249836e203eaf2d92d921443c1d81a42511a8a7a5"
+    "sha256": "6da4a7a9e0af14494b1ea707a6cb7b03bc9a0eff46bd93250c95e1f9c7a2699c"
   },
   {
     "path": "website/Guide-en.html",
-    "sha256": "de7cd94333fdef5aacae3364ba0936405dac4f0b5fbf76ce8d178c7ae1148534"
+    "sha256": "d6a81ac044503e7e2031ffa88e3efe7f3a8cfad78d6aee59ee1966abaff9cb21"
   },
   {
     "path": "website/Guide-ru.html",
-    "sha256": "9ac818b7b4e861322855acb3d86661458177f97f2ff5220811ce50784a5a00ce"
+    "sha256": "3e20743b077830f24179a24b08558719fe547ab2524dfbeb3ff8862f5d26daff"
   },
   {
     "path": "website/assets/consent-de.png",
@@ -377,19 +377,19 @@
   },
   {
     "path": "website/content.json",
-    "sha256": "a87c6d1e8cac8cc14872abf7d58b5634b494c9fe99244444adceb0ce1f7d503b"
+    "sha256": "9ee2e12967b564bbec0e88b0440713023ed4ae2daea45bb96a3ea3ee90c15692"
   },
   {
     "path": "website/index-de.html",
-    "sha256": "8e38326e0c3465402c84ebbdb742db660c1e347a820945de9249640edea58438"
+    "sha256": "4f4d676b49772a427a75f89cae1eff717f60b4306462258e75e8f1758ebdca4d"
   },
   {
     "path": "website/index-en.html",
-    "sha256": "386fe69f4408434f5c0b9f3c54ee0eef47929d17e5a4db6f2420d125fdd685d7"
+    "sha256": "2735d08d7953f6e8c388c66ce4da9abf16212f91edcd55546c1783bd1b1faf3f"
   },
   {
     "path": "website/index-ru.html",
-    "sha256": "cbab83728854aff20fe89ecc1f07da3fb9262499e85c5285ecab200ef4f4e252"
+    "sha256": "17a9527559166131b794400bae7b1f6637c467b3f9b8699b7fd4d5aa8c07aad9"
   },
   {
     "path": "website/index.html",

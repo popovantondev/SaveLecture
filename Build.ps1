@@ -1,4 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
+$releaseMetadata = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'public-release.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$versionSource = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'src\VersionInfo.cs') -Raw -Encoding UTF8
+if (-not $versionSource.Contains('[assembly: AssemblyInformationalVersion("' + $releaseMetadata.version + '")]')) { throw 'Executable version does not match public-release.json' }
 $compiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 $framework = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\WPF'
 $sources = @(Get-ChildItem -LiteralPath (Join-Path $PSScriptRoot 'src') -Filter '*.cs' | ForEach-Object { $_.FullName })

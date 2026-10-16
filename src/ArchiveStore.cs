@@ -165,7 +165,11 @@ namespace SaveLecture
             try {
                 using(var output=new FileStream(temporary,FileMode.CreateNew,FileAccess.Write,FileShare.Read)) {
                     output.Write(projection.Prefix,0,projection.Prefix.Length);
-                    foreach(var item in projection.Items) Write(output,Format(item.Text,item.Speaker,item.Started));
+                    // The temporary projection is committed as a whole. Flushing the disk
+                    // for every old line makes each new caption slower as a lecture grows.
+                    using(var writer=new StreamWriter(output,new UTF8Encoding(false),16384,true)) {
+                        foreach(var item in projection.Items) writer.Write(Format(item.Text,item.Speaker,item.Started));
+                    }
                     output.Flush(true);
                 }
                 if(File.Exists(path)) File.Replace(temporary,path,null); else File.Move(temporary,path);
