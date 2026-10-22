@@ -99,7 +99,9 @@
     "website/index-en.html",
     "website/index-ru.html",
     "website/index.html",
-    "website/site.css"
+    "website/site.css",
+    "tools/polish_guides.py",
+    "website/guide-polish.css"
   ],
   "generated_empty": "NameAliases.txt",
   "purpose": "Explicit reviewed public source candidate"

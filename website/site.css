@@ -123,3 +123,9 @@ footer a{color:#6980a1}
 .guide-answer h3{font-size:20px;letter-spacing:-.02em}
 @media(max-width:950px){.guide-steps{grid-template-columns:minmax(0,1fr)}.guide-steps .settings-shot{max-width:660px}}
 @media(max-width:650px){.guide-intro{margin-top:18px}.guide-lead{font-size:16px}.guide-nav{margin-top:20px}.guide-nav a{font-size:13px}.settings-table,.settings-table tbody,.settings-table tr,.settings-table th,.settings-table td{display:block;width:100%}.settings-table th{border-bottom:0;padding:14px 12px 6px;border-radius:10px 10px 0 0}.settings-table td{padding:6px 12px 14px}.settings-table tr+tr{margin-top:8px}}
+
+/* Responsive presentation polish. */
+
+.download-consent{font-size:15px;line-height:1.6;font-weight:650;margin:14px 0}.download-consent a{color:inherit}.caption,.note{font-size:14px}.screen-wrap{max-width:100%;margin-inline:auto}.screen-wrap img,.settings-shot img{object-fit:contain;height:auto}.top .links{flex-wrap:wrap}
+@media(max-width:760px){.screen-wrap{margin-top:24px}.screen-wrap a{display:block}.top{gap:14px;flex-wrap:wrap}.top .links{gap:12px}}
+
