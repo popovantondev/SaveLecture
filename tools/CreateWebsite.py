@@ -173,7 +173,7 @@ def header(lang,guide=False):
     d=data[lang]; stem='Guide' if guide else 'index'
     nav=''.join(f'<a href="{stem}-{l}.html" lang="{l}"'+(' aria-current="page"' if l==lang else '')+f'>{l.upper()}</a>' for l in languages)
     language_label={'ru':'Язык','de':'Sprache','en':'Language'}[lang]
-    return f'<header class="shell top"><a class="brand" href="index-{lang}.html"><img src="assets/icon.png" alt="">SaveLecture</a><div class="links"><a href="Guide-{lang}.html">{d["guide"]}</a><div class="langs" aria-label="{language_label}">{nav}</div></div></header>'
+    return f'<header class="shell top"><a class="brand" href="index-{lang}.html"><img src="assets/icon.png" alt="">SaveLecture</a><div class="links"><a href="https://popovantondev.github.io/popovantondev/{'index.html' if lang=='en' else 'index-'+lang+'.html'}">{dict(ru='Все программы',de='Alle Programme',en='All applications')[lang]}</a><a href="Guide-{lang}.html">{d["guide"]}</a><div class="langs" aria-label="{language_label}">{nav}</div></div></header>'
 def consent(lang):
     short={
         'ru':'Получите согласие всех участников и разрешение на материалы до сохранения. При отказе или отзыве остановите сбор.',
@@ -193,7 +193,7 @@ def main():
         cards=''.join(f'<article class="card"><span class="number">0{i+1}</span><h3>{e(t)}</h3><p>{e(b)}</p></article>' for i,(t,b) in enumerate(d['cards']))
         download=(f'<a class="button primary" href="{e(release["release_url"])}">{d["download"]}</a>' if release.get('published') and release.get('release_url') else '')
         guide_class='button' if download else 'button primary'
-        body=f'<main class="shell"><section class="hero"><div class="eyebrow">{d["purpose"]}</div><h1>{d["title"]}</h1><p class="lead">{d["lead"]}</p><div class="actions">{download}<a class="{guide_class}" href="Guide-{lang}.html">{d["guide"]} ↗</a><a class="button" href="https://github.com/popovantondev/SaveLecture">{d["source"]}</a></div><p class="note">{d["note"]}</p><div class="screen-wrap"><a href="{asset(f"assets/demo-{lang}.png")}"><img src="{asset(f"assets/demo-{lang}.png")}" width="1104" height="804" alt="SaveLecture — {d["caption"]}"></a><p class="caption">{d["caption"]}</p></div></section>{consent(lang)}<section class="section"><div class="kicker">{d["kicker"]}</div><h2>{d["features"]}</h2><div class="grid">{cards}</div></section><section class="section split"><div><div class="kicker">{d["tuneKicker"]}</div><h2>{d["tune"]}</h2><p>{d["tuneBody"]}</p><a class="button" href="Guide-{lang}.html#settings">{d["guide"]} →</a></div><a class="settings-shot" href="{asset(f"assets/filters-{lang}.png")}"><img src="{asset(f"assets/filters-{lang}.png")}" width="1104" height="804" alt="{d["settings"]}" loading="lazy"></a></section><section class="section"><h2 id="limits">{d["limits"]}</h2><div class="details"><p>{d["limitsBody"]}</p></div></section></main>'
+        body=f'<main class="shell"><section class="hero"><div class="eyebrow">{d["purpose"]}</div><h1>{d["title"]}</h1><p class="lead">{d["lead"]}</p><div class="actions">{download}<a class="{guide_class}" href="Guide-{lang}.html">{d["guide"]} ↗</a><a class="button" href="https://github.com/popovantondev/SaveLecture">{d["source"]}</a></div><p class="download-consent"><a href="Guide-{lang}.html#privacy">{d["consent"]} →</a></p><p class="note">{d["note"]}</p><div class="screen-wrap"><a href="{asset(f"assets/demo-{lang}.png")}"><img src="{asset(f"assets/demo-{lang}.png")}" width="1104" height="804" alt="SaveLecture — {d["caption"]}"></a><p class="caption">{d["caption"]}</p></div></section>{consent(lang)}<section class="section"><div class="kicker">{d["kicker"]}</div><h2>{d["features"]}</h2><div class="grid">{cards}</div></section><section class="section split"><div><div class="kicker">{d["tuneKicker"]}</div><h2>{d["tune"]}</h2><p>{d["tuneBody"]}</p><a class="button" href="Guide-{lang}.html#settings">{d["guide"]} →</a></div><a class="settings-shot" href="{asset(f"assets/filters-{lang}.png")}"><img src="{asset(f"assets/filters-{lang}.png")}" width="1104" height="804" alt="{d["settings"]}" loading="lazy"></a></section><section class="section"><h2 id="limits">{d["limits"]}</h2><div class="details"><p>{d["limitsBody"]}</p></div></section></main>'
         (SITE/f'index-{lang}.html').write_text(page(lang,d['status'],body),encoding='utf8')
         sections=[('steps',d['steps']),('settings',d['settings']),('storage',d['storage']),('startup',d['startup']),('privacy',d['privacyTitle']),('rights',d['rights']),('trouble',d['trouble']),('limits',d['limits'])]
         nav=''.join(f'<a href="#{a}">{e(t)}</a>' for a,t in sections)
@@ -220,4 +220,7 @@ def main():
     (SITE/'index.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=index-en.html"><title>SaveLecture</title><a href="index-en.html">SaveLecture</a></html>',encoding='utf8')
     (SITE/'content.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf8')
 
-if __name__=='__main__': main()
+if __name__=='__main__':
+ main()
+ import polish_guides
+ polish_guides.main()
