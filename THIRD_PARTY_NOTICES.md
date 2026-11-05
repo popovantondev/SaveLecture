@@ -2,7 +2,7 @@
 
 The Windows application uses Windows APIs, Windows PowerShell and .NET Framework WPF/WinForms. No .NET or PowerShell redistributable is bundled. Microsoft Teams is an external requirement; Microsoft’s platform terms apply. SaveLecture is an independent educational demonstration and is not endorsed by Microsoft.
 
-Optional image cleanup imports Pillow and NumPy from a separately installed Python 3.10+ environment. These packages and Python are not included in the candidate archive. Their own licenses apply: [Python](https://docs.python.org/3/license.html), [Pillow](https://github.com/python-pillow/Pillow/blob/main/LICENSE), [NumPy](https://github.com/numpy/numpy/blob/main/LICENSE.txt). The main recorder does not require Python.
+Optional image cleanup imports Pillow and NumPy from a separately installed Python 3.10+ environment. These packages and Python are not included in the release archive. Their own licenses apply: [Python](https://docs.python.org/3/license.html), [Pillow](https://github.com/python-pillow/Pillow/blob/main/LICENSE), [NumPy](https://github.com/numpy/numpy/blob/main/LICENSE.txt). The main recorder does not require Python.
 
 Caption collection uses adaptations of the supplied TeamsSpeechRecognition sources. Frame comparison uses adaptations of the supplied SlideFilter algorithm; optional cleanup imports the supplied `presentation_deduper.py`. No external copyright or license declaration was found in that supplied Python file. The provenance of the supplied adaptations and any third-party permissions have not been independently verified. Publication and the SaveLecture rights statement do not grant rights belonging to third parties. This note is not a license grant for that file.
 

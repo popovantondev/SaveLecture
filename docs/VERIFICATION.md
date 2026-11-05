@@ -8,12 +8,12 @@ Local checks on 15 October 2026: 79 core assertions, 194 full UI assertions, 24 
 
 The storage correction on 16 October 2026 keeps raw JSONL writes durable and buffers the temporary TXT projection, flushing it once before atomic replacement instead of flushing every historical line. The 79 core assertions passed after the change, including blocked-file preservation and grouped recovery. A separate artificial 2,000-utterance transcript preserved every line through 100 revisions in approximately 4.7 seconds on the development machine. This is a focused throughput check, not a latency guarantee on other systems or a full-day soak test. A fresh isolated source build also passed six focused caption-merging UI checks and 24 source-status checks in RU/DE/EN. The executable product version and all six README banners are checked against release metadata. The interface implementation is unchanged by this storage correction.
 
-Not established: full live Teams end-to-end reliability, a real eight-hour run, clean-machine installation, physical DPI/multi-monitor behavior. Source/artwork provenance has not been independently verified. The current candidate is for review; it is not a production-readiness guarantee.
+Not established: full live Teams end-to-end reliability, a real eight-hour run, clean-machine installation, physical DPI/multi-monitor behavior. Source/artwork provenance has not been independently verified. The current preview is a learning project; it is not a production-readiness guarantee.
 
 ## Deutsch
 
-Lokale Tests prüfen Speicherung, Wiederherstellung, Filterung, Bereinigung und Oberfläche mit künstlichen Daten. Live-Teams, reale acht Stunden, physische DPI-Wechsel und eine saubere Neuinstallation sind noch nicht vollständig geprüft. Der Kandidat dient der Begutachtung.
+Lokale Tests prüfen Speicherung, Wiederherstellung, Filterung, Bereinigung und Oberfläche mit künstlichen Daten. Live-Teams, reale acht Stunden, physische DPI-Wechsel und eine saubere Neuinstallation sind noch nicht vollständig geprüft. Die Vorabversion ist ein Lernprojekt und keine Zusicherung der Produktionsreife.
 
 ## Русский
 
-Локальные проверки охватывают сохранение, восстановление, фильтры, очистку и интерфейс с искусственными данными. Полный живой Teams, реальные восемь часов, физический DPI и установка на чистой системе ещё не подтверждены. Кандидат предназначен для проверки.
+Локальные проверки охватывают сохранение, восстановление, фильтры, очистку и интерфейс с искусственными данными. Полный живой Teams, реальные восемь часов, физический DPI и установка на чистой системе ещё не подтверждены. Предварительная версия — учебный проект и не гарантия готовности к рабочему использованию.

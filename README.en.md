@@ -1,15 +1,15 @@
 # SaveLecture
 
-[Русский](README.ru.md) · [Deutsch](README.de.md) · [English](README.en.md)
+[Русский](README.ru.md) · [Deutsch](README.md) · **English**
 
 Teams captions and slides, together. SaveLecture keeps permitted learning materials in one place so you can return to them later.
 
 **Windows 11 · x64 · Educational project · preview 0.1.0-preview.4**
 
 [Download Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)
-[Guide](https://popovantondev.github.io/SaveLecture/Guide-en.html) · [Source](https://github.com/popovantondev/SaveLecture) · [Report an issue](https://github.com/popovantondev/SaveLecture/issues/new)
+[Guide](https://popovantondev.github.io/SaveLecture/Guide-en.html) · [Source code](https://github.com/popovantondev/SaveLecture) · [Report an issue](https://github.com/popovantondev/SaveLecture/issues/new)
 
-![SaveLecture](../website/assets/demo-en.png)
+![SaveLecture](website/assets/demo-en.png)
 
 Actual interface. All text, names and images in this example are artificial.
 
@@ -25,7 +25,7 @@ Actual interface. All text, names and images in this example are artificial.
 
 Before saving, obtain informed consent from every participant and permission for the learning materials. Explain the purpose, what is saved and where. Stop collecting if consent is refused or withdrawn. Educational purpose and local storage alone do not establish whether recording is lawful.
 
-The first notice acknowledges the user’s understanding, not consent from other people. Respect refusal, institutional rules, copyright and retention periods. Delete data on request after stopping; never share recordings, error logs or meeting screenshots in public issues. Archive beside the app may be shared when placed in Public or a synced folder. Choose a personal folder with suitable access permissions. The project does not guarantee data-protection compliance.
+The first notice acknowledges the user’s understanding, not consent from other people. Respect refusal, institutional rules, copyright and retention periods. Delete data on request after stopping; never share recordings, error logs or meeting screenshots in public issues. Archive beside the app may be shared when placed in Public or a synced folder. Choose a personal folder with suitable access permissions. The project does not guarantee data-protection compliance. Meeting content can contain personal data under the GDPR (DSGVO); secretly recording the non-publicly spoken word can be a criminal offence under § 201 of the German Criminal Code (StGB).
 
 ## Storage and recovery
 
@@ -45,4 +45,4 @@ No text: check Teams captions, window visibility and app status. No images: keep
 
 This educational preview has passed local storage and interface checks. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed.
 
-[Rights](../RIGHTS.md) · [Components](../THIRD_PARTY_NOTICES.md) · [Build](BUILDING.md) · [Verification](VERIFICATION.md)
+[Rights](RIGHTS.md) · [Components](THIRD_PARTY_NOTICES.md) · [Build](docs/BUILDING.md) · [Verification](docs/VERIFICATION.md)

@@ -8,7 +8,7 @@
     "Build.ps1",
     "InstallAutostart.ps1",
     "NameAliases.txt",
-    "README.de.md",
+    "README.en.md",
     "README.md",
     "README.ru.md",
     "RIGHTS.md",
@@ -19,9 +19,6 @@
     "assets/localization.json",
     "assets/localization.tsv",
     "docs/BUILDING.md",
-    "docs/README.de.md",
-    "docs/README.en.md",
-    "docs/README.ru.md",
     "docs/RELEASE.md",
     "docs/VERIFICATION.md",
     "public-files.json",
@@ -94,15 +91,18 @@
     "website/assets/filters-en.png",
     "website/assets/filters-ru.png",
     "website/assets/icon.png",
+    "website/assets/kit/KIT_VERSION",
+    "website/assets/kit/kit-theme.js",
+    "website/assets/kit/kit.css",
+    "website/assets/kit/kit.js",
+    "website/assets/kit/programs.js",
     "website/content.json",
     "website/index-de.html",
     "website/index-en.html",
     "website/index-ru.html",
     "website/index.html",
-    "website/site.css",
-    "tools/polish_guides.py",
-    "website/guide-polish.css"
+    "website/site.css"
   ],
   "generated_empty": "NameAliases.txt",
-  "purpose": "Explicit reviewed public source candidate"
+  "purpose": "Explicit reviewed list of public files"
 }

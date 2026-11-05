@@ -1,48 +1,48 @@
 # SaveLecture
 
-[Русский](README.ru.md) · [Deutsch](README.de.md) · [English](README.md)
+[Русский](README.ru.md) · **Deutsch** · [English](README.en.md)
 
-Teams captions and slides, together. SaveLecture keeps permitted learning materials in one place so you can return to them later.
+Teams-Untertitel und Folien an einem Ort. SaveLecture speichert erlaubte Lernmaterialien, damit Sie sie später in Ruhe nachlesen können.
 
-**Windows 11 · x64 · Educational project · preview 0.1.0-preview.4**
+**Windows 11 · x64 · Lernprojekt · Vorabversion 0.1.0-preview.4**
 
-[Download Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)
-[Guide](https://popovantondev.github.io/SaveLecture/Guide-en.html) · [Source](https://github.com/popovantondev/SaveLecture) · [Report an issue](https://github.com/popovantondev/SaveLecture/issues/new)
+[Vorschau herunterladen](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)
+[Anleitung](https://popovantondev.github.io/SaveLecture/Guide-de.html) · [Quellcode](https://github.com/popovantondev/SaveLecture) · [Fehler melden](https://github.com/popovantondev/SaveLecture/issues/new)
 
-![SaveLecture](website/assets/demo-en.png)
+![SaveLecture](website/assets/demo-de.png)
 
-Actual interface. All text, names and images in this example are artificial.
+Echte Oberfläche. Texte, Namen und Bilder im Beispiel sind vollständig künstlich.
 
-## First launch
+## Erster Start
 
-1. Obtain permission from every participant and permission for the materials before launching.
-2. Extract the whole release archive into a writable folder. Verify its published SHA-256.
-3. Read the first-launch notice. No collection starts before acknowledgement. Choose Russian, German or English.
-4. After the first acknowledgement, collection begins and the main window opens. Later launches collect materials and show status in the system tray without opening the main window. Open it using the tray icon. Enable Teams captions and keep shared content visible.
-5. Close hides the app in the tray. Pause suspends collection; Resume continues the same lecture. Stop ends it after confirmation. Exit also ends collection.
+1. Vor dem Start die Zustimmung aller Beteiligten und Erlaubnis für die Materialien einholen.
+2. Entpacken Sie das gesamte Release-Archiv in einen beschreibbaren Ordner. Prüfen Sie dessen veröffentlichten SHA-256-Wert.
+3. Beim ersten Start den Hinweis lesen. Ohne Bestätigung beginnt keine Erfassung. Russisch, Deutsch und Englisch stehen zur Auswahl.
+4. Nach der ersten Bestätigung beginnt die Erfassung und das Hauptfenster öffnet sich. Bei späteren Starts läuft die App im Infobereich, ohne das Hauptfenster anzuzeigen. Dort lassen sich Status und Fenster öffnen. Aktivieren Sie Teams-Liveuntertitel und lassen Sie die Bildschirmfreigabe sichtbar.
+5. Schließen blendet die App in den Tray aus. Pause unterbricht, Fortsetzen setzt dieselbe Vorlesung fort. Stopp beendet sie nach Bestätigung. Beenden stoppt die Erfassung ebenfalls.
 
-## Only with every participant’s permission
+## Nur mit Zustimmung aller Beteiligten
 
-Before saving, obtain informed consent from every participant and permission for the learning materials. Explain the purpose, what is saved and where. Stop collecting if consent is refused or withdrawn. Educational purpose and local storage alone do not establish whether recording is lawful.
+Vor dem Speichern die informierte Einwilligung aller Beteiligten und Erlaubnis für die Lernmaterialien einholen. Zweck, Datenumfang und Speicherort erklären. Bei Ablehnung oder Widerruf die Erfassung stoppen. Lernzweck und lokale Speicherung allein stellen die Rechtmäßigkeit nicht fest.
 
-The first notice acknowledges the user’s understanding, not consent from other people. Respect refusal, institutional rules, copyright and retention periods. Delete data on request after stopping; never share recordings, error logs or meeting screenshots in public issues. Archive beside the app may be shared when placed in Public or a synced folder. Choose a personal folder with suitable access permissions. The project does not guarantee data-protection compliance.
+Der erste Hinweis bestätigt nur das Verständnis des Benutzers, nicht die Zustimmung anderer Personen. Ablehnung, institutionelle Vorgaben, Urheberrechte und Aufbewahrungsfristen beachten. Daten auf Anfrage nach Stopp löschen; keine Aufnahmen, Fehlerprotokolle oder Meeting-Bilder in öffentlichen Issues teilen. Archive neben der App kann gemeinsam zugänglich sein, etwa unter Public oder in synchronisierten Ordnern. Einen persönlichen Ordner mit geeigneten Zugriffsrechten wählen. Meeting-Inhalte können personenbezogene Daten im Sinne der DSGVO enthalten; das heimliche Aufzeichnen des nichtöffentlich gesprochenen Wortes kann nach § 201 StGB strafbar sein. Das Projekt garantiert keine Datenschutzkonformität.
 
-## Storage and recovery
+## Speicherung und Wiederherstellung
 
-Settings → Storage lets you choose a folder after Stop.  One TXT belongs to one lecture until Stop; images are grouped by date. _service contains recovery data and indexes. After a crash the unfinished lecture ID is retained. Do not delete service files during recording. Settings and the error log live in %LOCALAPPDATA%\SaveLecture. Configure mention names in Transcription; an empty list disables notifications. Final slides are stored in Archive/date/scr. For drawings built up gradually, the gallery keeps the most complete version; superseded intermediate images move to Archive/date/Removed without deletion or overwriting name collisions. _service retains relocation links and history. Changing the storage folder does not move existing recordings. Updates of one utterance are merged despite changes in case, punctuation or Teams control IDs. The interface and current lecture TXT show its current version with the first-seen timestamp; original updates remain available for recovery. Earlier completed TXT files stay unchanged. For nearly identical slides with tiny cursor or toolbar changes, the gallery prefers the latest saved capture; its predecessor remains in Removed. The current lecture TXT is safely replaced by a completed temporary copy. A .tmp file may briefly appear while saving; do not delete it while the app is running.
+Einstellungen → Speicher erlaubt die Ordnerwahl nach Stopp.  Eine TXT gehört zu einer Vorlesung bis Stopp; Bilder werden nach Datum abgelegt. _service enthält Wiederherstellungsdaten und Indizes. Nach einem Absturz wird die unvollständige Vorlesungs-ID beibehalten. Während der Aufnahme keine Hilfsdateien löschen. Einstellungen und Fehlerprotokoll: %LOCALAPPDATA%\SaveLecture. Erwähnungsnamen unter Transkription eintragen; eine leere Liste deaktiviert Hinweise. Endgültige Folien liegen unter Archive/Datum/scr. Bei schrittweisen Ergänzungen zeigt die Galerie die vollständigste Version; ersetzte Zwischenbilder werden ohne Löschen oder Überschreiben gleichnamiger Dateien nach Archive/Datum/Removed verschoben. _service enthält die Verweise und den Verlauf. Ein Wechsel des Speicherordners verschiebt bestehende Aufnahmen nicht. Aktualisierungen derselben Äußerung werden unabhängig von Großschreibung, Satzzeichen und wechselnden Teams-Elementen zusammengeführt. Oberfläche und TXT der laufenden Vorlesung zeigen die aktuelle Fassung mit dem ersten Zeitstempel; ursprüngliche Updates bleiben zur Wiederherstellung erhalten. Frühere abgeschlossene TXT-Dateien bleiben unverändert. Bei nahezu identischen Folien mit kleinen Cursor- oder Leistenänderungen verwendet die Galerie das zuletzt gespeicherte Bild; der Vorgänger bleibt in Removed. Die TXT-Datei der laufenden Vorlesung wird sicher durch eine fertig geschriebene temporäre Kopie ersetzt. Beim Speichern kann kurz eine .tmp-Datei erscheinen; während des Betriebs nicht löschen.
 
-The gallery can show an image already saved today. The app reuses the existing file instead of creating another copy. The saved count includes only new files in the current recording and starts at zero after a restart or a new recording. The duplicate count shows repeated images that were skipped. Existing files remain in the archive. “Saved” counts new files in the current recording, including intermediate frames later moved to Removed. The gallery shows final versions. “Duplicates” counts skipped repeats and each completed move of an intermediate frame to Removed once. Restarting does not recount completed moves. “Text” counts merged utterances, rather than every intermediate Teams update. Checks continue at the configured interval, but an unchanged, already processed slide does not increase the counter every second. After a dialog closes, the actually visible clean frame must pass stability checks; hidden content is not reconstructed.
+Die Galerie kann ein Bild anzeigen, das heute bereits gespeichert wurde. Die App verwendet die vorhandene Datei, statt eine weitere Kopie anzulegen. „Gespeichert“ zählt nur neue Dateien der aktuellen Aufnahme und beginnt nach einem Neustart oder einer neuen Aufnahme bei null. Der Duplikatzähler zeigt übersprungene wiederholte Bilder. Vorhandene Dateien bleiben im Archiv. „Gespeichert“ zählt neue Dateien der aktuellen Aufnahme, einschließlich Zwischenbildern, die später nach Removed verschoben werden. Die Galerie zeigt endgültige Versionen. „Duplikate“ zählt übersprungene Wiederholungen und jeden durchgeführten Wechsel eines Zwischenbildes nach Removed einmal. Ein Neustart zählt abgeschlossene Verschiebungen nicht erneut. „Text“ zählt zusammengeführte Äußerungen, nicht jedes Zwischenupdate von Teams. Die Prüfung läuft im eingestellten Abstand weiter; eine unveränderte, bereits verarbeitete Folie erhöht den Zähler nicht jede Sekunde. Nach dem Schließen eines Dialogs wird das tatsächlich sichtbare Bild auf Stabilität geprüft; verdeckte Inhalte werden nicht ergänzt.
 
-## Startup and requirements
+## Autostart und Voraussetzungen
 
-In Settings, turn “Start with Windows” on or off and click “Done”. When enabled, the app starts at Windows sign-in in the system tray. After acknowledging the first-launch notice, saving starts automatically on each launch. A hidden main window does not mean collection has stopped: the tray shows its status. Pause suspends collection, Stop ends recording, and Exit closes the app. Main recording requires Windows x64, .NET Framework 4.8, Windows PowerShell and Teams Desktop with captions enabled. Audio and microphone input are not recorded. SaveLecture itself does not upload lectures; Teams captions depend on Microsoft’s service. InstallAutostart.ps1 and UninstallAutostart.ps1 offer an alternative setup without administrator access. Manual folder cleanup requires Python 3.10+, Pillow and NumPy; main recording works without them.
+Unter Einstellungen „Mit Windows starten“ ein- oder ausschalten und „Fertig“ klicken. Aktiviert startet die App bei der Windows-Anmeldung im Infobereich. Nach Bestätigung des ersten Hinweises beginnt das Speichern bei jedem Start automatisch. Ein verborgenes Hauptfenster bedeutet nicht, dass die Erfassung beendet ist: Der Infobereich zeigt den Status. Pause unterbricht, Stopp beendet die Aufnahme, Beenden schließt die App. Die Hauptaufnahme benötigt Windows x64, .NET Framework 4.8, Windows PowerShell und Teams Desktop mit Untertiteln. Audio und Mikrofon werden nicht aufgenommen. SaveLecture lädt selbst keine Vorlesungen hoch; Teams-Untertitel hängen vom Microsoft-Dienst ab. InstallAutostart.ps1 und UninstallAutostart.ps1 sind eine alternative Autostarteinrichtung ohne Administrator. Manuelle Ordnerbereinigung benötigt Python 3.10+, Pillow und NumPy; die Hauptaufnahme funktioniert ohne diese.
 
-## Troubleshooting
+## Bei Problemen
 
-No text: check Teams captions, window visibility and app status. No images: keep sharing visible, check the delay, slides switch and folder permissions. On errors, keep _service; stop the app and back up the archive. Report the version, Windows and reproduction steps. Use only artificial examples without names, conversations, meeting links or keys. Purple waiting means no new data is currently arriving; the tray shows a rotating purple ring. When sharing is absent, the last saved slide stays visible. Captions have their own status: after 15 seconds without new lines, the app shows waiting for new captions. Yellow means Pause. “Collection enabled” means the app is ready; it does not confirm live sharing. Losing sharing does not end the recording. Version 0.1.0-preview.4 fixes growing save delays in long TXT files. The update cannot recover captions that Teams did not deliver to the app. A full working day after this correction has not yet been verified.
+Kein Text: Teams-Untertitel, Fenstersichtbarkeit und App-Status prüfen. Keine Bilder: Freigabe sichtbar halten, Wartezeit, Folien-Schalter und Schreibrechte prüfen. Bei Fehlern _service nicht löschen; App stoppen und Archiv sichern. Fehlerbericht mit Version, Windows und Schritten verfassen. Nur künstliche Beispiele ohne Namen, Nachrichten, Meeting-Links oder Schlüssel verwenden. Violettes Warten bedeutet, dass aktuell keine neuen Daten eintreffen; im Infobereich dreht sich ein violetter Ring. Ohne Bildschirmfreigabe bleibt die letzte gespeicherte Folie sichtbar. Untertitel haben einen eigenen Status: Nach 15 Sekunden ohne neue Zeilen wird auf neue Untertitel gewartet. Gelb steht für Pause. „Erfassung aktiviert“ bedeutet Bereitschaft und bestätigt keine laufende Freigabe. Fehlende Freigabe beendet die Aufnahme nicht. Version 0.1.0-preview.4 behebt die zunehmende Speicherverzögerung bei langen TXT-Dateien. Das Update stellt keine Untertitel wieder her, die Teams nicht an die App geliefert hat. Ein vollständiger Arbeitstag nach dieser Korrektur wurde noch nicht geprüft.
 
-## A transparent readiness status
+## Ein ehrlicher Stand
 
-This educational preview has passed local storage and interface checks. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed.
+Die Lernprojekt-Vorabversion hat lokale Speicher- und Oberflächentests bestanden. Ein vollständiger Live-Teams-Test, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt.
 
-[Rights](RIGHTS.md) · [Components](THIRD_PARTY_NOTICES.md) · [Build](docs/BUILDING.md) · [Verification](docs/VERIFICATION.md)
+[Rechte](RIGHTS.md) · [Komponenten](THIRD_PARTY_NOTICES.md) · [Bauanleitung](docs/BUILDING.md) · [Prüfstand](docs/VERIFICATION.md)

@@ -1,4 +1,4 @@
-"""Inspect an explicit public candidate without printing suspected secrets."""
+"""Inspect the explicit list of public files without printing suspected secrets."""
 import json,re,sys,hashlib
 from pathlib import Path
 from html.parser import HTMLParser
@@ -40,10 +40,11 @@ for path in (root/'website').glob('*.html'):
         if not target: continue
         if not (path.parent/target).is_file(): issues.append(str(path.relative_to(root))+': broken local link')
     if 'class="theme"' in text: issues.append(str(path.relative_to(root))+': unexpected theme switch')
+    if 'http-equiv="refresh"' in text: continue  # redirect pages carry no footer
     if path.name!='index.html' and 'SaveLecture '+release['version']+' ·' not in text:
         issues.append(str(path.relative_to(root))+': release version differs from metadata')
 
-for name in ('README.md','README.ru.md','README.de.md','docs/README.en.md','docs/README.ru.md','docs/README.de.md'):
+for name in ('README.md','README.en.md','README.ru.md'):
     text=(root/name).read_text(encoding='utf8')
     banners=[line for line in text.splitlines() if line.startswith('**Windows ')]
     if len(banners)!=1 or not banners[0].endswith(release['version']+'**') or release['platform'] not in banners[0]:

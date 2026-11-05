@@ -8,7 +8,7 @@ allowed=set(json.loads((root/'public-files.json').read_text(encoding='utf8'))['f
 files=['SaveLecture.exe','SaveLecture.ico','NameAliases.txt','assets/brand.png','assets/localization.json',
        'src/teams_caption_reader.ps1','src/caption_observation_state.ps1','src/slide_cleanup.py',
        'reference/SlideFilter/presentation_deduper.py','InstallAutostart.ps1','UninstallAutostart.ps1',
-       'README.md','README.ru.md','README.de.md','RIGHTS.md','THIRD_PARTY_NOTICES.md',
+       'README.md','README.en.md','README.ru.md','RIGHTS.md','THIRD_PARTY_NOTICES.md',
        'docs/BUILDING.md','docs/VERIFICATION.md']
 files+=sorted(p for p in allowed if p.startswith(('src/ui/','website/')))
 destination=root/'publication'/('portable-'+uuid.uuid4().hex[:12])

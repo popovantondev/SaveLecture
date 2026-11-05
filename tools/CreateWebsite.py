@@ -19,7 +19,7 @@ data={
  'privacy':'До сохранения получите информированное согласие всех участников и разрешение на учебные материалы. Объясните цель, что сохраняется и где. При отказе или отзыве остановите сбор. Учебное назначение и локальное хранение сами по себе не устанавливают правомерность записи.',
  'learn':'Согласие и данные',
  'tune':'Под вашу лекцию', 'tuneBody':'Порог похожести, стабильность, допустимый сдвиг и частота проверки настраиваются отдельно. Понятные пояснения помогут выбрать между меньшим числом повторов и более подробным архивом.',
- 'limits':'Прозрачно о готовности', 'limitsBody':'Кандидат проходит проверки сохранения и интерфейса. Полный живой прогон Teams, физическая смена DPI и реальные восемь часов работы пока не подтверждены. Публичный бинарный выпуск ещё не опубликован.',
+ 'limits':'Прозрачно о готовности', 'limitsBody':'Учебная предварительная версия проходит проверки сохранения и интерфейса. Полный живой прогон Teams, физическая смена DPI и реальные восемь часов работы пока не подтверждены. Публичный бинарный выпуск ещё не опубликован.',
  'footer':'Учебный демонстрационный проект. SaveLecture не является продуктом Microsoft.', 'rights':'Права', 'help':'Сообщить об ошибке',
  'steps':'Первый запуск',
  'stepList':['Получите согласие всех участников и разрешение на материалы до запуска программы.','Распакуйте весь выпуск в доступную для записи папку. Проверьте SHA-256 опубликованного архива. Выпуск пока готовится.','При первом запуске прочитайте окно предупреждения. Пока оно не подтверждено, сбор не начинается. Можно выбрать русский, немецкий или английский.','После подтверждения обычный запуск автоматически начинает сбор; следующие запуски начинают его без повторного окна. В Teams Desktop включите субтитры и оставьте демонстрацию видимой.','Крестик скрывает программу в трей. Пауза временно прекращает сбор, Продолжить возобновляет ту же лекцию. Стоп с подтверждением завершает её. Выход также завершает сбор.'],
@@ -45,7 +45,7 @@ data={
  'consent':'Nur mit Zustimmung aller Beteiligten',
  'privacy':'Vor dem Speichern die informierte Einwilligung aller Beteiligten und Erlaubnis für die Lernmaterialien einholen. Zweck, Datenumfang und Speicherort erklären. Bei Ablehnung oder Widerruf die Erfassung stoppen. Lernzweck und lokale Speicherung allein stellen die Rechtmäßigkeit nicht fest.',
  'learn':'Einwilligung und Daten','tune':'Passend zur Vorlesung','tuneBody':'Ähnlichkeit, Stabilität, erlaubter Versatz und Prüfintervall lassen sich einzeln einstellen. Verständliche Hinweise helfen zwischen weniger Wiederholungen und einem ausführlicheren Archiv zu wählen.',
- 'limits':'Ein ehrlicher Stand','limitsBody':'Der Kandidat wird auf Speicherung und Oberfläche geprüft. Ein vollständiger Live-Test mit Teams, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt. Eine öffentliche Binärversion ist noch nicht veröffentlicht.',
+ 'limits':'Ein ehrlicher Stand','limitsBody':'Die Lernprojekt-Vorabversion wird auf Speicherung und Oberfläche geprüft. Ein vollständiger Live-Test mit Teams, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt. Eine öffentliche Binärversion ist noch nicht veröffentlicht.',
  'footer':'Lern- und Demonstrationsprojekt. SaveLecture ist kein Microsoft-Produkt.','rights':'Rechte','help':'Fehler melden','steps':'Erster Start',
  'stepList':['Vor dem Start die Zustimmung aller Beteiligten und Erlaubnis für die Materialien einholen.','Das komplette Paket in einen beschreibbaren Ordner entpacken. SHA-256 des veröffentlichten Archivs prüfen. Der Release ist noch in Vorbereitung.','Beim ersten Start den Hinweis lesen. Ohne Bestätigung beginnt keine Erfassung. Russisch, Deutsch und Englisch stehen zur Auswahl.','Nach Bestätigung startet die Erfassung beim normalen Start automatisch; spätere Starts zeigen den Hinweis nicht erneut. In Teams Desktop Liveuntertitel einschalten und die Bildschirmfreigabe sichtbar lassen.','Schließen blendet die App in den Tray aus. Pause unterbricht, Fortsetzen setzt dieselbe Vorlesung fort. Stopp beendet sie nach Bestätigung. Beenden stoppt die Erfassung ebenfalls.'],
  'settings':'Bilder einstellen',
@@ -66,7 +66,7 @@ data={
  'consent':'Only with every participant’s permission',
  'privacy':'Before saving, obtain informed consent from every participant and permission for the learning materials. Explain the purpose, what is saved and where. Stop collecting if consent is refused or withdrawn. Educational purpose and local storage alone do not establish whether recording is lawful.',
  'learn':'Consent and data','tune':'Adapt it to your lecture','tuneBody':'Adjust similarity, stability, allowed shift and check interval separately. Plain explanations help you choose between fewer repeats and a more detailed archive.',
- 'limits':'A transparent readiness status','limitsBody':'The candidate is tested for saving and interface behavior. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed. No public binary release has been published yet.',
+ 'limits':'A transparent readiness status','limitsBody':'This preview is tested for saving and interface behavior. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed. No public binary release has been published yet.',
  'footer':'Educational demonstration project. SaveLecture is not a Microsoft product.','rights':'Rights','help':'Report an issue','steps':'First launch',
  'stepList':['Obtain permission from every participant and permission for the materials before launching.','Extract the whole package into a writable folder. Verify the published archive’s SHA-256. The release is still being prepared.','Read the first-launch notice. No collection starts before acknowledgement. Choose Russian, German or English.','After acknowledgement, normal launches start collection automatically; later launches do not repeat the notice. Enable live captions in Teams Desktop and keep shared content visible.','Close hides the app in the tray. Pause suspends collection; Resume continues the same lecture. Stop ends it after confirmation. Exit also ends collection.'],
  'settings':'Configure snapshots',
@@ -169,44 +169,113 @@ for lang in languages:
 def asset(path):
     file=SITE/path
     return path+'?v='+hashlib.sha256(file.read_bytes()).hexdigest()[:12] if file.is_file() else path
-def header(lang,guide=False):
-    d=data[lang]; stem='Guide' if guide else 'index'
-    nav=''.join(f'<a href="{stem}-{l}.html" lang="{l}"'+(' aria-current="page"' if l==lang else '')+f'>{l.upper()}</a>' for l in languages)
-    language_label={'ru':'Язык','de':'Sprache','en':'Language'}[lang]
-    return f'<header class="shell top"><a class="brand" href="index-{lang}.html"><img src="assets/icon.png" alt="">SaveLecture</a><div class="links"><a href="https://popovantondev.github.io/popovantondev/{'index.html' if lang=='en' else 'index-'+lang+'.html'}">{dict(ru='Все программы',de='Alle Programme',en='All applications')[lang]}</a><a href="Guide-{lang}.html">{d["guide"]}</a><div class="langs" aria-label="{language_label}">{nav}</div></div></header>'
+# ---------------------------------------------------------------------------------------------
+# Site on the shared kit (website/assets/kit). Own look: website/site.css. Chrome: kit header/footer.
+# ---------------------------------------------------------------------------------------------
+SITE_URL='https://popovantondev.github.io/'
+PROFILE=SITE_URL+'popovantondev/'
+GITHUB='https://github.com/popovantondev/SaveLecture'
+STACK='C# · WPF'
+LAND={'de':'index.html','en':'index-en.html','ru':'index-ru.html'}
+GUIDE_FILE={l:f'Guide-{l}.html' for l in languages}
+CATALOG={l:PROFILE+LAND[l] for l in languages}
+UI={
+ 'de':dict(skip='Zum Inhalt',nav='Hauptnavigation',all='Alle Programme',search='Suchen',kbd='Strg K',search_label='Programme durchsuchen',theme='Farbschema wechseln',legal='Rechtliches',new='NEU',pill='Vorabversion {v} ist da',more='Was ist neu →',source='Quellcode',guide='Anleitung',impressum='Impressum',privacy='Datenschutz',contents='Inhalt'),
+ 'en':dict(skip='Skip to content',nav='Main navigation',all='All programs',search='Search',kbd='Ctrl K',search_label='Search programs',theme='Switch colour scheme',legal='Legal',new='NEW',pill='Preview {v} is out',more="What's new →",source='Source code',guide='User guide',impressum='Impressum',privacy='Datenschutz',contents='Contents'),
+ 'ru':dict(skip='К содержимому',nav='Основная навигация',all='Все программы',search='Поиск',kbd='Ctrl K',search_label='Поиск по программам',theme='Сменить тему',legal='Правовая информация',new='НОВОЕ',pill='Вышла предварительная версия {v}',more='Что нового →',source='Исходный код',guide='Руководство',impressum='Impressum',privacy='Datenschutz',contents='Содержание'),
+}
+BENTO={
+ 'de':dict(title='Was drin steckt',sub='Installation, Funktionen, Datenschutz, Prüfung.',inst='Installation',inst_sub='Wie in der Anleitung: Archiv prüfen, entpacken, starten.',
+  term=[('ps','1  Zustimmung aller Beteiligten und Erlaubnis für die Materialien einholen'),('ps','2  Release-Archiv in einen beschreibbaren Ordner entpacken, SHA-256 prüfen'),('ps','3  SaveLecture starten, Hinweis lesen und bestätigen'),('ok','✓ Die Erfassung läuft im Infobereich (Tray)'),('dim','   In Teams Liveuntertitel einschalten, Freigabe sichtbar lassen')],
+  data_title='Ihre Daten',data_text='SaveLecture lädt selbst nichts hoch. Untertitel und Folien liegen im Archive-Ordner neben der App, Einstellungen und Fehlerprotokoll unter %LOCALAPPDATA%\\SaveLecture. Die Untertitel liefert Teams (Microsoft-Dienst).',data_live='Lokale Speicherung',
+  feat='Funktionen',chips=['Untertitel mit Zeit und Sprecher','Folien neben dem Transkript','Pause · Stopp · Wiederherstellung','Einstellbare Filter','Atomares Speichern der TXT','Autostart mit Windows','RU · DE · EN','Ordnerbereinigung (optional)'],
+  checked='Geprüft',checks=['GitHub Actions unter Windows: Build, Speicher- und Filtertests, Prüfung der öffentlichen Dateien','Lokal am 15.10.2026: 79 Kern-, 194 Oberflächen- und 24 Quellen-/Farb-Prüfungen (docs/VERIFICATION.md)','SHA-256-Datei im Release','Version 0.1.0-preview.4 (Vorabversion), Oberfläche in RU, DE und EN']),
+ 'en':dict(title="What's inside",sub='Installation, features, privacy, checks.',inst='Installation',inst_sub='As in the guide: verify the archive, extract it, start.',
+  term=[('ps','1  Obtain consent of everyone involved and permission for the materials'),('ps','2  Extract the release archive into a writable folder, verify SHA-256'),('ps','3  Start SaveLecture, read and confirm the notice'),('ok','✓ Collection runs in the system tray'),('dim','   Turn on live captions in Teams, keep sharing visible')],
+  data_title='Your data',data_text='SaveLecture uploads nothing itself. Captions and slides are stored in the Archive folder next to the app, settings and error log under %LOCALAPPDATA%\\SaveLecture. The captions come from Teams (a Microsoft service).',data_live='Stored locally',
+  feat='Features',chips=['Captions with time and speaker','Slides beside the transcript','Pause · stop · recovery','Adjustable filters','Atomic TXT saving','Start with Windows','RU · DE · EN','Folder cleanup (optional)'],
+  checked='Checked',checks=['GitHub Actions on Windows: build, storage and filter tests, check of the public files','Locally on 15 Oct 2026: 79 core, 194 UI and 24 source/colour assertions (docs/VERIFICATION.md)','SHA-256 file in the release','Version 0.1.0-preview.4 (preview), interface in RU, DE and EN']),
+ 'ru':dict(title='Что внутри',sub='Установка, функции, данные, проверка.',inst='Установка',inst_sub='Как в руководстве: проверить архив, распаковать, запустить.',
+  term=[('ps','1  Получить согласие всех участников и разрешение на материалы'),('ps','2  Распаковать архив выпуска в доступную для записи папку, проверить SHA-256'),('ps','3  Запустить SaveLecture, прочитать и подтвердить предупреждение'),('ok','✓ Сбор идёт в трее'),('dim','   Включить живые субтитры в Teams, держать демонстрацию видимой')],
+  data_title='Ваши данные',data_text='SaveLecture сам ничего не загружает. Субтитры и слайды лежат в папке Archive рядом с программой, настройки и журнал ошибок — в %LOCALAPPDATA%\\SaveLecture. Субтитры предоставляет Teams (сервис Microsoft).',data_live='Локальное хранение',
+  feat='Функции',chips=['Субтитры со временем и именем','Слайды рядом с текстом','Пауза · стоп · восстановление','Настраиваемые фильтры','Атомарное сохранение TXT','Автозапуск с Windows','RU · DE · EN','Очистка папки (по желанию)'],
+  checked='Проверено',checks=['GitHub Actions на Windows: сборка, тесты хранения и фильтров, проверка публичных файлов','Локально 15.10.2026: 79 проверок ядра, 194 интерфейса и 24 источников/цвета (docs/VERIFICATION.md)','Файл SHA-256 в релизе','Версия 0.1.0-preview.4 (предварительная), интерфейс на RU, DE и EN']),
+}
+LEGAL_EXTRA={
+ 'de':'Meeting-Inhalte können personenbezogene Daten im Sinne der DSGVO enthalten; das heimliche Aufzeichnen des nichtöffentlich gesprochenen Wortes kann nach § 201 StGB strafbar sein.',
+ 'en':'Meeting content can contain personal data under the GDPR (DSGVO); secretly recording the non-publicly spoken word can be a criminal offence under § 201 of the German Criminal Code (StGB).',
+ 'ru':'Содержимое встреч может включать персональные данные в смысле DSGVO (GDPR); тайная запись непубличной речи может быть уголовно наказуема по § 201 StGB.'}
+SOURCE_LABEL={'de':'Quellcode','en':'Source code','ru':'Исходный код'}
+for lang in languages:
+    data[lang]['source']=SOURCE_LABEL[lang]
+    marker={'de':'Das Projekt garantiert keine Datenschutzkonformität.','en':None,'ru':'Заявления о гарантированном соблюдении Datenschutz проект не делает.'}[lang]
+    extra=data[lang]['privacyExtra']
+    if marker and marker in extra: data[lang]['privacyExtra']=extra.replace(marker,LEGAL_EXTRA[lang]+' '+marker)
+    else: data[lang]['privacyExtra']=extra.rstrip()+' '+LEGAL_EXTRA[lang]
+
+def head(lang,title,version):
+    d=data[lang]
+    return (f'<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="description" content="{e(d["lead"])}"><title>SaveLecture — {e(title)}</title>\n'
+            f'<link rel="icon" href="assets/icon.png">\n<script src="assets/kit/kit-theme.js"></script>\n<link rel="stylesheet" href="assets/kit/kit.css?v={version}">\n<link rel="stylesheet" href="{asset("site.css")}">\n'
+            f'<script src="assets/kit/programs.js?v={version}" defer></script>\n<script src="assets/kit/kit.js?v={version}" defer></script>')
+def header(lang,pages):
+    u=UI[lang]
+    langs=''.join(f'<a href="{pages[l]}" lang="{l}" hreflang="{l}"'+(' aria-current="page"' if l==lang else '')+f'>{l.upper()}</a>' for l in languages)
+    return (f'<div class="ppk-nav-wrap" id="ppk-nav-wrap">\n<nav class="ppk-nav" aria-label="{u["nav"]}"><a class="ppk-brand" href="{LAND[lang]}"><img src="assets/icon.png" alt="" width="34" height="34"><span>SaveLecture</span></a><span class="ppk-spacer"></span>'
+            f'<a class="ppk-back" href="{CATALOG[lang]}">← {u["all"]}</a><button class="ppk-search-btn" type="button" data-ppk-open-search aria-label="{u["search_label"]}"><span>{u["search"]}</span><kbd>{u["kbd"]}</kbd></button>'
+            f'<div class="ppk-langs">{langs}</div><button class="ppk-icon-btn ppk-theme-btn" type="button" data-ppk-theme aria-label="{u["theme"]}"></button><a class="ppk-icon-btn ppk-gh-btn" href="{GITHUB}" aria-label="GitHub"></a></nav>\n</div>')
 def consent(lang):
     short={
-        'ru':'Получите согласие всех участников и разрешение на материалы до сохранения. При отказе или отзыве остановите сбор.',
-        'de':'Vor dem Speichern die Zustimmung aller Beteiligten und Erlaubnis für die Materialien einholen. Bei Ablehnung oder Widerruf die Erfassung stoppen.',
-        'en':'Obtain every participant’s consent and permission for the materials before saving. Stop collecting if consent is refused or withdrawn.'
+        'ru':'Получите согласие всех участников и разрешение на материалы до сохранения. При отказе или отзыве остановите сбор. Содержимое встреч может включать персональные данные в смысле DSGVO.',
+        'de':'Vor dem Speichern die Zustimmung aller Beteiligten und Erlaubnis für die Materialien einholen. Bei Ablehnung oder Widerruf die Erfassung stoppen. Meeting-Inhalte können personenbezogene Daten im Sinne der DSGVO enthalten.',
+        'en':'Obtain every participant’s consent and permission for the materials before saving. Stop collecting if consent is refused or withdrawn. Meeting content can contain personal data under the GDPR (DSGVO).'
     }
     d=data[lang]; return f'<aside class="consent"><div class="shield" aria-hidden="true">i</div><div><h2>{d["consent"]}</h2><p>{short[lang]} <a href="Guide-{lang}.html#privacy">{d["learn"]} →</a></p></div></aside>'
 def footer(lang):
-    catalog='index.html' if lang=='en' else 'index-'+lang+'.html'
-    help_url='https://github.com/popovantondev/SaveLecture/issues/new' if release['published'] else f'Guide-{lang}.html#trouble'
-    d=data[lang]; return f'<footer><div class="shell footer-inner"><span>SaveLecture {release["version"]} · {d["footer"]}</span><div><a href="Guide-{lang}.html#rights">{d["rights"]}</a><a href="{help_url}">{d["help"]}</a><a href="https://popovantondev.github.io/popovantondev/{catalog}">popovantondev</a></div></div></footer>'
-def page(lang,title,body,guide=False):
-    return f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{e(data[lang]["lead"])}"><meta name="theme-color" content="#f4f8fd"><title>SaveLecture — {e(title)}</title><link rel="icon" href="assets/icon.png"><link rel="stylesheet" href="{asset("site.css")}"></head><body>{header(lang,guide)}{body}{footer(lang)}</body></html>'
+    u=UI[lang]; d=data[lang]
+    help_url=f'{GITHUB}/issues/new' if release['published'] else f'Guide-{lang}.html#trouble'
+    return (f'<footer class="ppk-footer">\n<span>© 2026 Anton Popov · SaveLecture {release["version"]} · {d["footer"]}</span>\n<nav aria-label="{u["legal"]}">'
+            f'<a href="{PROFILE}impressum.html">{u["impressum"]}</a><a href="{PROFILE}datenschutz.html">{u["privacy"]}</a><a href="{GITHUB}">GitHub</a><a href="Guide-{lang}.html#rights">{d["rights"]}</a><a href="{help_url}">{d["help"]}</a></nav>\n</footer>')
+def bento(lang):
+    b=BENTO[lang]; d=data[lang]
+    term=''.join(f'<div class="ppk-{c}">{e(t)}</div>' for c,t in b['term'])
+    chips=''.join(f'<span>{e(x)}</span>' for x in b['chips'])
+    checks=''.join(f'<li>{e(x)}</li>' for x in b['checks'])
+    return (f'<section class="ppk-bento-section ppk-section ppk-reveal" id="features" aria-labelledby="bento-title"><h2 id="bento-title">{b["title"]}</h2><p class="ppk-sub">{b["sub"]}</p>\n<div class="ppk-bento">\n'
+            f'<div class="ppk-tile ppk-wide"><h3>{b["inst"]}</h3><p>{b["inst_sub"]}</p><div class="ppk-term" role="group" aria-label="Terminal"><div class="ppk-term-bar"><i></i><i></i><i></i></div><div class="ppk-term-out">{term}</div></div></div>\n'
+            f'<div class="ppk-tile"><h3>{b["data_title"]}</h3><p>{e(b["data_text"])}</p><span class="ppk-live">{b["data_live"]}</span></div>\n'
+            f'<div class="ppk-tile"><h3>{b["feat"]}</h3><div class="ppk-chips">{chips}</div></div>\n'
+            f'<div class="ppk-tile ppk-wide"><h3>{b["checked"]}</h3><ul class="ppk-checks">{checks}</ul></div>\n</div></section>')
+def page(lang,title,body,pages):
+    version=(SITE/'assets/kit/KIT_VERSION').read_text(encoding='utf8').strip()
+    return f'<!doctype html>\n<html lang="{lang}"><head>{head(lang,title,version)}\n</head>\n<body class="ppk-page">\n<a class="ppk-skip" href="#main">{UI[lang]["skip"]}</a>\n{header(lang,pages)}\n{body}\n{footer(lang)}\n</body></html>\n'
 def main():
     SITE.mkdir(exist_ok=True)
     for lang,d in data.items():
+        u=UI[lang]
         cards=''.join(f'<article class="card"><span class="number">0{i+1}</span><h3>{e(t)}</h3><p>{e(b)}</p></article>' for i,(t,b) in enumerate(d['cards']))
-        download=(f'<a class="button primary" href="{e(release["release_url"])}">{d["download"]}</a>' if release.get('published') and release.get('release_url') else '')
+        has_release=release.get('published') and release.get('release_url')
+        download=(f'<a class="button primary" href="{e(release["release_url"])}">{d["download"]}</a>' if has_release else '')
         guide_class='button' if download else 'button primary'
-        body=f'<main class="shell"><section class="hero"><div class="eyebrow">{d["purpose"]}</div><h1>{d["title"]}</h1><p class="lead">{d["lead"]}</p><div class="actions">{download}<a class="{guide_class}" href="Guide-{lang}.html">{d["guide"]} ↗</a><a class="button" href="https://github.com/popovantondev/SaveLecture">{d["source"]}</a></div><p class="download-consent"><a href="Guide-{lang}.html#privacy">{d["consent"]} →</a></p><p class="note">{d["note"]}</p><div class="screen-wrap"><a href="{asset(f"assets/demo-{lang}.png")}"><img src="{asset(f"assets/demo-{lang}.png")}" width="1104" height="804" alt="SaveLecture — {d["caption"]}"></a><p class="caption">{d["caption"]}</p></div></section>{consent(lang)}<section class="section"><div class="kicker">{d["kicker"]}</div><h2>{d["features"]}</h2><div class="grid">{cards}</div></section><section class="section split"><div><div class="kicker">{d["tuneKicker"]}</div><h2>{d["tune"]}</h2><p>{d["tuneBody"]}</p><a class="button" href="Guide-{lang}.html#settings">{d["guide"]} →</a></div><a class="settings-shot" href="{asset(f"assets/filters-{lang}.png")}"><img src="{asset(f"assets/filters-{lang}.png")}" width="1104" height="804" alt="{d["settings"]}" loading="lazy"></a></section><section class="section"><h2 id="limits">{d["limits"]}</h2><div class="details"><p>{d["limitsBody"]}</p></div></section></main>'
-        (SITE/f'index-{lang}.html').write_text(page(lang,d['status'],body),encoding='utf8')
+        pill=(f'<a class="ppk-pill" href="{e(release["release_url"])}"><span class="ppk-new">{u["new"]}</span><span>{e(u["pill"].format(v=release["version"]))}</span> <span class="ppk-more">{u["more"]}</span></a>' if has_release else '')
+        src=f'<a class="ppk-btn ppk-btn-gh" href="{GITHUB}">{u["source"]} <span class="ppk-chip"><i class="ppk-dot"></i>{STACK}</span></a>'
+        body=(f'<main class="shell" id="main"><section class="hero">{pill}<div class="eyebrow">{d["purpose"]}</div><h1>{d["title"]}</h1><p class="lead">{d["lead"]}</p><div class="actions">{download}{src}<a class="{guide_class}" href="Guide-{lang}.html">{d["guide"]} ↗</a></div>'
+              f'<p class="download-consent"><a href="Guide-{lang}.html#privacy">{d["consent"]} →</a></p><p class="note">{d["note"]}</p><div class="screen-wrap"><a href="{asset(f"assets/demo-{lang}.png")}"><img src="{asset(f"assets/demo-{lang}.png")}" width="1104" height="804" alt="SaveLecture — {d["caption"]}"></a><p class="caption">{d["caption"]}</p></div></section>'
+              f'{bento(lang)}{consent(lang)}<section class="section"><div class="kicker">{d["kicker"]}</div><h2>{d["features"]}</h2><div class="grid">{cards}</div></section>'
+              f'<section class="section split"><div><div class="kicker">{d["tuneKicker"]}</div><h2>{d["tune"]}</h2><p>{d["tuneBody"]}</p><a class="button" href="Guide-{lang}.html#settings">{d["guide"]} →</a></div><a class="settings-shot" href="{asset(f"assets/filters-{lang}.png")}"><img src="{asset(f"assets/filters-{lang}.png")}" width="1104" height="804" alt="{d["settings"]}" loading="lazy"></a></section>'
+              f'<section class="section"><h2 id="limits">{d["limits"]}</h2><div class="details"><p>{d["limitsBody"]}</p></div></section></main>')
+        (SITE/LAND[lang]).write_text(page(lang,d['status'],body,LAND),encoding='utf8',newline='\n')
         sections=[('steps',d['steps']),('settings',d['settings']),('storage',d['storage']),('startup',d['startup']),('privacy',d['privacyTitle']),('rights',d['rights']),('trouble',d['trouble']),('limits',d['limits'])]
         nav=''.join(f'<a href="#{a}">{e(t)}</a>' for a,t in sections)
         rows=''.join(f'<tr><th>{e(a)}</th><td>{e(b)}</td></tr>' for a,b in d['rows'])
         steps=''.join(f'<li>{e(s)}</li>' for s in d['stepList'])
         sources='<a href="https://www.edpb.europa.eu/sme/be-compliant/process-personal-data-lawfully_en">EDPB</a> · <a href="https://www.gesetze-im-internet.de/stgb/__201.html">§ 201 StGB</a>'
-        contents_label={'ru':'Содержание','de':'Inhalt','en':'Contents'}[lang]
         guide_lead={
             'ru':'Первые шаги, настройки и ответы на вопросы — всё, что нужно для работы с SaveLecture.',
             'de':'Erste Schritte, Einstellungen und Antworten auf häufige Fragen — alles für den Einstieg mit SaveLecture.',
             'en':'First steps, settings and answers to common questions — everything you need to get started with SaveLecture.'
         }[lang]
-        body=f'<main class="shell guide"><section class="section guide-intro"><div class="eyebrow">{d["status"]}</div><h1>{d["guide"]}</h1><p class="guide-lead">{guide_lead}</p><nav class="guide-nav" aria-label="{contents_label}">{nav}</nav></section>{consent(lang)}<section class="section guide-section"><h2 id="steps">{d["steps"]}</h2><div class="guide-steps"><ol>{steps}</ol><a class="settings-shot" href="{asset(f"assets/consent-{lang}.png")}"><img src="{asset(f"assets/consent-{lang}.png")}" width="664" height="514" alt="{d["consent"]}"></a></div></section><section class="section guide-section"><h2 id="settings">{d["settings"]}</h2><table class="settings-table">{rows}</table></section>'
+        body=f'<main class="shell guide" id="main"><section class="section guide-intro"><div class="eyebrow">{d["status"]}</div><h1>{d["guide"]}</h1><p class="guide-lead">{guide_lead}</p><nav class="guide-nav" aria-label="{u["contents"]}">{nav}</nav></section>{consent(lang)}<section class="section guide-section"><h2 id="steps">{d["steps"]}</h2><div class="guide-steps"><ol>{steps}</ol><a class="settings-shot" href="{asset(f"assets/consent-{lang}.png")}"><img src="{asset(f"assets/consent-{lang}.png")}" width="664" height="514" alt="{d["consent"]}"></a></div></section><section class="section guide-section"><h2 id="settings">{d["settings"]}</h2><table class="settings-table">{rows}</table></section>'
         for anchor,title,text in [
             ('storage',d['storage'],d['storageBody']),('startup',d['startup'],d['startupBody']),
             ('privacy',d['privacyTitle'],d['privacyExtra']),('rights',d['rights'],d['rightsBody']),
@@ -216,11 +285,10 @@ def main():
             if anchor=='trouble': links+=f'<div class="guide-answer"><h3>{d["statsTitle"]}</h3><p>{d["statsBody"]}</p></div>'
             body+=f'<section class="section guide-section"><h2 id="{anchor}">{title}</h2><p>{text}</p>{links}</section>'
         body+='</main>'
-        (SITE/f'Guide-{lang}.html').write_text(page(lang,d['guide'],body,True),encoding='utf8')
-    (SITE/'index.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=index-en.html"><title>SaveLecture</title><a href="index-en.html">SaveLecture</a></html>',encoding='utf8')
-    (SITE/'content.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf8')
+        (SITE/GUIDE_FILE[lang]).write_text(page(lang,d['guide'],body,GUIDE_FILE),encoding='utf8',newline='\n')
+    # Old address of the German page forwards to index.html (all languages stay linked).
+    (SITE/'index-de.html').write_text('<!doctype html>\n<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script>location.replace(\'index.html\'+location.hash)</script><meta http-equiv="refresh" content="0; url=index.html"><link rel="canonical" href="'+SITE_URL+'SaveLecture/index.html"><meta name="robots" content="noindex"><title>SaveLecture</title></head>\n<body><p><a href="index.html">Weiter zur deutschen Seite</a> · <a href="index-en.html" lang="en" hreflang="en">English</a> · <a href="index-ru.html" lang="ru" hreflang="ru">Русский</a></p></body></html>\n',encoding='utf8',newline='\n')
+    (SITE/'content.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf8',newline='\n')
 
 if __name__=='__main__':
  main()
- import polish_guides
- polish_guides.main()
