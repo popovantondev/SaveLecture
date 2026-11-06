@@ -1,5 +1,5 @@
 """Build the three-language static presentation and guide from reviewed text."""
-import json, html, hashlib
+import json, html, hashlib, re
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -10,7 +10,7 @@ data={
 'ru':{
  'title':'Лекция проходит. <span>Знания остаются.</span>',
  'lead':'Субтитры и слайды Teams в одном месте. SaveLecture помогает сохранить разрешённые учебные материалы и спокойно вернуться к ним позже.',
- 'status':'Учебный проект · предварительная версия', 'guide':'Руководство', 'source':'Исходники', 'theme':'Сменить тему',
+ 'status':'Учебный проект · предварительная версия', 'guide':'Руководство', 'source':'Исходный код', 'theme':'Сменить тему',
  'note':'Windows 11 · x64 · локальное сохранение · RU / DE / EN',
  'caption':'Настоящий интерфейс. Все тексты, имена и изображения в примере искусственные.',
  'kicker':'Меньше действий. Больше порядка.', 'features':'От встречи — к понятному архиву',
@@ -46,7 +46,7 @@ data={
  'privacy':'Vor dem Speichern die informierte Einwilligung aller Beteiligten und Erlaubnis für die Lernmaterialien einholen. Zweck, Datenumfang und Speicherort erklären. Bei Ablehnung oder Widerruf die Erfassung stoppen. Lernzweck und lokale Speicherung allein stellen die Rechtmäßigkeit nicht fest.',
  'learn':'Einwilligung und Daten','tune':'Passend zur Vorlesung','tuneBody':'Ähnlichkeit, Stabilität, erlaubter Versatz und Prüfintervall lassen sich einzeln einstellen. Verständliche Hinweise helfen zwischen weniger Wiederholungen und einem ausführlicheren Archiv zu wählen.',
  'limits':'Ein ehrlicher Stand','limitsBody':'Die Lernprojekt-Vorabversion wird auf Speicherung und Oberfläche geprüft. Ein vollständiger Live-Test mit Teams, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt. Eine öffentliche Binärversion ist noch nicht veröffentlicht.',
- 'footer':'Lern- und Demonstrationsprojekt. SaveLecture ist kein Microsoft-Produkt.','rights':'Rechte','help':'Fehler melden','steps':'Erster Start',
+ 'footer':'Lern- und Demonstrationsprojekt. SaveLecture ist kein Microsoft-Produkt.','rights':'Rechte','help':'Problem melden','steps':'Erster Start',
  'stepList':['Vor dem Start die Zustimmung aller Beteiligten und Erlaubnis für die Materialien einholen.','Das komplette Paket in einen beschreibbaren Ordner entpacken. SHA-256 des veröffentlichten Archivs prüfen. Der Release ist noch in Vorbereitung.','Beim ersten Start den Hinweis lesen. Ohne Bestätigung beginnt keine Erfassung. Russisch, Deutsch und Englisch stehen zur Auswahl.','Nach Bestätigung startet die Erfassung beim normalen Start automatisch; spätere Starts zeigen den Hinweis nicht erneut. In Teams Desktop Liveuntertitel einschalten und die Bildschirmfreigabe sichtbar lassen.','Schließen blendet die App in den Tray aus. Pause unterbricht, Fortsetzen setzt dieselbe Vorlesung fort. Stopp beendet sie nach Bestätigung. Beenden stoppt die Erfassung ebenfalls.'],
  'settings':'Bilder einstellen',
  'rows':[('Duplikate · 80–100 %, Schritt 0,5','Bilder ab dieser Ähnlichkeit werden meist übersprungen. Niedriger: weniger Wiederholungen; höher: mehr ähnliche Bilder. Zusatzprüfungen schützen neue Texte, ohne OCR-Garantie.'),('Stabilität · 80–100 %, Schritt 0,5','Ähnlichkeit aufeinanderfolgender Bilder zum Erkennen eines ruhigen Bilds. Höher prüft Bewegungen strenger.'),('Wartezeit · 0–60 s','Unter Allgemein: Wartezeit nach einem Folienwechsel. 0 deaktiviert das Warten.'),('Versatz · 0–24 px','Verschiebungsausgleich beim Vergleich. Pixel im verkleinerten 240 × 135-Bild, nicht im Original. 0 deaktiviert den Ausgleich.'),('Prüfung · 0,5–10 s','Pause zwischen Verarbeitungen. Kürzer reagiert schneller, benötigt mehr Leistung. Die Verarbeitungszeit kommt hinzu.')],
@@ -67,7 +67,7 @@ data={
  'privacy':'Before saving, obtain informed consent from every participant and permission for the learning materials. Explain the purpose, what is saved and where. Stop collecting if consent is refused or withdrawn. Educational purpose and local storage alone do not establish whether recording is lawful.',
  'learn':'Consent and data','tune':'Adapt it to your lecture','tuneBody':'Adjust similarity, stability, allowed shift and check interval separately. Plain explanations help you choose between fewer repeats and a more detailed archive.',
  'limits':'A transparent readiness status','limitsBody':'This preview is tested for saving and interface behavior. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed. No public binary release has been published yet.',
- 'footer':'Educational demonstration project. SaveLecture is not a Microsoft product.','rights':'Rights','help':'Report an issue','steps':'First launch',
+ 'footer':'Educational demonstration project. SaveLecture is not a Microsoft product.','rights':'Rights','help':'Report a problem','steps':'First launch',
  'stepList':['Obtain permission from every participant and permission for the materials before launching.','Extract the whole package into a writable folder. Verify the published archive’s SHA-256. The release is still being prepared.','Read the first-launch notice. No collection starts before acknowledgement. Choose Russian, German or English.','After acknowledgement, normal launches start collection automatically; later launches do not repeat the notice. Enable live captions in Teams Desktop and keep shared content visible.','Close hides the app in the tray. Pause suspends collection; Resume continues the same lecture. Stop ends it after confirmation. Exit also ends collection.'],
  'settings':'Configure snapshots',
  'rows':[('Duplicates · 80–100%, step 0.5','Frames at or above this similarity are usually skipped. Lower: fewer repeats; higher: more similar frames saved. Extra checks protect new text without an OCR guarantee.'),('Stability · 80–100%, step 0.5','Similarity of consecutive frames used to wait for a still image. Higher checks movement more strictly.'),('Delay · 0–60 s','In General: wait after a slide changes. 0 disables the delay.'),('Shift · 0–24 px','Compensate movement during comparison. Pixels in a reduced 240 × 135 sample, not the original image. 0 disables compensation.'),('Check · 0.5–10 s','Pause between processing frames. Shorter reacts faster with more load. Processing time adds to the interval.')],
@@ -236,7 +236,7 @@ def footer(lang):
     u=UI[lang]; d=data[lang]
     help_url=f'{GITHUB}/issues/new' if release['published'] else f'Guide-{lang}.html#trouble'
     return (f'<footer class="ppk-footer">\n<span>© 2026 Anton Popov · SaveLecture {release["version"]} · {d["footer"]}</span>\n<nav aria-label="{u["legal"]}">'
-            f'<a href="{PROFILE}impressum.html">{u["impressum"]}</a><a href="{PROFILE}datenschutz.html">{u["privacy"]}</a><a href="{GITHUB}">GitHub</a><a href="Guide-{lang}.html#rights">{d["rights"]}</a><a href="{help_url}">{d["help"]}</a></nav>\n</footer>')
+            f'<a href="{PROFILE}impressum.html">{u["impressum"]}</a><a href="{PROFILE}datenschutz.html">{u["privacy"]}</a><a href="Guide-{lang}.html#rights">{d["rights"]}</a><a href="{help_url}">{d["help"]}</a><a href="{GITHUB}">GitHub</a></nav>\n</footer>')
 def bento(lang):
     b=BENTO[lang]; d=data[lang]
     term=''.join(f'<div class="ppk-{c}">{e(t)}</div>' for c,t in b['term'])
@@ -247,6 +247,10 @@ def bento(lang):
             f'<div class="ppk-tile"><h3>{b["data_title"]}</h3><p>{e(b["data_text"])}</p><span class="ppk-live">{b["data_live"]}</span></div>\n'
             f'<div class="ppk-tile"><h3>{b["feat"]}</h3><div class="ppk-chips">{chips}</div></div>\n'
             f'<div class="ppk-tile ppk-wide"><h3>{b["checked"]}</h3><ul class="ppk-checks">{checks}</ul></div>\n</div></section>')
+GUIDE_TITLE={'ru':'Руководство','de':'Anleitung','en':'User guide'}
+def gist(text):
+    # <title> gist: first sentence of the hero lead, without the final full stop
+    return re.split(r'(?<=[.!?])\s',text.strip())[0].rstrip('.')
 def page(lang,title,body,pages):
     version=(SITE/'assets/kit/KIT_VERSION').read_text(encoding='utf8').strip()
     return f'<!doctype html>\n<html lang="{lang}"><head>{head(lang,title,version)}\n</head>\n<body class="ppk-page">\n<a class="ppk-skip" href="#main">{UI[lang]["skip"]}</a>\n{header(lang,pages)}\n{body}\n{footer(lang)}\n</body></html>\n'
@@ -265,7 +269,7 @@ def main():
               f'{bento(lang)}{consent(lang)}<section class="section"><div class="kicker">{d["kicker"]}</div><h2>{d["features"]}</h2><div class="grid">{cards}</div></section>'
               f'<section class="section split"><div><div class="kicker">{d["tuneKicker"]}</div><h2>{d["tune"]}</h2><p>{d["tuneBody"]}</p><a class="button" href="Guide-{lang}.html#settings">{d["guide"]} →</a></div><a class="settings-shot" href="{asset(f"assets/filters-{lang}.png")}"><img src="{asset(f"assets/filters-{lang}.png")}" width="1104" height="804" alt="{d["settings"]}" loading="lazy"></a></section>'
               f'<section class="section"><h2 id="limits">{d["limits"]}</h2><div class="details"><p>{d["limitsBody"]}</p></div></section></main>')
-        (SITE/LAND[lang]).write_text(page(lang,d['status'],body,LAND),encoding='utf8',newline='\n')
+        (SITE/LAND[lang]).write_text(page(lang,gist(d['lead']),body,LAND),encoding='utf8',newline='\n')
         sections=[('steps',d['steps']),('settings',d['settings']),('storage',d['storage']),('startup',d['startup']),('privacy',d['privacyTitle']),('rights',d['rights']),('trouble',d['trouble']),('limits',d['limits'])]
         nav=''.join(f'<a href="#{a}">{e(t)}</a>' for a,t in sections)
         rows=''.join(f'<tr><th>{e(a)}</th><td>{e(b)}</td></tr>' for a,b in d['rows'])
@@ -286,7 +290,7 @@ def main():
             if anchor=='trouble': links+=f'<div class="guide-answer"><h3>{d["statsTitle"]}</h3><p>{d["statsBody"]}</p></div>'
             body+=f'<section class="section guide-section"><h2 id="{anchor}">{title}</h2><p>{text}</p>{links}</section>'
         body+='</main>'
-        (SITE/GUIDE_FILE[lang]).write_text(page(lang,d['guide'],body,GUIDE_FILE),encoding='utf8',newline='\n')
+        (SITE/GUIDE_FILE[lang]).write_text(page(lang,GUIDE_TITLE[lang],body,GUIDE_FILE),encoding='utf8',newline='\n')
     # Old address of the German page forwards to index.html (all languages stay linked).
     (SITE/'index-de.html').write_text('<!doctype html>\n<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script>location.replace(\'index.html\'+location.hash)</script><meta http-equiv="refresh" content="0; url=index.html"><link rel="canonical" href="'+SITE_URL+'SaveLecture/index.html"><meta name="robots" content="noindex"><title>SaveLecture</title></head>\n<body><p><a href="index.html">Weiter zur deutschen Seite</a> · <a href="index-en.html" lang="en" hreflang="en">English</a> · <a href="index-ru.html" lang="ru" hreflang="ru">Русский</a></p></body></html>\n',encoding='utf8',newline='\n')
     (SITE/'content.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf8',newline='\n')

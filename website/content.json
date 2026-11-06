@@ -114,7 +114,7 @@
     "limitsBody": "Die Lernprojekt-Vorabversion hat lokale Speicher- und Oberflächentests bestanden. Ein vollständiger Live-Teams-Test, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt.",
     "footer": "Lern- und Demonstrationsprojekt. SaveLecture ist kein Microsoft-Produkt.",
     "rights": "Rechte",
-    "help": "Fehler melden",
+    "help": "Problem melden",
     "steps": "Erster Start",
     "stepList": [
       "Vor dem Start die Zustimmung aller Beteiligten und Erlaubnis für die Materialien einholen.",
@@ -195,7 +195,7 @@
     "limitsBody": "This educational preview has passed local storage and interface checks. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed.",
     "footer": "Educational demonstration project. SaveLecture is not a Microsoft product.",
     "rights": "Rights",
-    "help": "Report an issue",
+    "help": "Report a problem",
     "steps": "First launch",
     "stepList": [
       "Obtain permission from every participant and permission for the materials before launching.",
