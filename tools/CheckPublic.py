@@ -32,6 +32,12 @@ class Links(HTMLParser):
         for attr in ('href','src'):
             if attr in attrs: self.refs.append(attrs[attr])
 
+HOME={'ru':'← На страницу программы','de':'← Zur Programmseite','en':'← Program page'}
+LAND={'de':'index.html','en':'index-en.html','ru':'index-ru.html'}
+for lang in HOME:
+    guide=(root/'website'/('Guide-'+lang+'.html')).read_text(encoding='utf8')
+    if not re.search(r'<a\b[^>]*href="'+LAND[lang]+r'"[^>]*>\s*'+HOME[lang]+r'\s*</a>',guide): issues.append('website/Guide-'+lang+'.html: no button to the program page')
+
 for path in (root/'website').glob('*.html'):
     parser=Links(); text=path.read_text(encoding='utf8'); parser.feed(text)
     for ref in parser.refs:

@@ -178,6 +178,7 @@ GITHUB='https://github.com/popovantondev/SaveLecture'
 STACK='C# · WPF'
 LAND={'de':'index.html','en':'index-en.html','ru':'index-ru.html'}
 GUIDE_FILE={l:f'Guide-{l}.html' for l in languages}
+HOME_LABEL={'ru':'← На страницу программы','de':'← Zur Programmseite','en':'← Program page'}
 CATALOG={l:PROFILE+LAND[l] for l in languages}
 UI={
  'de':dict(skip='Zum Inhalt',nav='Hauptnavigation',all='Alle Programme',search='Suchen',kbd='Strg K',search_label='Programme durchsuchen',theme='Farbschema wechseln',legal='Rechtliches',new='NEU',pill='Vorabversion {v} ist da',more='Was ist neu →',source='Quellcode',guide='Anleitung',impressum='Impressum',privacy='Datenschutz',contents='Inhalt'),
@@ -275,7 +276,7 @@ def main():
             'de':'Erste Schritte, Einstellungen und Antworten auf häufige Fragen — alles für den Einstieg mit SaveLecture.',
             'en':'First steps, settings and answers to common questions — everything you need to get started with SaveLecture.'
         }[lang]
-        body=f'<main class="shell guide" id="main"><section class="section guide-intro"><div class="eyebrow">{d["status"]}</div><h1>{d["guide"]}</h1><p class="guide-lead">{guide_lead}</p><nav class="guide-nav" aria-label="{u["contents"]}">{nav}</nav></section>{consent(lang)}<section class="section guide-section"><h2 id="steps">{d["steps"]}</h2><div class="guide-steps"><ol>{steps}</ol><a class="settings-shot" href="{asset(f"assets/consent-{lang}.png")}"><img src="{asset(f"assets/consent-{lang}.png")}" width="664" height="514" alt="{d["consent"]}"></a></div></section><section class="section guide-section"><h2 id="settings">{d["settings"]}</h2><table class="settings-table">{rows}</table></section>'
+        body=f'<main class="shell guide" id="main"><p class="guide-home"><a class="button" href="{LAND[lang]}">{HOME_LABEL[lang]}</a></p><section class="section guide-intro"><div class="eyebrow">{d["status"]}</div><h1>{d["guide"]}</h1><p class="guide-lead">{guide_lead}</p><nav class="guide-nav" aria-label="{u["contents"]}">{nav}</nav></section>{consent(lang)}<section class="section guide-section"><h2 id="steps">{d["steps"]}</h2><div class="guide-steps"><ol>{steps}</ol><a class="settings-shot" href="{asset(f"assets/consent-{lang}.png")}"><img src="{asset(f"assets/consent-{lang}.png")}" width="664" height="514" alt="{d["consent"]}"></a></div></section><section class="section guide-section"><h2 id="settings">{d["settings"]}</h2><table class="settings-table">{rows}</table></section>'
         for anchor,title,text in [
             ('storage',d['storage'],d['storageBody']),('startup',d['startup'],d['startupBody']),
             ('privacy',d['privacyTitle'],d['privacyExtra']),('rights',d['rights'],d['rightsBody']),

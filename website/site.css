@@ -86,6 +86,8 @@ footer a{color:#6980a1}
 .screen-wrap:before{display:none}.screen-wrap{padding:12px;border:1px solid #dce7f4;box-shadow:0 20px 48px -35px #6984ac}.screen-wrap img,.split img,.guide img{display:block;max-width:100%;height:auto;object-fit:contain;border-radius:0}.hero:after{opacity:.35}.hero{background:linear-gradient(140deg,#fff,#eef5ff)}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.split{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.card,.split>*,.hero{min-width:0}.button{margin-top:0}.actions{gap:12px}
 @media(max-width:950px){.grid,.split{grid-template-columns:minmax(0,1fr)}}
 
+.guide-home{margin:24px 0 0}
+.guide-home+.guide-intro{margin-top:18px}
 .guide-intro{margin-top:25px}
 .guide h1{font-size:clamp(36px,4vw,48px);margin:20px 0 14px;letter-spacing:-.045em}
 .guide-lead{max-width:75ch;font-size:18px}
