@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="website/assets/icon.png" width="128" alt="SaveLecture icon">
+</div>
+
 # SaveLecture
 
 [Русский](README.ru.md) · [Deutsch](README.md) · **English**
@@ -6,8 +10,7 @@ Teams captions and slides, together. SaveLecture keeps permitted learning materi
 
 **Windows 11 · x64 · Educational project · preview 0.1.0-preview.4**
 
-[Download Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)
-[Guide](https://popovantondev.github.io/SaveLecture/Guide-en.html) · [Source code](https://github.com/popovantondev/SaveLecture) · [Report an issue](https://github.com/popovantondev/SaveLecture/issues/new)
+**[Download Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)** · **[Website](https://popovantondev.github.io/SaveLecture/index-en.html)** · **[Guide](https://popovantondev.github.io/SaveLecture/Guide-en.html)** · **[Report an issue](https://github.com/popovantondev/SaveLecture/issues/new)**
 
 ![SaveLecture](website/assets/demo-en.png)
 
@@ -44,5 +47,7 @@ No text: check Teams captions, window visibility and app status. No images: keep
 ## A transparent readiness status
 
 This educational preview has passed local storage and interface checks. A full live Teams run, physical DPI changes and eight actual hours of operation have not been confirmed.
+
+## Rights
 
 [Rights](RIGHTS.md) · [Components](THIRD_PARTY_NOTICES.md) · [Build](docs/BUILDING.md) · [Verification](docs/VERIFICATION.md)

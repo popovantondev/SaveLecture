@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="website/assets/icon.png" width="128" alt="SaveLecture Symbol">
+</div>
+
 # SaveLecture
 
 [Русский](README.ru.md) · **Deutsch** · [English](README.en.md)
@@ -6,8 +10,7 @@ Teams-Untertitel und Folien an einem Ort. SaveLecture speichert erlaubte Lernmat
 
 **Windows 11 · x64 · Lernprojekt · Vorabversion 0.1.0-preview.4**
 
-[Vorschau herunterladen](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)
-[Anleitung](https://popovantondev.github.io/SaveLecture/Guide-de.html) · [Quellcode](https://github.com/popovantondev/SaveLecture) · [Fehler melden](https://github.com/popovantondev/SaveLecture/issues/new)
+**[Vorschau herunterladen](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)** · **[Webseite](https://popovantondev.github.io/SaveLecture/)** · **[Anleitung](https://popovantondev.github.io/SaveLecture/Guide-de.html)** · **[Fehler melden](https://github.com/popovantondev/SaveLecture/issues/new)**
 
 ![SaveLecture](website/assets/demo-de.png)
 
@@ -44,5 +47,7 @@ Kein Text: Teams-Untertitel, Fenstersichtbarkeit und App-Status prüfen. Keine B
 ## Ein ehrlicher Stand
 
 Die Lernprojekt-Vorabversion hat lokale Speicher- und Oberflächentests bestanden. Ein vollständiger Live-Teams-Test, physische DPI-Wechsel und acht reale Betriebsstunden sind noch nicht bestätigt.
+
+## Rechte
 
 [Rechte](RIGHTS.md) · [Komponenten](THIRD_PARTY_NOTICES.md) · [Bauanleitung](docs/BUILDING.md) · [Prüfstand](docs/VERIFICATION.md)

@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="website/assets/icon.png" width="128" alt="Значок SaveLecture">
+</div>
+
 # SaveLecture
 
 **Русский** · [Deutsch](README.md) · [English](README.en.md)
@@ -6,8 +10,7 @@
 
 **Windows 11 · x64 · Учебный проект · предварительная версия 0.1.0-preview.4**
 
-[Скачать Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)
-[Руководство](https://popovantondev.github.io/SaveLecture/Guide-ru.html) · [Исходный код](https://github.com/popovantondev/SaveLecture) · [Сообщить об ошибке](https://github.com/popovantondev/SaveLecture/issues/new)
+**[Скачать Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)** · **[Сайт](https://popovantondev.github.io/SaveLecture/index-ru.html)** · **[Руководство](https://popovantondev.github.io/SaveLecture/Guide-ru.html)** · **[Сообщить об ошибке](https://github.com/popovantondev/SaveLecture/issues/new)**
 
 ![SaveLecture](website/assets/demo-ru.png)
 
@@ -44,5 +47,7 @@
 ## Прозрачно о готовности
 
 Учебная предварительная версия прошла локальные проверки сохранения и интерфейса. Полный живой прогон Teams, физическая смена DPI и реальные восемь часов работы пока не подтверждены.
+
+## Права
 
 [Права](RIGHTS.md) · [Компоненты](THIRD_PARTY_NOTICES.md) · [Сборка](docs/BUILDING.md) · [Проверка](docs/VERIFICATION.md)
