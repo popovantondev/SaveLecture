@@ -290,6 +290,8 @@ def main():
     # Old address of the German page forwards to index.html (all languages stay linked).
     (SITE/'index-de.html').write_text('<!doctype html>\n<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script>location.replace(\'index.html\'+location.hash)</script><meta http-equiv="refresh" content="0; url=index.html"><link rel="canonical" href="'+SITE_URL+'SaveLecture/index.html"><meta name="robots" content="noindex"><title>SaveLecture</title></head>\n<body><p><a href="index.html">Weiter zur deutschen Seite</a> · <a href="index-en.html" lang="en" hreflang="en">English</a> · <a href="index-ru.html" lang="ru" hreflang="ru">Русский</a></p></body></html>\n',encoding='utf8',newline='\n')
     (SITE/'content.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf8',newline='\n')
+    import site_images
+    site_images.optimize(SITE,'SaveLecture',ROOT,'*.html')
 
 if __name__=='__main__':
  main()

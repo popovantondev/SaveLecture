@@ -17,7 +17,7 @@ for name in allowed:
     path=root/name
     if not path.is_file(): issues.append(name+': missing'); continue
     if path.is_symlink(): issues.append(name+': symlink'); continue
-    if path.suffix.lower() not in {'.png','.ico'}:
+    if path.suffix.lower() not in {'.png','.ico','.webp'}:
         text=path.read_text(encoding='utf-8-sig')
         if any(re.search(pattern,text) for pattern in patterns): issues.append(name+': sensitive or unwanted text pattern')
     else:

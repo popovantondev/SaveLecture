@@ -101,7 +101,17 @@
     "website/index-en.html",
     "website/index-ru.html",
     "website/index.html",
-    "website/site.css"
+    "website/site.css",
+    "website/assets/web/consent-de.dfe03b04.webp",
+    "website/assets/web/consent-en.246b6377.webp",
+    "website/assets/web/consent-ru.868a7fb6.webp",
+    "website/assets/web/demo-de.6d9a4ee1.webp",
+    "website/assets/web/demo-en.473190d7.webp",
+    "website/assets/web/demo-ru.327b6757.webp",
+    "website/assets/web/filters-de.1ba566ca.webp",
+    "website/assets/web/filters-en.d60340ee.webp",
+    "website/assets/web/filters-ru.29a4ff92.webp",
+    "tools/site_images.py"
   ],
   "generated_empty": "NameAliases.txt",
   "purpose": "Explicit reviewed list of public files"
