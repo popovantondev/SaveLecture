@@ -1,18 +1,28 @@
-<div align="center">
-  <img src="website/assets/icon.png" width="128" alt="SaveLecture icon">
-</div>
+<!-- ppk-readme:head:start -->
+<a href="https://popovantondev.github.io/SaveLecture/index-en.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/header-en-dark.ef74bf33.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/header-en-light.774fcc89.svg" width="880" height="188" alt="SaveLecture — Saves Teams captions and shared-screen images locally. Windows 11 · x64, Preview 0.1.0-preview.4"></picture></a>
+<!-- ppk-readme:head:end -->
 
 # SaveLecture
 
 [Русский](README.ru.md) · [Deutsch](README.md) · **English**
 
+<!-- ppk-readme:body:start -->
+<p>
+<a href="https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-download-en-dark.b6378685.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-download-en-light.5235c2ac.svg" width="136" height="36" alt="Download"></picture></a>
+<a href="https://popovantondev.github.io/SaveLecture/index-en.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-website-en-dark.f74310a4.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-website-en-light.f2dfb43d.svg" width="120" height="36" alt="Website"></picture></a>
+<a href="https://popovantondev.github.io/SaveLecture/Guide-en.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-guide-en-dark.92339d90.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-guide-en-light.fafa99a5.svg" width="141" height="36" alt="User guide"></picture></a>
+<a href="https://github.com/popovantondev/SaveLecture/issues/new"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-bug-en-dark.8da95498.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-bug-en-light.e95fb0ca.svg" width="196" height="36" alt="Report a problem"></picture></a>
+</p>
+
+<p><a href="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/website/assets/demo-en.png"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/preview-en-dark.571ecb22.webp"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/preview-en-light.646f029d.webp" width="880" height="516" alt="SaveLecture interface"></picture></a><br>
+<sub><a href="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/website/assets/demo-en.png">Full screenshot</a></sub></p>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/divider-dark.ac532a77.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/divider-light.7e78c541.svg" width="880" height="6" alt="Divider"></picture>
+<!-- ppk-readme:body:end -->
+
 Teams captions and slides, together. SaveLecture keeps permitted learning materials in one place so you can return to them later.
 
 **Windows 11 · x64 · Educational project · preview 0.1.0-preview.4**
-
-**[Download Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)** · **[Website](https://popovantondev.github.io/SaveLecture/index-en.html)** · **[Guide](https://popovantondev.github.io/SaveLecture/Guide-en.html)** · **[Report an issue](https://github.com/popovantondev/SaveLecture/issues/new)**
-
-![SaveLecture](website/assets/demo-en.png)
 
 Actual interface. All text, names and images in this example are artificial.
 
@@ -50,4 +60,4 @@ This educational preview has passed local storage and interface checks. A full l
 
 ## Rights
 
-[Rights](RIGHTS.md) · [Components](THIRD_PARTY_NOTICES.md) · [Build](docs/BUILDING.md) · [Verification](docs/VERIFICATION.md)
+[Rights](RIGHTS.md) · [Components](THIRD_PARTY_NOTICES.md) · [Build](docs/BUILDING.md) · [Verification](docs/VERIFICATION.md) · [Release](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)

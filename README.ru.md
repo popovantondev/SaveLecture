@@ -1,18 +1,28 @@
-<div align="center">
-  <img src="website/assets/icon.png" width="128" alt="Значок SaveLecture">
-</div>
+<!-- ppk-readme:head:start -->
+<a href="https://popovantondev.github.io/SaveLecture/index-ru.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/header-ru-dark.2e06e918.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/header-ru-light.1d79db53.svg" width="880" height="188" alt="SaveLecture — Сохраняет субтитры Teams и снимки демонстрации экрана. Windows 11 · x64, Предварительный выпуск 0.1.0-preview.4"></picture></a>
+<!-- ppk-readme:head:end -->
 
 # SaveLecture
 
 **Русский** · [Deutsch](README.md) · [English](README.en.md)
 
+<!-- ppk-readme:body:start -->
+<p>
+<a href="https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-download-ru-dark.ab7b2e41.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-download-ru-light.6c5587e5.svg" width="120" height="36" alt="Скачать"></picture></a>
+<a href="https://popovantondev.github.io/SaveLecture/index-ru.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-website-ru-dark.25964b9f.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-website-ru-light.cf62425d.svg" width="92" height="36" alt="Сайт"></picture></a>
+<a href="https://popovantondev.github.io/SaveLecture/Guide-ru.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-guide-ru-dark.b0865e9f.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-guide-ru-light.6b340ca5.svg" width="161" height="36" alt="Руководство"></picture></a>
+<a href="https://github.com/popovantondev/SaveLecture/issues/new"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-bug-ru-dark.79671373.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-bug-ru-light.f06c313c.svg" width="234" height="36" alt="Сообщить об ошибке"></picture></a>
+</p>
+
+<p><a href="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/website/assets/demo-ru.png"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/preview-ru-dark.1edab199.webp"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/preview-ru-light.c67006b6.webp" width="880" height="516" alt="Интерфейс программы SaveLecture"></picture></a><br>
+<sub><a href="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/website/assets/demo-ru.png">Снимок целиком</a></sub></p>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/divider-dark.ac532a77.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/divider-light.7e78c541.svg" width="880" height="6" alt="Разделитель"></picture>
+<!-- ppk-readme:body:end -->
+
 Субтитры и слайды Teams в одном месте. SaveLecture помогает сохранить разрешённые учебные материалы и спокойно вернуться к ним позже.
 
 **Windows 11 · x64 · Учебный проект · предварительная версия 0.1.0-preview.4**
-
-**[Скачать Preview](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)** · **[Сайт](https://popovantondev.github.io/SaveLecture/index-ru.html)** · **[Руководство](https://popovantondev.github.io/SaveLecture/Guide-ru.html)** · **[Сообщить об ошибке](https://github.com/popovantondev/SaveLecture/issues/new)**
-
-![SaveLecture](website/assets/demo-ru.png)
 
 Настоящий интерфейс. Все тексты, имена и изображения в примере искусственные.
 
@@ -50,4 +60,4 @@
 
 ## Права
 
-[Права](RIGHTS.md) · [Компоненты](THIRD_PARTY_NOTICES.md) · [Сборка](docs/BUILDING.md) · [Проверка](docs/VERIFICATION.md)
+[Права](RIGHTS.md) · [Компоненты](THIRD_PARTY_NOTICES.md) · [Сборка](docs/BUILDING.md) · [Проверка](docs/VERIFICATION.md) · [Релиз](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)

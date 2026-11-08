@@ -1,18 +1,28 @@
-<div align="center">
-  <img src="website/assets/icon.png" width="128" alt="SaveLecture Symbol">
-</div>
+<!-- ppk-readme:head:start -->
+<a href="https://popovantondev.github.io/SaveLecture/index.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/header-de-dark.9e2f5bb7.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/header-de-light.996d3b8a.svg" width="880" height="188" alt="SaveLecture — Speichert Teams-Untertitel und Bilder der Bildschirmfreigabe. Windows 11 · x64, Vorabversion 0.1.0-preview.4"></picture></a>
+<!-- ppk-readme:head:end -->
 
 # SaveLecture
 
 [Русский](README.ru.md) · **Deutsch** · [English](README.en.md)
 
+<!-- ppk-readme:body:start -->
+<p>
+<a href="https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-download-de-dark.28e521cb.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-download-de-light.51cc6805.svg" width="171" height="36" alt="Herunterladen"></picture></a>
+<a href="https://popovantondev.github.io/SaveLecture/index.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-website-de-dark.d617c1cf.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-website-de-light.de08c1fe.svg" width="129" height="36" alt="Webseite"></picture></a>
+<a href="https://popovantondev.github.io/SaveLecture/Guide-de.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-guide-de-dark.0ebb585d.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-guide-de-light.fc1f4f25.svg" width="134" height="36" alt="Anleitung"></picture></a>
+<a href="https://github.com/popovantondev/SaveLecture/issues/new"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-bug-de-dark.4f364764.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-bug-de-light.9c590b55.svg" width="168" height="36" alt="Fehler melden"></picture></a>
+</p>
+
+<p><a href="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/website/assets/demo-de.png"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/preview-de-dark.33c04494.webp"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/preview-de-light.a5938a6d.webp" width="880" height="516" alt="Oberfläche von SaveLecture"></picture></a><br>
+<sub><a href="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/website/assets/demo-de.png">Ganzer Screenshot</a></sub></p>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/divider-dark.ac532a77.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/divider-light.7e78c541.svg" width="880" height="6" alt="Trennlinie"></picture>
+<!-- ppk-readme:body:end -->
+
 Teams-Untertitel und Folien an einem Ort. SaveLecture speichert erlaubte Lernmaterialien, damit Sie sie später in Ruhe nachlesen können.
 
 **Windows 11 · x64 · Lernprojekt · Vorabversion 0.1.0-preview.4**
-
-**[Vorschau herunterladen](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)** · **[Webseite](https://popovantondev.github.io/SaveLecture/)** · **[Anleitung](https://popovantondev.github.io/SaveLecture/Guide-de.html)** · **[Fehler melden](https://github.com/popovantondev/SaveLecture/issues/new)**
-
-![SaveLecture](website/assets/demo-de.png)
 
 Echte Oberfläche. Texte, Namen und Bilder im Beispiel sind vollständig künstlich.
 
@@ -50,4 +60,4 @@ Die Lernprojekt-Vorabversion hat lokale Speicher- und Oberflächentests bestande
 
 ## Rechte
 
-[Rechte](RIGHTS.md) · [Komponenten](THIRD_PARTY_NOTICES.md) · [Bauanleitung](docs/BUILDING.md) · [Prüfstand](docs/VERIFICATION.md)
+[Rechte](RIGHTS.md) · [Komponenten](THIRD_PARTY_NOTICES.md) · [Bauanleitung](docs/BUILDING.md) · [Prüfstand](docs/VERIFICATION.md) · [Release](https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4)

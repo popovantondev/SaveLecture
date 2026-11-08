@@ -1,0 +1,13 @@
+<!-- ppk-readme:body:start -->
+<p>
+<a href="https://github.com/popovantondev/SaveLecture/releases/tag/v0.1.0-preview.4"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-download-en-dark.b6378685.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-download-en-light.5235c2ac.svg" width="136" height="36" alt="Download"></picture></a>
+<a href="https://popovantondev.github.io/SaveLecture/index-en.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-website-en-dark.f74310a4.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-website-en-light.f2dfb43d.svg" width="120" height="36" alt="Website"></picture></a>
+<a href="https://popovantondev.github.io/SaveLecture/Guide-en.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-guide-en-dark.92339d90.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-guide-en-light.fafa99a5.svg" width="141" height="36" alt="User guide"></picture></a>
+<a href="https://github.com/popovantondev/SaveLecture/issues/new"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-bug-en-dark.8da95498.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/btn-bug-en-light.e95fb0ca.svg" width="196" height="36" alt="Report a problem"></picture></a>
+</p>
+
+<p><a href="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/website/assets/demo-en.png"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/preview-en-dark.571ecb22.webp"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/preview-en-light.646f029d.webp" width="880" height="516" alt="SaveLecture interface"></picture></a><br>
+<sub><a href="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/website/assets/demo-en.png">Full screenshot</a></sub></p>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/divider-dark.ac532a77.svg"><img src="https://raw.githubusercontent.com/popovantondev/SaveLecture/main/docs/readme/divider-light.7e78c541.svg" width="880" height="6" alt="Divider"></picture>
+<!-- ppk-readme:body:end -->
