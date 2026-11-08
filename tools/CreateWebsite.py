@@ -181,7 +181,7 @@ GUIDE_FILE={l:f'Guide-{l}.html' for l in languages}
 HOME_LABEL={'ru':'← На страницу программы','de':'← Zur Programmseite','en':'← Program page'}
 CATALOG={l:PROFILE+LAND[l] for l in languages}
 UI={
- 'de':dict(skip='Zum Inhalt',nav='Hauptnavigation',all='Alle Programme',search='Suchen',kbd='Strg K',search_label='Programme durchsuchen',theme='Farbschema wechseln',legal='Rechtliches',new='NEU',pill='Vorabversion {v} ist da',more='Was ist neu →',source='Quellcode',guide='Anleitung',impressum='Impressum',privacy='Datenschutz',contents='Inhalt'),
+ 'de':dict(skip='Zum Inhalt',nav='Hauptnavigation',all='Alle Programme',search='Suchen',kbd='Strg K',search_label='Programme durchsuchen',theme='Farbschema wechseln',legal='Rechtliches',new='NEU',pill='Vorabversion {v} jetzt verfügbar',more='Was ist neu →',source='Quellcode',guide='Anleitung',impressum='Impressum',privacy='Datenschutz',contents='Inhalt'),
  'en':dict(skip='Skip to content',nav='Main navigation',all='All programs',search='Search',kbd='Ctrl K',search_label='Search programs',theme='Switch colour scheme',legal='Legal',new='NEW',pill='Preview {v} is out',more="What's new →",source='Source code',guide='User guide',impressum='Impressum',privacy='Datenschutz',contents='Contents'),
  'ru':dict(skip='К содержимому',nav='Основная навигация',all='Все программы',search='Поиск',kbd='Ctrl K',search_label='Поиск по программам',theme='Сменить тему',legal='Правовая информация',new='НОВОЕ',pill='Вышла предварительная версия {v}',more='Что нового →',source='Исходный код',guide='Руководство',impressum='Impressum',privacy='Datenschutz',contents='Содержание'),
 }
