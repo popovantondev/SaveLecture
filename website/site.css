@@ -188,3 +188,5 @@ body.ppk-page{background:radial-gradient(ellipse at 0% 0%,rgba(174,206,250,.48),
 :root:not([data-theme]) .guide-answer{background:#142a4f;border-color:#2c4270}
 :root:not([data-theme]) .hero::after{opacity:.15}
 }
+/* Phones: finger-sized links in the guide's contents (2026-11-16) */
+@media(max-width:640px){.guide-nav a{display:inline-flex;align-items:center;min-height:44px;min-width:44px}}
